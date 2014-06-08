@@ -7,5 +7,6 @@ Thumbs.db
 
 # Other
 *.codekit
+*.sublime-workspace
 *.sublime-project
 node_modules
