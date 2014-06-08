@@ -8,5 +8,4 @@ Thumbs.db
 # Other
 *.codekit
 *.sublime-project
-*.sublime-workspace
 node_modules
