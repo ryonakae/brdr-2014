@@ -1,0 +1,17 @@
+.l-header
+  background-color: $bgColor-base
+  height: $height-header + 3px
+  // height: $height-header
+  border-bottom: 3px solid $borderColor-header
+  +clearFix
+
+  .header-logo
+    float: left
+
+  .header-nav
+    float: right
+
+
+body[data-category="index"] .l-header
+  height: $height-header
+  border-bottom: none
