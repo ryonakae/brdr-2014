@@ -1,0 +1,33 @@
+.scroll
+  width: 31px
+  height: 16px
+  position: relative
+  cursor: pointer
+
+  .scroll-border
+    width: 22px
+    height: 1px
+    background-color: $color-link
+    position: absolute
+    @extend %animation
+
+  .border-left
+    +rotate(45deg)
+    left: -3px
+    top: 8px
+
+  .border-right
+    +rotate(-45deg)
+    right: -3px
+    top: 8px
+
+
+  // hover
+  &:hover
+    .scroll-border
+      top: 8px - 3
+
+  // active
+  &:active
+    .scroll-border
+      top: 8px

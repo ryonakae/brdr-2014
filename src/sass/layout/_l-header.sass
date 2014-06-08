@@ -1,0 +1,28 @@
+.l-header
+  width: 100%
+  height: $height-header
+  line-height: $height-header
+  +clearFix
+  padding-left: 4%
+  padding-right: 4%
+
+  .logo
+    float: left
+    height: $height-header
+    line-height: $height-header
+
+  .global-nav
+    float: right
+
+
+body.page-index
+  .l-header
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 10000
+
+
+// SmartPhone
++mediaquery-smartphone
+  .l-header

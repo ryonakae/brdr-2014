@@ -1,0 +1,21 @@
+{
+  "name": "border2014",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-open": "*",
+    "grunt-contrib-connect": "*",
+    "grunt-contrib-livereload": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-compass": "*",
+    "grunt-autoprefixer": "*",
+    "grunt-csso": "*",
+    "grunt-csscomb": "*",
+    "grunt-combine-media-queries": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-copy": "*"
+  }
+}

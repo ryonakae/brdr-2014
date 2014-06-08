@@ -1,0 +1,74 @@
+.button
+  display: inline-block
+  padding: 0.5em 2em
+  min-width: 150px
+  position: relative
+  text-align: center
+
+  & > *
+    @extend %animation
+
+  .button-text
+    font-style: italic
+    padding-top: 3px
+    position: relative
+    top: 0
+
+  .button-border
+    background-color: $color-link
+    position: absolute
+
+  .border-top
+    width: 100%
+    height: 1px
+    top: 0
+    left: 0
+
+  .border-right
+    width: 1px
+    height: 100%
+    top: 0
+    right: 0
+
+  .border-bottom
+    width: 100%
+    height: 1px
+    bottom: 0
+    right: 0
+
+  .border-left
+    width: 1px
+    height: 100%
+    bottom: 0
+    left: 0
+
+  // hover
+  &:hover
+    .border-top
+      width: 0
+
+    .border-right
+      height: 0
+
+    .border-bottom
+      width: 0
+
+    .border-left
+      height: 0
+
+  // active
+  &:active
+    .button-text
+      top: 3px
+
+    .border-top
+      width: 100%
+
+    .border-right
+      height: 100%
+
+    .border-bottom
+      width: 100%
+
+    .border-left
+      height: 100%

@@ -1,1 +1,12 @@
+# OSX
+.DS_Store
+Thumbs.db
+
+# Sass
 .sass-cache
+
+# Other
+*.codekit
+*.sublime-project
+*.sublime-workspace
+node_modules
