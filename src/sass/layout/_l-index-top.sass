@@ -3,6 +3,12 @@
   background-repeat: no-repeat
   background-position: 50% 50%
   display: table
+  position: relative
+  overflow: hidden
+
+  .index-top-image
+    position: absolute
+    opacity: 0
 
   .index-top-overlay
     position: absolute
@@ -15,9 +21,11 @@
     vertical-align: middle
     text-align: center
     position: relative
+    z-index: 20
 
   .scroll
     position: absolute
     bottom: 30px
     left: 50%
     margin-left: -15.5px
+    z-index: 20
