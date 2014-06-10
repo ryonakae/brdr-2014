@@ -1,7 +1,56 @@
+// svg animation
++keyframes(dash)
+  0%
+    stroke-dashoffset: 1000
+    fill: rgba(0,0,0,0)
+    stroke-width: 1
+  80%
+    stroke-dashoffset: 600
+    fill: rgba(0,0,0,0)
+    stroke-width: 1
+  100%
+    stroke-dashoffset: 0
+    fill: $color-link
+    stroke-width: 0
+
+
 .logo
   margin: 0
   line-height: 0
+  @extend %animation
 
   .logo-img
-    img
+    svg
+      display: inline
       vertical-align: middle
+      opacity: 0
+
+      .g-3
+        path
+          stroke: none
+          fill: $color-link
+
+  // svg stroke animation
+  &.is-shown
+    .logo-img
+      svg
+        opacity: 1
+
+        .g-1,
+        .g-2
+          path
+            stroke: $color-link
+            // fill: none
+            // stroke-width: 1
+            // stroke-dasharray: 10
+            stroke-dasharray: 1000
+            stroke-dashoffset: 1000
+
+            +animation-name(dash)
+            +animation-duration(3s)
+            +animation-timing-function(ease-in)
+            // +animation-iteration-count(infinite)
+            +animation-fill-mode(forwards)
+
+  &:hover
+    opacity: 0.7

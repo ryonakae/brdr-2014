@@ -1,6 +1,14 @@
 jQuery(function(){
   "use strict";
 
+  var winWidth;
+  var winHeight;
+
+  jQuery(window).on("load resize", function(){
+    winWidth = jQuery(this).width();
+    winHeight = jQuery(this).height();
+  });
+
 
   // 画像のリサイズ
   jQuery.fn.imgResize = function(options) {
@@ -50,29 +58,27 @@ jQuery(function(){
   };
 
 
-  jQuery(window).on("load", function(){
-    var winWidth = jQuery(this).width();
-    var winHeight = jQuery(this).height();
-
-    jQuery(".l-index-top").css({
-      "width": winWidth,
-      "height": winHeight
-    })
-    .children(".index-top-image")
-    .imgResize()
-    .transition({"opacity" : 1}, 1000);
-  });
-
-
-  jQuery(window).on("resize", function(){
-    var winWidth = jQuery(this).width();
-    var winHeight = jQuery(this).height();
-
+  // index top resize
+  function index_top_resize() {
     jQuery(".l-index-top").css({
       "width": winWidth,
       "height": winHeight
     })
     .children(".index-top-image").imgResize();
+  };
+
+
+  jQuery(window).on("load", function(){
+    jQuery(".logo").addClass("is-shown");
+
+    index_top_resize();
+
+    jQuery(".index-top-image").transition({"opacity" : 1}, 1000);
+  });
+
+
+  jQuery(window).on("resize", function(){
+    index_top_resize();
   });
 
 
