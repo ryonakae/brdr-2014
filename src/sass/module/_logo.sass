@@ -18,12 +18,12 @@
   margin: 0
   line-height: 0
   @extend %animation
+  opacity: 0
 
   .logo-img
     svg
       display: inline
       vertical-align: middle
-      opacity: 0
 
       .g-3
         path
@@ -32,10 +32,10 @@
 
   // svg stroke animation
   &.is-shown
+    opacity: 1
+
     .logo-img
       svg
-        opacity: 1
-
         .g-1,
         .g-2
           path

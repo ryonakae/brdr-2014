@@ -1,0 +1,55 @@
+// svg animation
++keyframes(rotate)
+  0%
+    +rotateY(0)
+    opacity: 1
+  50%
+    +rotateY(180deg)
+    opacity: 0.5
+  100%
+    +rotateY(360deg)
+    opacity: 1
+
+
+.loader-overlay
+  background-color: $bgColor-inverse
+
+
+.loader
+  // background-color: rgba(255,255,255,0.3)
+  position: relative
+
+  .loader-square
+    position: absolute
+    width: 60px
+    height: 60px
+    top: 0
+    left: 0
+
+    // rotate animation
+    +animation-name(rotate)
+    +animation-duration(3s)
+    +animation-timing-function(ease-in-out)
+    +animation-iteration-count(infinite)
+
+    +transform-style(preserve-3d)
+    +perspective(300)
+
+    &.square-1
+      +animation-delay(0)
+
+    &.square-2
+      +animation-delay(200ms)
+
+    &.square-3
+      +animation-delay(400ms)
+
+    &.square-4
+      +animation-delay(600ms)
+
+
+    .square-inner
+      width: 100%
+      height: 100%
+      border: 1px solid $color-link
+      +rotate(45deg)

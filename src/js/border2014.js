@@ -58,6 +58,22 @@ jQuery(function(){
   };
 
 
+  // common loader fade out
+  function common_loader_fadeOut() {
+    jQuery(".l-loader")
+      .transition({ "opacity" : 0 }, 1000)
+      .transition({ "visibility" : "hidden" }, 0);
+  };
+
+
+  // common loader fade in
+  function common_loader_fadeIn() {
+    jQuery(".l-loader")
+      .transition({ "visibility" : "visible" }, 0)
+      .transition({ "opacity" : 1 }, 1000);
+  };
+
+
   // index top resize
   function index_top_resize() {
     jQuery(".l-index-top").css({
@@ -69,7 +85,11 @@ jQuery(function(){
 
 
   jQuery(window).on("load", function(){
-    jQuery(".logo").addClass("is-shown");
+    common_loader_fadeOut();
+
+    jQuery(".logo").delay(1200).queue(function() {
+      jQuery(this).addClass("is-shown").dequeue();
+    });
 
     index_top_resize();
 
