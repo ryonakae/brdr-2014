@@ -1,0 +1,63 @@
+.article
+  a
+    width: 100%
+    height: 100%
+    display: block
+    position: relative
+
+    &:hover
+      color: $color-link
+
+      img
+        opacity: 1
+
+  .article-image
+    width: 100%
+    height: 100%
+    overflow: hidden
+    position: relative
+
+    img
+      position: absolute
+      @extend %animation
+      +transition-duration(400ms)
+      // +scale(1.03, 1.03)
+      opacity: 0
+
+  .article-text
+    display: table
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    z-index: 1
+
+    .text-inner
+      display: table-cell
+      vertical-align: middle
+
+    h1
+      +fontSize(30)
+      margin: 0
+
+    .small
+      margin: 0
+      font-style: italic
+
+
+  &.is-shown
+    .article-image
+      img
+        opacity: 1
+
+
+  // hover
+  &:hover
+    .article-image
+      img
+        opacity: 0.2
+        +scale(1.04,1.04)
+        // +filter(blur(5px))
+        // filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><defs><filter id=\'blur\'><feGaussianBlur in=\'SourceGraphic\' stdDeviation=\'5\' /></filter></defs></svg>#blur")
+        // filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='5')
