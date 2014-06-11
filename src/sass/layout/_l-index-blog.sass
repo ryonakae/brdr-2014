@@ -1,4 +1,4 @@
-.l-index-works
+.l-index-blog
   text-align: center
   position: relative
   z-index: 20
@@ -8,12 +8,15 @@
     margin-top: 0
 
   .article-wrapper
+    +clearFix
     margin-top: 5.5em
 
   .article
-    width: 100%
-    height: 400px
+    width: (100% / 3)
+    height: 300px
     margin: 0
+    float: left
 
   .button
     margin-top: 5.5em
+    clear: both
