@@ -67,11 +67,13 @@ jQuery(function(){
 
 
   // common loader fade in
+  /*
   function commonLoaderFadeIn() {
     jQuery(".l-loader")
       .transition({ "visibility" : "visible" }, 0)
       .transition({ "opacity" : 1 }, 1000);
   }
+  */
 
 
   // index top resize
@@ -124,7 +126,7 @@ jQuery(function(){
   // index article resize
   function indexArticleImgResize() {
     jQuery(".article").each(function(){
-      jQuery(this).find("img").imgResize()
+      jQuery(this).find("img").imgResize();
     });
   }
 
