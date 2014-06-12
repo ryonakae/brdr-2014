@@ -65,3 +65,12 @@
 
     &.square-line-bottom
       bottom: 103px + 1
+
+  .next-line-square,
+  .next-line-border,
+  .next-line-square-line
+    @extend %animation
+
+  @for $i from 1 through 10
+    *:nth-child(#{$i})
+      +transition-delay(#{$i * 100}ms)

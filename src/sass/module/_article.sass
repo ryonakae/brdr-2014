@@ -36,6 +36,8 @@
     .text-inner
       display: table-cell
       vertical-align: middle
+      padding-right: 1em
+      padding-left: 1em
 
     h1
       +fontSize(30)
@@ -44,6 +46,15 @@
     .small
       margin: 0
       font-style: italic
+
+
+  &.article-blog
+    h1
+      +fontSize(18)
+
+    .small
+      +fontSize(12)
+      margin-top: 0.5em
 
 
   &.is-shown
@@ -57,7 +68,7 @@
     .article-image
       img
         opacity: 0.2
-        +scale(1.04,1.04)
+        // +scale(1.04,1.04)
         // +filter(blur(5px))
         // filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><defs><filter id=\'blur\'><feGaussianBlur in=\'SourceGraphic\' stdDeviation=\'5\' /></filter></defs></svg>#blur")
         // filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='5')

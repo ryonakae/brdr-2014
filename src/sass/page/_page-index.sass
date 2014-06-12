@@ -2,12 +2,87 @@ body.page-index
   color: $color-link
   background-color: $bgColor-inverse
 
-  // *
-  //   color: #ff0000
-  //   border-color: #ff0000
 
-  // a
-  //   color: #ff0000
+  &.is-green,
+  &.is-blue
+    +transition-duration(2500ms)
 
-  //   &:hover
-  //     color: lighten(#ff0000, 10%)
+
+  &.is-green
+    $color: $color-green
+
+    *
+      color: $color
+      border-color: $color
+
+    a
+      color: $color
+
+      &:hover
+        color: lighten($color, 10%)
+
+    .logo
+      svg
+        path
+          fill: $color
+
+    .scroll
+      .scroll-border
+        background-color: $color
+
+    .next-line
+      .next-line-square,
+      .next-line-border
+        background-color: $color
+
+      .next-line-square-line
+        border-color: $color
+
+    .button
+      .button-border
+        background-color: $color
+
+    .category-title:hover
+      .category-title-text
+        color: $bgColor-inverse
+        +text-shadow(-0.75px -0.75px 0 $color, 0.75px -0.75px 0 $color, -0.75px 0.75px 0 $color, 1.75px 1.75px 0 $color)
+
+
+  &.is-blue
+    $color: $color-blue
+
+    *
+      color: $color
+      border-color: $color
+
+    a
+      color: $color
+
+      &:hover
+        color: lighten($color, 10%)
+
+    .logo
+      svg
+        path
+          fill: $color
+
+    .scroll
+      .scroll-border
+        background-color: $color
+
+    .next-line
+      .next-line-square,
+      .next-line-border
+        background-color: $color
+
+      .next-line-square-line
+        border-color: $color
+
+    .button
+      .button-border
+        background-color: $color
+
+    .category-title:hover
+      .category-title-text
+        color: $bgColor-inverse
+        +text-shadow(-0.75px -0.75px 0 $color, 0.75px -0.75px 0 $color, -0.75px 0.75px 0 $color, 1.75px 1.75px 0 $color)
