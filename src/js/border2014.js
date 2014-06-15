@@ -227,4 +227,8 @@ jQuery(function(){
   });
 
 
+  jQuery(window).on("load resize", function(){
+    jQuery(".index-top-particle").attr("width", winWidth).attr("height", winHeight);
+  });
+
 });
