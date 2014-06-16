@@ -456,7 +456,7 @@ function brdr() {
 
   function a() {
     j.globalCompositeOperation = "source-over";
-    j.fillStyle = "rgba(41,15,153,0.07)";
+    j.fillStyle = "#00ffff";
     j.fillRect(0, 0, b, g);
     j.globalCompositeOperation = "lighter";
     for (var l = 0; l < d.length; l++) {
