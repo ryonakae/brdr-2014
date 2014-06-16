@@ -214,7 +214,7 @@ jQuery(function(){
 
     indexTopScrollDown();
 
-    indexTopEnableParticle();
+    //indexTopEnableParticle();
 
     indexBlogArticleResize();
 
@@ -234,7 +234,7 @@ jQuery(function(){
 
     indexTopScrollDown();
 
-    indexTopEnableParticle();
+    //indexTopEnableParticle();
 
     indexBlogArticleResize();
 
@@ -263,7 +263,7 @@ function indexTopParticle() {
 
   var particleDrawAlpha  = 0.5;
 
-  var interval = 40;
+  var interval = 60;
 
 
   // 初期設定
