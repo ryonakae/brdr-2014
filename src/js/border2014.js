@@ -109,35 +109,49 @@ jQuery(function(){
     var worksOffSet = jQuery(".l-index-works").offset().top;
     var blogOffSet = jQuery(".l-index-blog").offset().top;
     var footerOffSet = jQuery(".l-footer").offset().top;
+    var footerHeight = jQuery(".l-footer").outerHeight(true);
     var scroll;
 
-    jQuery(window).scroll(function(){
-      scroll = jQuery(window).scrollTop();
+    function changeColor() {
+      // console.log("scroll:"+scroll+", winHeight:"+winHeight+", footerOffSet:"+footerOffSet+", footerHeight"+footerHeight);
 
       if ( scroll < 0 ) {
         jQuery("body").removeClass("is-green");
         jQuery("body").removeClass("is-blue");
       }
-      else if ( 0 <= scroll && scroll <= worksOffSet + 100 ) {
+      else if ( 0 <= scroll && scroll < worksOffSet + 100 ) {
         jQuery("body").removeClass("is-green");
         jQuery("body").removeClass("is-blue");
+        // console.log("pink");
       }
-      else if ( worksOffSet + 100 <= scroll && scroll <= blogOffSet + 100 ) {
+      else if ( worksOffSet + 100 <= scroll && scroll < blogOffSet + 100 ) {
         jQuery("body").addClass("is-green");
         jQuery("body").removeClass("is-blue");
+        // console.log("green");
       }
-      else if ( blogOffSet + 100 <= scroll && scroll <= footerOffSet + 100 ) {
+      else if ( blogOffSet + 100 <= scroll && scroll < footerOffSet + 100 ) {
         jQuery("body").removeClass("is-green");
         jQuery("body").addClass("is-blue");
+        // console.log("blue");
       }
       else if ( footerOffSet - scroll <= 0 ) {
         jQuery("body").removeClass("is-green");
         jQuery("body").removeClass("is-blue");
+        // console.log("pink");
       }
       else {
         jQuery("body").removeClass("is-green");
         jQuery("body").removeClass("is-blue");
+        // console.log("pink");
       }
+    }
+
+    changeColor();
+
+    jQuery(window).scroll(function(){
+      scroll = jQuery(window).scrollTop();
+
+      changeColor();
     });
   }
 
@@ -242,7 +256,7 @@ jQuery(function(){
 
   // resize
   jQuery(window).on("resize", function(){
-    indexChangeColor();
+    // indexChangeColor();
 
     indexTopResize();
 
