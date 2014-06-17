@@ -58,6 +58,14 @@ jQuery(function(){
   };
 
 
+  // common backtop
+  function commonBackTop() {
+    jQuery(".backtop").on("click", function(){
+      jQuery("html, body").stop().animate({ scrollTop : 0 }, 1500, "easeInOutCubic");
+    });
+  }
+
+
   // common loader fade out
   function commonLoaderFadeOut() {
     jQuery(".l-loader")
@@ -121,6 +129,10 @@ jQuery(function(){
       else if ( blogOffSet + 100 <= scroll && scroll <= footerOffSet + 100 ) {
         jQuery("body").removeClass("is-green");
         jQuery("body").addClass("is-blue");
+      }
+      else if ( footerOffSet - scroll <= 0 ) {
+        jQuery("body").removeClass("is-green");
+        jQuery("body").removeClass("is-blue");
       }
       else {
         jQuery("body").removeClass("is-green");
@@ -204,6 +216,8 @@ jQuery(function(){
 
   // load
   jQuery(window).on("load", function(){
+    commonBackTop();
+
     commonLoaderFadeOut();
 
     commonLogoShowHover();
