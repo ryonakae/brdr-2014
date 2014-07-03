@@ -1,0 +1,484 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"padding",
+				"padding-right"
+			],
+			[
+				"bor",
+				"border-style:   (property)"
+			],
+			[
+				"win",
+				"winHeight"
+			],
+			[
+				"scro",
+				"scrollTop  (function)"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"line",
+				"lineHeight-title"
+			],
+			[
+				"padd",
+				"padding-right"
+			],
+			[
+				"pad",
+				"padding-left"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"ma",
+				"margin-left"
+			],
+			[
+				"marg",
+				"margin-right"
+			],
+			[
+				"ml",
+				"margin-left"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"ba",
+				"banner_05.png	w:300 h:250"
+			],
+			[
+				"common_sidebar_n",
+				"common_sidebar_news_title.png	w:65 h:16"
+			],
+			[
+				"chi",
+				"children  (function)"
+			],
+			[
+				"s",
+				"sp_common_footer_backtop.png	w:17 h:10"
+			],
+			[
+				"tab",
+				"table-cell"
+			],
+			[
+				"inde",
+				"index_movie_title.png	w:121 h:23"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 368.0,
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"re",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 570.0
+	},
+	"console":
+	{
+		"height": 300.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os; pf = ‘Package Control.sublime-package’; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), ‘wb’).write(urllib.request.urlopen( ‘http://sublime.wbond.net/’ + pf.replace(‘ ‘,’%20′)).read())",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/RYO/Projects/border-2014/.gitignore",
+		"/Users/RYO/Projects/border-2014/vagrant/Vagrantfile",
+		"/Users/RYO/Projects/border-2014/config.rb",
+		"/Users/RYO/Projects/tatenaga-gif/source/layout/layout.slim",
+		"/Users/RYO/Projects/tatenaga-gif/build/js/all.js",
+		"/Users/RYO/Projects/tatenaga-gif/build/index.html",
+		"/Users/RYO/Projects/tatenaga-gif/build/feed.xml",
+		"/Users/RYO/Projects/tatenaga-gif/source/layout/_analytics.erb",
+		"/Users/RYO/Projects/tatenaga-gif/config.rb",
+		"/Users/RYO/Projects/tatenaga-gif/data/site.yml",
+		"/Users/RYO/Projects/tatenaga-gif/source/article/2014-06-25-muse.html.md",
+		"/Users/RYO/Projects/tatenaga-gif/source/index.html.slim",
+		"/Users/RYO/Projects/tatenaga-gif/source/feed.xml.builder",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/index.html.slim",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/css/module/_article.sass",
+		"/Users/RYO/Projects/anime-gif-wallpaper/config.rb",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/css/_base.sass",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/css/layout/_l-main.sass",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/css/module/_logo.sass",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/css/module/_footer.sass",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/css/module/_about.sass",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/css/_site-setting.sass",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/css/layout/_l-about.sass",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/js/all.js.coffee",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/layout/header.slim",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/layout/footer.slim",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/article/2014-06-20-maki-koto-eri.html.md",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/css/module/_navigation.sass",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/css/layout/_l-header.sass",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/css/layout/_l-footer.sass",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/article/2014-06-20-koto-hono-umi.html.md",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/article/2014-06-20-maki-rin-pana.html.md",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/article/2014-06-20-honoka-umi-kotori.html.md",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/article/2014-06-20-hanayo.html.md",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/article/2014-06-20-maki.html.md",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/article/2014-06-20-eri.html.md",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/article/2014-06-20-kotori.html.md",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/layout/article.slim",
+		"/Users/RYO/Library/Application Support/Sublime Text 3/Packages/User/Markdown.sublime-settings",
+		"/Users/RYO/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/RYO/Projects/border-2014/src/js/border2014.js",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/css/style.sass",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/css/module/_module-name.sass",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/layout/layout.slim",
+		"/Users/RYO/Projects/anime-gif-wallpaper/Gemfile",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/entry/2012-01-01-example-article.html.markdown",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/layout/layout.erb",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/index.html.erb",
+		"/Users/RYO/Projects/middleman-boilerplate/source/layouts/footer.slim",
+		"/Users/RYO/Projects/middleman-boilerplate/source/layouts/header.slim",
+		"/Users/RYO/Projects/middleman-boilerplate/source/layouts/layout.slim",
+		"/Users/RYO/Projects/anime-gif-wallpaper/source/layout.erb",
+		"/Users/RYO/Projects/middleman-boilerplate/Gemfile",
+		"/Users/RYO/Projects/middleman-boilerplate/config.rb",
+		"/Users/RYO/Projects/anime-gif-wallpaper/anime-gif-wallpaper.sublime-project",
+		"/Users/RYO/Projects/border-2014/border-2014.sublime-project",
+		"/Users/RYO/Projects/anime-gif-wallpaper/.gitignore",
+		"/Users/RYO/Projects/border-2014/src/js/particle.js",
+		"/Users/RYO/Projects/border-2014/src/js/particle_reference_01.js",
+		"/Users/RYO/Projects/border-2014/src/index.html",
+		"/Users/RYO/Projects/border-2014/src/sass/layout/_l-index-top.sass",
+		"/Users/RYO/Projects/border-2014/src/js/particle_original.js",
+		"/Users/RYO/Projects/border-2014/src/js/core/jquery.min.js",
+		"/Users/RYO/Projects/Git/border-2014/src/sass/module/_category-title.sass",
+		"/Users/RYO/Projects/Git/border-2014/src/sass/module/_article.sass",
+		"/Users/RYO/Projects/Git/border-2014/src/sass/layout/_l-index-top.sass",
+		"/Users/RYO/Projects/Git/border-2014/src/sass/module/_logo.sass",
+		"/Users/RYO/Projects/Git/border-2014/src/sass/module/_global-nav.sass",
+		"/Users/RYO/Projects/Git/border-2014/src/sass/page/_page-index.sass",
+		"/Users/RYO/Projects/Git/border-2014/src/sass/layout/_l-index-works.sass",
+		"/Users/RYO/Projects/Git/border-2014/src/sass/layout/_l-index-next.sass",
+		"/Users/RYO/Projects/Git/border-2014/src/sass/module/_button.sass",
+		"/Users/RYO/Projects/Git/border-2014/src/img/next-line.svg",
+		"/Users/RYO/Projects/Git/border-2014/src/sass/style.sass",
+		"/Users/RYO/Projects/Git/border-2014/src/css/style.css",
+		"/Users/RYO/Projects/Git/border-2014/src/js/border2014.js",
+		"/Users/RYO/Projects/Git/border-2014/src/sass/module/_scroll.sass",
+		"/Users/RYO/Projects/Git/border-2014/src/sass/module/_next.sass",
+		"/Users/RYO/Projects/Git/border-2014/src/sass/module/_next-line.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/ikimn_Fashion-Collection2/wordpress_theme/fashion_collection/js/fashioncollection.js",
+		"/Users/RYO/Projects/Git/border-2014/package.json",
+		"/Users/RYO/Projects/Git/border-2014/src/js/.jshintrc",
+		"/Users/RYO/Projects/Git/border-2014/README.md",
+		"/Users/RYO/GitHub/lovelivelog/lovelivelog.sublime-project",
+		"/Users/RYO/Projects/Git/border-2014/border-2014.sublime-project",
+		"/Users/RYO/Projects/Git/border-2014/.gitignore",
+		"/Users/RYO/Projects/Git/border-2014/config.rb",
+		"/Users/RYO/Projects/Git/border-2014/sass/style.sass",
+		"/Users/RYO/Projects/Git/border-2014/files/index.html",
+		"/Users/RYO/.ssh/id_rsa.pub",
+		"/Users/RYO/Dropbox/Design/_NowProject/ikimn_Fashion-Collection2/wordpress_theme/fashion_collection/single.php",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/module/_article-content-body.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/module/_article-content-image.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/layout/_l-article-list-card.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/module/_article-header.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/module/_article-text.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/index.html.slim",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/index-page2.html.slim",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/js/border.js",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/style.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/layouts/layout.slim",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/layouts/head.slim",
+		"/Users/RYO/GitHub/lovelivelog/source/stylesheets/_variable.sass",
+		"/Users/RYO/GitHub/lovelivelog/source/stylesheets/_common.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/_mixin.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/module/_menu.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/_base.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/_site-setting.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/layout/_menu.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/archive.html.slim",
+		"/Users/RYO/GitHub/lovelivelog/source/layouts/layout.haml",
+		"/Users/RYO/Dropbox/Design/_NowProject/ikimn_Fashion-Collection2/html/source/layouts/global-headinfo.slim",
+		"/Users/RYO/Dropbox/Design/_NowProject/ikimn_Fashion-Collection2/html/source/css/_mixin.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/ikimn_Fashion-Collection2/html/source/css/_variable.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/option/iconfont/_fontello-entypo.scss",
+		"/Users/RYO/Dropbox/Design/_NowProject/ikimn_Fashion-Collection2/html/source/layouts/layout.slim",
+		"/Users/RYO/Dropbox/Design/_NowProject/ikimn_Fashion-Collection2/html/source/index.html.slim",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/module/_btn.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/layout/_content.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/layout/_footer.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/layout/_main.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/layout/_header.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/layout/_eyecatch.sass",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/layout/_menu",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/_mixin",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/_variable",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/_site-setting",
+		"/Users/RYO/Dropbox/Design/_NowProject/Border2014-02/html/source/css/_base"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 169.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"o.location.x",
+			"angle =",
+			"f =",
+			"location",
+			"q",
+			"clearBrdr",
+			"brdr",
+			"drawBetween",
+			"globalAlpha",
+			"proximityManager",
+			"createProximityGrid",
+			"gridSize",
+			"createProximityGrid",
+			"draw",
+			"drawAlphaSheet",
+			"clear",
+			"createParticle",
+			"ticker",
+			"proximityManager",
+			"drawAlphaSheet",
+			"draw",
+			"createProximityGrid",
+			"proximityManager",
+			"updateParticles",
+			"particleDrawAlpha",
+			"drawPa",
+			"draw",
+			"rect",
+			"clear",
+			"drawParticle",
+			"clear",
+			"deadParticles",
+			"remove",
+			"fillS",
+			"fill",
+			"drawalpha",
+			"beginPath",
+			"createParticle",
+			"drawAlphaSheet",
+			"canvas",
+			"ax",
+			"ax =",
+			"ax",
+			"stage",
+			"div",
+			"critical",
+			"m0",
+			"/font",
+			".sass",
+			"// _",
+			".scss",
+			"pl5px",
+			"fz12px",
+			"ml0",
+			"mla",
+			"mb25px",
+			".png",
+			"&:hover",
+			"a href=\"\"  ",
+			"selected",
+			"sna-detail.html",
+			"background",
+			"index_movie_bg",
+			"sp_glovalHeader_icon_subnav-toggle.png",
+			"background",
+			";",
+			"options",
+			"option"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"figure",
+			"",
+			"// ",
+			".sass",
+			"a href=\"\" ",
+			"snap-detail.html",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 59.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "border-2014.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"s",
+				"src/sass/style.sass"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 203.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

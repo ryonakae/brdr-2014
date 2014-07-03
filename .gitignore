@@ -1,13 +1,20 @@
+# Ignore bundler config
+.bundle
+
+# Ignore the build directory
+build
+
+# Ignore cache
+.sass-cache
+.cache
+
 # OSX
 .DS_Store
 Thumbs.db
 
-# Sass
-.sass-cache
-
 # Other
 *.codekit
-*.sublime-workspace
-*.sublime-project
+# *.sublime-workspace
+# *.sublime-project
 node_modules
 vagrant
