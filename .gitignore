@@ -19,11 +19,4 @@ Thumbs.db
 /node_modules/
 
 # Vagrant (WordPress)
-!/vccw/
-/vccw/*
-!/vccw/Vagrantfile
-!/vccw/www/
-!/vccw/www/wordpress/
-!/vccw/www/wordpress/wp-config.php
-!/vccw/www/wordpress/wp-content/
-!/vccw/www/wordpress/wp-content/*
+# /vccw/
