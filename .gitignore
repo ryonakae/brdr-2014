@@ -2,7 +2,7 @@
 .bundle
 
 # Ignore the build directory
-build
+build/
 
 # Ignore cache
 .sass-cache
@@ -16,10 +16,14 @@ Thumbs.db
 *.codekit
 # *.sublime-workspace
 # *.sublime-project
-node_modules
+node_modules/
 
 # Vagrant (WordPress)
-vccw
-!vccw/Vagrantfile
-!vccw/www/wordpress/wp-content
-!vccw/www/wordpress/wp-config.php
+!/vccw/
+/vccw/*
+!/vccw/Vagrantfile
+!/vccw/www/
+!/vccw/www/wordpress/
+!/vccw/www/wordpress/wp-config.php
+!/vccw/www/wordpress/wp-content/
+!/vccw/www/wordpress/wp-content/*
