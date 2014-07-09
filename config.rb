@@ -48,11 +48,11 @@ end
 # end
 
 # Directory Settings
-set :css_dir, 'css'
-set :js_dir, 'js'
-set :images_dir, 'img'
-set :fonts_dir, 'font'
-set :layouts_dir, 'layouts'
+set :css_dir, 'assets/css'
+set :js_dir, 'assets/js'
+set :images_dir, 'assets/img'
+set :fonts_dir, 'assets/font'
+# set :layouts_dir, 'layouts'
 
 # Build-specific configuration
 configure :build do
@@ -71,4 +71,7 @@ configure :build do
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+
+  # Autoprefixer
+  activate :autoprefixer, browsers: ['last 2 versions', 'ie 9']
 end

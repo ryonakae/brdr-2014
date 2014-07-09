@@ -1,6 +1,6 @@
 // Webフォント
 $fontName: "EB Garamond"
-$fontFolderName: "eb-garamond"
+$fontFolderName: "ebgaramond"
 $fontFileName: "EBGaramond12-Regular"
 +font-face(#{$fontName}, font-files('#{$fontFolderName}/#{$fontFileName}.woff'), '#{$fontFolderName}/#{$fontFileName}.eot', normal, normal)
 $fontFileName: "EBGaramond12-Italic"
@@ -18,19 +18,19 @@ $fontFileName: "proximanova_bold"
 +font-face(#{$fontName}, font-files('#{$fontFolderName}/#{$fontFileName}.woff', '#{$fontFolderName}/#{$fontFileName}.ttf'), '#{$fontFolderName}/#{$fontFileName}.eot', bold, normal)
 
 
+// fontfamily
+$fontFamily-base: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif
+$fontFamily-serif: "EB Garamond", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif
+
+
 // font
 $fontSize-base: 15
 $lineHeight-base: 1.8
 $lineHeight-title: 1.3
 
 
-// fontfamily
-$fontFamily-base: "Helvetica Neue", Helvetica, Arial, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif
-$fontFamily-sans-serif: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif
-$fontFamily-serif: "EB Garamond", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif
-
-
 // letter spacing
+$letterSpacing-base: 0.08em
 $letterSpacing-title: 0.2em
 
 
@@ -40,15 +40,10 @@ $color-inverse: #fff
 $color-link: #ff6b66
 $color-sub: #b3b3b3
 
-$color-green: #66ff73
-$color-blue: #3cfffd
-
 
 // bgcolor
 $bgColor-base: #fff
-$bgColor-inverse: #000
-$bgColor-black: #000
-$bgColor-white: #fff
+$bgColor-inverse: #1a1a1a
 $bgColor-grey: #f7f7f7
 
 
@@ -57,7 +52,12 @@ $borderColor: #e5e5e5
 
 
 // width / height
-$width-pc: 940px
-$width-sp: 640px
+$width-pc: 1024px
+$width-tb: 768px
+$width-sp: 480px
 
 $height-header: 115px
+
+
+// Link Opacity
+$linkOpacity-base: 0.7

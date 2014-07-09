@@ -1,12 +1,12 @@
 # Ignore bundler config
-/.bundle/
+.bundle/
 
 # Ignore the build directory
-/build/
+build/
 
 # Ignore cache
-/.sass-cache/
-/.cache/
+.sass-cache/
+.cache/
 
 # OSX
 .DS_Store
@@ -14,9 +14,9 @@ Thumbs.db
 
 # Other
 *.codekit
-# *.sublime-workspace
+*.sublime-workspace
 # *.sublime-project
-/node_modules/
+node_modules/
 
 # Vagrant (WordPress)
-# /vccw/
+# vccw/

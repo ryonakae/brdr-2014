@@ -1,1 +1,58 @@
-layout
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fbml">
+  <head>
+    <meta charset="UTF-8">
+    <title>Border/ 2014</title>
+
+    <meta name="description" content="#">
+    <meta name="keywords" content="#">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- OGP -->
+    <meta property="fb:admins" content="FacebookアプリのID">
+    <meta property="fb:app_id" content="FacebookのユーザーID">
+    <meta property="og:url" content="ページのURL">
+    <meta property="og:type" content="サイトの種類">
+    <meta property="og:title" content="ページのタイトル">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:image" content="画像のURL(絶対パス)">
+    <meta property="og:description" content="ページの説明">
+    <meta property="og:site_name" content="サイトのタイトル">
+    <meta property="article:publisher" content="FacebookページのURL">
+
+    <!-- Twitter Meta -->
+    <meta name="twitter:site" value="サイトのTwitterアカウント(@付き)">
+    <meta name="twitter:creator" value="投稿者のTwitterアカウント(@付き)">
+    <meta name="twitter:url" value="ページのURL">
+    <meta name="twitter:card" value="投稿の種類">
+    <meta name="twitter:title" value="ページのタイトル">
+    <meta name="twitter:image" value="画像のURL">
+    <meta name="twitter:description" value="ページの説明">
+
+    <%= favicon_tag "favicon.ico", :rel => "icon" %>
+    <%= favicon_tag "apple-touch-icon.png", :rel => "apple-touch-icon-precomposed" %>
+    <%= stylesheet_link_tag "style" %>
+
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="//css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+    <%= javascript_include_tag "all" %>
+
+    <!-- Google Analytics -->
+    <script>
+    </script>
+  </head>
+  <body class="page-index">
+    <!-- header -->
+    <%= partial "modules/header" %>
+
+    <!-- content -->
+    <%= yield %>
+
+    <!-- footer -->
+    <%= partial "modules/footer" %>
+  </body>
+</html>
