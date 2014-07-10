@@ -1,0 +1,35 @@
+.mainvisual
+  display: table
+  position: relative
+
+  .mainvisual-image
+    position: absolute
+    width: 100%
+    height: 100%
+    overflow: hidden
+    top: 0
+    left: 0
+
+    img
+      position: absolute
+
+  .mainvisual-text
+    display: table-cell
+    vertical-align: middle
+    text-align: center
+    position: relative
+
+    .text-title
+      +fontSize(60)
+      margin: 0
+      color: $color-inverse
+      +text-shadow(0 0 100px rgba(#000, 0.3))
+
+    .text-read
+      +fontSize(17)
+      font-family: $fontFamily-serif
+      color: $color-inverse
+      font-style: italic
+      margin: 0
+
+    .button

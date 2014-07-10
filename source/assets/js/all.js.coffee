@@ -29,7 +29,6 @@ $ ->
   $.fn.imgResize = (options) ->
     options = $.extend
       parent : $(@).parent()
-      type : 'both' # horizontal, vertical, both
     , options
 
     parentWidth = $(options.parent).width()
@@ -46,22 +45,11 @@ $ ->
     imgTop = Math.floor (setHeight - parentHeight) / -2
     imgLeft = Math.floor (setWidth - parentWidth) / -2
 
-    if options.type == 'horizontal'
-      img.css
-        'width' : setWidth
-        'height' : setHeight
-        'left' : imgLeft
-    else if options.type == 'vertical'
-      img.css
-        'width' : setWidth
-        'height' : setHeight
-        'top' : imgTop
-    else
-      img.css
-        'width' : setWidth
-        'height' : setHeight
-        'top' : imgTop
-        'left' : imgLeft
+    img.css
+      'width' : setWidth
+      'height' : setHeight
+      'top' : imgTop
+      'left' : imgLeft
 
 
   # box resize
@@ -90,12 +78,32 @@ $ ->
 
   # pjax
   setPjax = ->
+    progressbar = $('.progressbar')
+
     # preload
     $.preload
       forward: $.pjax.follow
       check: $.pjax.getCache
       encode: true
       ajax:
+        xhr: ->
+          xhr = $.ajaxSettings.xhr()
+          # progressbar.css 'width':'5%'
+          if xhr instanceof Object && 'onprogress' in xhr
+            xhr.addEventListener 'progress', (event) ->
+              `var percentage = event.total ? event.loaded / event.total : 0.4`
+              percentage = percentage * 90 + 5
+              progressbar.css 'width':percentage + '%'
+            , false
+            xhr.addEventListener 'load', (event) ->
+              progressbar.css 'width':'95%'
+            , false
+            xhr.addEventListener 'error', (event) ->
+              progressbar.css 'background-color':'#00f'
+            , false
+          return xhr
+        success: (data, textStatus, XMLHttpRequest) ->
+          !$.pjax.getCache( this.url ) && $.pjax.setCache( this.url, null, textStatus, XMLHttpRequest )
         done: (data, textStatus, XMLHttpRequest) ->
           !$.pjax.getCache( this.url ) && $.pjax.setCache( this.url, null, textStatus, XMLHttpRequest )
           console.log 'preload done'
@@ -113,18 +121,39 @@ $ ->
       speedcheck: true
       # middleman server時だとなぜか遷移失敗扱いになるので、fallbackをfalseにして検証する
       fallback: false
+      ajax:
+        timeout: 3000
+      callbacks:
+        before: ->
+          progressbar.css 'width':''
+          progressbar.show()
+        update:
+          content:
+            after: ->
+              progressbar.css 'width':'40%'
+          css:
+            after: ->
+              progressbar.css 'width':'60%'
+          script:
+            after: ->
+              progressbar.css 'width':'80%'
+          render:
+            after: ->
+              progressbar.css 'width':'100%'
+              progressbar.fadeOut()
+
 
     # loader
     $(document).on 'pjax.request', ->
-      clearTimeout $.data($('div.loading').get(0), 'pjax-effect-id')
-      $.data $('div.loading').get(0), 'pjax-effect-id', setTimeout ->
-        $('div.loading').fadeIn(100)
+      clearTimeout $.data($('.loader').get(0), 'pjax-effect-id')
+      $.data $('.loader').get(0), 'pjax-effect-id', setTimeout ->
+        $('.loader').fadeIn(100)
       , 1000
 
     $(document).on 'pjax.render', ->
-      clearTimeout $.data($('div.loading').get(0), 'pjax-effect-id')
-      $('div.loading').fadeOut(500)
-      $.data $('div.loading').get(0), 'pjax-effect-id', 0
+      clearTimeout $.data($('.loader').get(0), 'pjax-effect-id')
+      $('.loader').fadeOut(500)
+      $.data $('.loader').get(0), 'pjax-effect-id', 0
 
     $(document).on 'pjax.rady', ->
       $(document).trigger('preload')
@@ -135,8 +164,7 @@ $ ->
 
     $(document).on 'pjax.render', ->
       console.log 'すべての更新範囲描画後'
-
-    # pageClass = $('#pjaxArea').attr 'data-pageclass'
+      indexMainvisualResize()
 
     # pageclass
     $(document).on 'pjax.DOMContentLoaded', ->
@@ -146,10 +174,10 @@ $ ->
       console.log pageClass
 
       if pageClass == 'page-index'
-        console.log 'indexなう'
+        console.log 'now:index'
 
       else if pageClass == 'page-page'
-        console.log 'pageなう'
+        console.log 'now:page'
 
 
   ###
@@ -158,7 +186,8 @@ $ ->
   indexMainvisualResize = ->
     $('.mainvisual').boxResize
       parent: $(window)
-      scaleHeight: 0.5
+      scaleHeight: 1
+    $('.mainvisual-image img').imgResize()
     console.log 'mainvisual resized'
 
 
@@ -172,7 +201,9 @@ $ ->
 
   # load
   $(window).on 'load', ->
+    indexMainvisualResize()
 
 
   # resize
   $(window).on 'resize', ->
+    indexMainvisualResize()
