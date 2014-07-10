@@ -2,7 +2,7 @@
 <html lang="ja" prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fbml">
   <head>
     <meta charset="UTF-8">
-    <title>Border/ 2014</title>
+    <title><%= data.page.title %></title>
 
     <meta name="description" content="#">
     <meta name="keywords" content="#">
@@ -45,14 +45,21 @@
     <script>
     </script>
   </head>
-  <body class="page-index">
+  <body class="<%= data.page.pageclass %>">
     <!-- header -->
-    <%= partial "modules/header" %>
+    <div class="l-header">
+      <%= partial "modules/header" %>
+    </div>
 
     <!-- content -->
-    <%= yield %>
+    <div class="l-content" id="pjaxArea" data-pageclass="<%= data.page.pageclass %>">
+      <%= yield %>
+    </div>
 
     <!-- footer -->
-    <%= partial "modules/footer" %>
+    <div class="l-footer">
+      <%= partial "modules/footer" %>
+      <%= partial "modules/backtop" %>
+    </div>
   </body>
 </html>
