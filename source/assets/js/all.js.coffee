@@ -80,6 +80,7 @@ $ ->
   setPjax = ->
     progressbar = $('.progressbar')
 
+
     # preload
     $.preload
       forward: $.pjax.follow
@@ -108,10 +109,11 @@ $ ->
           !$.pjax.getCache( this.url ) && $.pjax.setCache( this.url, null, textStatus, XMLHttpRequest )
           console.log 'preload done'
 
+
     # pjax
     $.pjax
       area: '#pjaxArea'
-      wait: 0
+      wait: 500
       cache:
         click: true
         submit: false
@@ -127,6 +129,7 @@ $ ->
         before: ->
           progressbar.css 'width':''
           progressbar.show()
+          commonContentHide()
         update:
           content:
             after: ->
@@ -158,31 +161,70 @@ $ ->
     $(document).on 'pjax.rady', ->
       $(document).trigger('preload')
 
-    # pjax event
+
+    ###
+    pjax event
+    ###
+    # before pjax
     $(document).on 'pjax.request', ->
-      console.log 'ajaxリクエスト送信前'
+      console.log '1 ajaxリクエスト送信前'
+      # 多分Preloadのおかげでここスキップされてる
 
-    $(document).on 'pjax.render', ->
-      console.log 'すべての更新範囲描画後'
-      indexMainvisualResize()
+    $(window).on 'pjax.unload', ->
+      console.log '2 ajaxリクエスト更新前'
+      # eventhandler off
+      $(window).off 'load'
+      $(window).off 'resize'
+      $(document).off 'imagesLoades', $('.mainvisual-image')
 
-    # pageclass
+    # after reload DOM set pageclass
     $(document).on 'pjax.DOMContentLoaded', ->
+      console.log '3 すべての更新範囲更新後'
       pageClass = $('#pjaxArea').attr 'data-pageclass'
       $('body').removeClass().addClass pageClass
 
-      console.log pageClass
+    # after render DOM
+    $(document).on 'pjax.render', ->
+      console.log '4 すべての更新範囲描画後'
 
-      if pageClass == 'page-index'
+      # eventhandler on
+      # common
+      commonContentShow()
+
+      # index
+      if $('body').attr('class') == 'page-index'
         console.log 'now:index'
+        indexMainvisualResize()
+        $(window).on 'resize', ->
+          indexMainvisualResize()
 
-      else if pageClass == 'page-page'
+      # common
+      else if $('body').attr('class') == 'page-page'
         console.log 'now:page'
 
+      # other
+      else
+        console.log 'now:other'
 
-  ###
-  Set Function Index
-  ###
+
+  # common content fadeIn & Out
+  commonContentShow = ->
+    $('.l-content').css y:20
+    $('.l-content').transition
+      y: 0
+      'opacity': 1
+      'visibility': 'visible'
+    , 500, 'easeInOutQuad'
+
+  commonContentHide = ->
+    $('.l-content').transition
+      y: -20
+      'opacity': 0
+      'visibility': 'hidden'
+    , 500, 'easeInOutQuad'
+
+
+  # index mainvisual resize
   indexMainvisualResize = ->
     $('.mainvisual').boxResize
       parent: $(window)
@@ -195,15 +237,29 @@ $ ->
   Do Function
   ###
   # ready
-  setPjax()
-  $('#backtop').backTop()
+  $(document).on 'ready', ->
+    setPjax()
+    $('#backtop').backTop()
+    if $('body').attr('class') != 'page-index'
+      commonContentShow()
 
 
   # load
   $(window).on 'load', ->
-    indexMainvisualResize()
+    if $('body').attr('class') == 'page-index'
+      # indexMainvisualResize()
+    else
+
+
+  # index load
+  if $('body').attr('class') == 'page-index'
+    $('.mainvisual-image').imagesLoaded ->
+      indexMainvisualResize()
+      commonContentShow()
 
 
   # resize
   $(window).on 'resize', ->
-    indexMainvisualResize()
+    if $('body').attr('class') == 'page-index'
+      indexMainvisualResize()
+    else
