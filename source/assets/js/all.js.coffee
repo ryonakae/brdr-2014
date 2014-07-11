@@ -18,11 +18,10 @@ $ ->
         $(@).attr 'src', imgSrc
 
       # after load
-      $(@)
-      .on 'load', ->
+      $(@).on 'load', ->
         $(@).transition 'opacity' : 1 , 800, ->
           $(@).parent().removeClass 'imgLoading'
-      .attr 'src', $(@).attr('src') + '?' + (new Date().getTime())
+          $(@).attr 'src', $(@).attr('src') + '?' + (new Date().getTime())
 
 
   # img resize
@@ -113,7 +112,7 @@ $ ->
     # pjax
     $.pjax
       area: '#pjaxArea'
-      wait: 500
+      wait: 0
       cache:
         click: true
         submit: false
@@ -129,7 +128,6 @@ $ ->
         before: ->
           progressbar.css 'width':''
           progressbar.show()
-          commonContentHide()
         update:
           content:
             after: ->
@@ -207,21 +205,17 @@ $ ->
         console.log 'now:other'
 
 
-  # common content fadeIn & Out
+  # common content show & hide
   commonContentShow = ->
-    $('.l-content').css y:20
-    $('.l-content').transition
-      y: 0
+    $('.l-content').css
       'opacity': 1
       'visibility': 'visible'
-    , 500, 'easeInOutQuad'
 
-  commonContentHide = ->
+  commonContentShowInitial = ->
     $('.l-content').transition
-      y: -20
-      'opacity': 0
-      'visibility': 'hidden'
-    , 500, 'easeInOutQuad'
+      'opacity': 1
+      'visibility': 'visible'
+    , 600
 
 
   # index mainvisual resize
@@ -241,7 +235,7 @@ $ ->
     setPjax()
     $('#backtop').backTop()
     if $('body').attr('class') != 'page-index'
-      commonContentShow()
+      commonContentShowInitial()
 
 
   # load
@@ -255,7 +249,7 @@ $ ->
   if $('body').attr('class') == 'page-index'
     $('.mainvisual-image').imagesLoaded ->
       indexMainvisualResize()
-      commonContentShow()
+      commonContentShowInitial()
 
 
   # resize
