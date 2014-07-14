@@ -1,60 +1,21 @@
-*
-  +box-sizing(border-box)
-
-
 html
-  font-size: $fontSize-base + px
-
   +mediaquery-smartphone
     font-size: ($fontSize-base*0.8) + px
 
 
 body
-  background-color: $bgColor-base
-  color: $color-base
-  font-family: $fontFamily-base
-  font-size: 1rem
-  line-height: $lineHeight-base
-  letter-spacing: $letterSpacing-base
   @extend %animation
   +transition-property(background-color, color)
   overflow-x: hidden
-
-  // Text Highlight
-    ::selection
-      background: $bgColor-inverse
-      color: $color-inverse
-
-  &.disable-hover
-    pointer-events: none
 
 
 a
   color: $color-link
   text-decoration: none
-  cursor: pointer
 
   &, img
     @extend %animation
 
   &:hover
-    // color: lighten($color-link, 10%)
-    // text-decoration: none
-
     &, img
       opacity: $linkOpacity-base
-
-
-h1, h2, h3, h4, h5, h6
-  line-height: $lineHeight-title
-  // font-weight: normal
-
-
-ul, ol
-  list-style-type: none
-  margin: 0
-  padding: 0
-
-
-figure
-  margin: 0
