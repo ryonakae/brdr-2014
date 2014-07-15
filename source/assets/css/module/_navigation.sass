@@ -1,0 +1,48 @@
+.navigation
+  ul
+    +clearFix
+    margin: 30px 0 0 0
+    @extend %animation
+
+  li
+    float: left
+    margin-left: 1em
+    font-weight: bold
+
+
+.navigation-toggle
+  display: none
+
+
+
++mediaquery-smartphone
+  .navigation
+    display: none
+    position: fixed
+    top: 50px
+    right: 20%
+    z-index: 100
+
+    a
+      color: $color-inverse
+
+    li
+      float: none
+      padding: 1em 0
+      margin: 0
+
+
+  .navigation-toggle
+    display: block
+    position: fixed
+    top: 10px
+    right: 5%
+    +fontSize(30)
+
+
+  .is-nav-open
+    .navigation
+      display: block
+
+    .navigation-toggle
+      color: $color-inverse

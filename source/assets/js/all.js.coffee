@@ -190,14 +190,14 @@ $ ->
       commonContentShow()
 
       # index
-      if $('body').attr('class') == 'page-index'
+      if $('body').hasClass('page-index')
         console.log 'now:index'
         indexMainvisualResize()
         $(window).on 'resize', ->
           indexMainvisualResize()
 
       # common
-      else if $('body').attr('class') == 'page-page'
+      else if $('body').hasClass('page-page')
         console.log 'now:page'
 
       # other
@@ -220,14 +220,24 @@ $ ->
 
   # common gloval navigation toggle
   commonGlovalNavToggle = ->
-    nav = $('.gloval-navigation')
-    toggle = $('.navigation-toggle')
+    scroll =
 
-    toggle.on 'click', ->
-      nav.toggleClass('is-open')
+    $(window).scroll ->
+      scroll = $(@).scrollTop()
 
-    nav.find('a').on 'click', ->
-      nav.removeClass('is-open')
+    $('.navigation-toggle').on 'click', ->
+      if !$('body').hasClass('is-nav-open')
+        $('body').addClass('is-nav-open')
+        $('.l-wrapper').css 'top' : scroll * -1
+
+      else
+        $('body').removeClass('is-nav-open')
+        $('.l-wrapper').css 'top' : 0
+
+    $('.navigation a, .container').on 'click', ->
+      if !$('body').hasClass('is-nav-open')
+        $('body').removeClass('is-nav-open')
+        $('.l-wrapper').css 'top' : 0
 
 
   # index mainvisual resize
@@ -248,18 +258,18 @@ $ ->
     $('#backtop').backTop()
     commonGlovalNavToggle()
 
-    if $('body').attr('class') != 'page-index'
+    if $('body').hasClass('page-index')
       commonContentShowInitial()
 
 
   # load
   $(window).on 'load', ->
-    if $('body').attr('class') == 'page-index'
+    if $('body').hasClass('page-index')
     else
 
 
   # index load
-  if $('body').attr('class') == 'page-index'
+  if $('body').hasClass('page-index')
     $('.mainvisual-image').imagesLoaded ->
       indexMainvisualResize()
       commonContentShowInitial()
@@ -267,6 +277,6 @@ $ ->
 
   # resize
   $(window).on 'resize', ->
-    if $('body').attr('class') == 'page-index'
+    if $('body').hasClass('page-index')
       indexMainvisualResize()
     else
