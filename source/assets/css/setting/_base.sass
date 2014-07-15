@@ -10,12 +10,14 @@ body
 
 
 a
-  color: $color-link
+  color: $color-base
   text-decoration: none
 
   &, img
     @extend %animation
 
   &:hover
-    &, img
+    color: $color-link
+
+    img
       opacity: $linkOpacity-base

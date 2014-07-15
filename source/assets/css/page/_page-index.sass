@@ -12,10 +12,17 @@ body.page-index
 
   .l-section.section-playgrounds
     background-color: $bgColor-inverse
-
-    .section-title
-      color: $color-inverse
+    background-image: image-url("playgrounds-bg.png")
+    +background-size(cover)
 
 
   .l-section.section-information
     background-color: $bgColor-grey
+
+    .l-container
+      margin-top: 3em
+      margin-bottom: 1.5em
+
+      > *
+        margin: 0
+        padding: 10px

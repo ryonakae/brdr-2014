@@ -1,6 +1,7 @@
 .mainvisual
   display: table
   position: relative
+  background: $bgColor-inverse
 
   .mainvisual-image
     position: absolute
@@ -19,17 +20,25 @@
     text-align: center
     position: relative
 
-    .text-title
+    h1
       +fontSize(60)
       margin: 0
       color: $color-inverse
-      +text-shadow(0 0 100px rgba(#000, 0.3))
+      +text-shadow(0 0 100px rgba(#000, 0.5))
 
     p
       +fontSize(17)
       font-family: $fontFamily-serif
       color: $color-inverse
       font-style: italic
-      margin: 0
+      margin: 0.3em 0 0 0
+      +text-shadow(0 0 100px rgba(#000, 0.5))
 
     .button
+      margin-top: 2.5em
+
+
++mediaquery-smartphone
+  .mainvisual
+    .mainvisual-image
+      opacity: 0.9

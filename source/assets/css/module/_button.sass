@@ -1,0 +1,42 @@
+.button
+  margin-top: 1.5em
+  text-align: center
+  display: inline-block
+  +fontSize(15)
+  font-family: $fontFamily-serif
+  font-style: italic
+  padding: 0.65em 2em 0.45em 2em
+  min-width: 180px
+  letter-spacing: $letterSpacing-title
+
+  &:hover
+
+
+  &.button-default
+    color: $color-inverse
+    background: $bgColor-inverse
+    border: 1px solid $bgColor-inverse
+
+    &:hover
+      color: $color-base
+      background: transparent
+      border: 1px solid $bgColor-inverse
+
+
+  &.button-inverse
+    color: $color-base
+    background: $bgColor-base
+    border: 1px solid $bgColor-base
+
+    &:hover
+
+
+  &.button-transparent
+    color: $color-inverse
+    background: transparent
+    border: 1px solid $bgColor-base
+
+    &:hover
+      opacity: 1
+      color: $color-base
+      background: $bgColor-base

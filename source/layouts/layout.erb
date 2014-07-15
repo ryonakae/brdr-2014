@@ -47,9 +47,24 @@
   </head>
   <body class="<%= data.page.pageclass %>">
     <!-- header -->
-    <div class="l-header">
-      <%= partial "modules/header" %>
-    </div>
+    <header class="l-header">
+      <h1 class="logo">
+        <%= link_to image_tag('logo@2x.png', :width => '151', :height => "53", :alt => 'Border/'), '/index.html' %>
+      </h1>
+
+      <nav class="gloval-navigation">
+        <div class="navigation-toggle">
+          <i class="icon-menu"></i>
+        </div>
+        <ul>
+          <li><%= link_to 'About', '/about.html' %></li>
+          <li><a href="">Works</a></li>
+          <li><a href="">Information</a></li>
+          <li><a href="">Bookmark</a></li>
+          <li><a class="ext" href="" target="_blank">Blog</a></li>
+        </ul>
+      </nav>
+    </header>
 
     <!-- content -->
     <div class="l-content" id="pjaxArea" data-pageclass="<%= data.page.pageclass %>">
@@ -57,9 +72,24 @@
     </div>
 
     <!-- footer -->
-    <div class="l-footer">
-      <%= partial "modules/footer" %>
-      <%= partial "modules/backtop" %>
+    <footer class="l-footer">
+      <div class="l-section">
+        <p class="copyright">
+          Border is portfolio, blog, photoalbum, memopad and bookmark of RYO NAKAE. <br>
+          (C) 2014 Border/
+        </p>
+
+        <ul class="personal-link">
+          <li><a href="" target="_blank"><i class="icon-twitter"></i></a></li>
+          <li><a href="" target="_blank"><i class="icon-facebook"></i></a></li>
+          <li><a href="" target="_blank"><i class="icon-paper-plane"></i></a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- backtop -->
+    <div class="backtop" id="backtop">
+      <i class="icon-up-open-big"></i>
     </div>
 
     <div class="loader"></div>

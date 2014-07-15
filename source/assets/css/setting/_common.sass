@@ -30,24 +30,22 @@ body
 
 
 a
-  // color: $color-link
-  text-decoration: none
   cursor: pointer
 
   &, img
     @extend %animation
 
-  &:hover
-    // color: lighten($color-link, 10%)
-    // text-decoration: none
-
-    &, img
-      opacity: $linkOpacity-base
+// a[target="_blank"]:after
+a.ext:after
+  font-family: $fontFamily-icon
+  content: '\e802'
+  font-size: 80%
+  margin-left: 0.4em
+  color: $color-sub
 
 
 h1, h2, h3, h4, h5, h6
   line-height: $lineHeight-title
-  // font-weight: normal
 
 
 ul, ol

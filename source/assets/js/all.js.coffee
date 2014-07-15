@@ -218,6 +218,18 @@ $ ->
     , 600
 
 
+  # common gloval navigation toggle
+  commonGlovalNavToggle = ->
+    nav = $('.gloval-navigation')
+    toggle = $('.navigation-toggle')
+
+    toggle.on 'click', ->
+      nav.toggleClass('is-open')
+
+    nav.find('a').on 'click', ->
+      nav.removeClass('is-open')
+
+
   # index mainvisual resize
   indexMainvisualResize = ->
     $('.mainvisual').boxResize
@@ -234,6 +246,8 @@ $ ->
   $(document).on 'ready', ->
     setPjax()
     $('#backtop').backTop()
+    commonGlovalNavToggle()
+
     if $('body').attr('class') != 'page-index'
       commonContentShowInitial()
 
@@ -241,7 +255,6 @@ $ ->
   # load
   $(window).on 'load', ->
     if $('body').attr('class') == 'page-index'
-      # indexMainvisualResize()
     else
 
 
