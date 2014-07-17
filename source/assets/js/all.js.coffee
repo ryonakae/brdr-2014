@@ -215,29 +215,17 @@ $ ->
     $('.l-content').transition
       'opacity': 1
       'visibility': 'visible'
-    , 600
+    , 800
 
 
   # common gloval navigation toggle
   commonGlovalNavToggle = ->
-    scroll =
+    $('.navigation-toggle').on 'touchstart', ->
+      $('body').toggleClass('is-nav-open')
 
-    $(window).scroll ->
-      scroll = $(@).scrollTop()
-
-    $('.navigation-toggle').on 'click', ->
-      if !$('body').hasClass('is-nav-open')
-        $('body').addClass('is-nav-open')
-        $('.l-wrapper').css 'top' : scroll * -1
-
-      else
+    if $('body').hasClass('is-nav-open')
+      $('.navigation a, .l-wrapper').on 'touchstart', ->
         $('body').removeClass('is-nav-open')
-        $('.l-wrapper').css 'top' : 0
-
-    $('.navigation a, .container').on 'click', ->
-      if !$('body').hasClass('is-nav-open')
-        $('body').removeClass('is-nav-open')
-        $('.l-wrapper').css 'top' : 0
 
 
   # index mainvisual resize
@@ -258,14 +246,12 @@ $ ->
     $('#backtop').backTop()
     commonGlovalNavToggle()
 
-    if $('body').hasClass('page-index')
-      commonContentShowInitial()
+    #if $('body').hasClass('page-index')
+    commonContentShowInitial()
 
 
   # load
   $(window).on 'load', ->
-    if $('body').hasClass('page-index')
-    else
 
 
   # index load
