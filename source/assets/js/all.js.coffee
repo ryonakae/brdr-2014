@@ -181,84 +181,96 @@ $ ->
       pageClass = $('#pjaxArea').attr 'data-pageclass'
       $('body').removeClass().addClass pageClass
 
+      # mainvisual resize
+      if document.getElementById("mainvisual") != null
+        if $('body').hasClass('page-index')
+          $('#mainvisual').boxResize
+            parent: $(window)
+            scaleHeight: 1
+
     # after render DOM
     $(document).on 'pjax.render', ->
       console.log '4 すべての更新範囲描画後'
 
       # eventhandler on
-      # common
-      commonContentShow()
-
-      # index
-      if $('body').hasClass('page-index')
-        console.log 'now:index'
-        indexMainvisualResize()
-        $(window).on 'resize', ->
+      $(window).on 'resize', ->
+        if $('body').hasClass('page-index')
           indexMainvisualResize()
+        else
+          commonMainvisualResize()
 
-      # common
-      else if $('body').hasClass('page-page')
-        console.log 'now:page'
+      if document.getElementById("mainvisual") != null
+        $('#mainvisual .mainvisual-image').imagesLoaded().done (instance) ->
+          commonMainvisualShow()
 
-      # other
-      else
-        console.log 'now:other'
-
-
-  # common content show & hide
-  commonContentShow = ->
-    $('.l-content').css
-      'opacity': 1
-      'visibility': 'visible'
-
-  commonContentShowInitial = ->
-    $('.l-content').transition
-      'opacity': 1
-      'visibility': 'visible'
-    , 800
+          if $('body').hasClass('page-index')
+            indexMainvisualResize()
+            console.log 'now:index'
+          else
+            commonMainvisualResize()
+            console.log 'now:other'
 
 
   # common gloval navigation toggle
   commonGlovalNavToggle = ->
-    $('.navigation-toggle').on 'touchstart', ->
+    $('.navigation-toggle').on 'click', ->
       $('body').toggleClass('is-nav-open')
 
-    if $('body').hasClass('is-nav-open')
-      $('.navigation a, .l-wrapper').on 'touchstart', ->
+    $('.l-gloval-nav a, .l-wrapper').on 'click', ->
+      if $('body').hasClass('is-nav-open')
         $('body').removeClass('is-nav-open')
+
+
+  # common mainvisual resize
+  commonMainvisualResize = ->
+    $('#mainvisual .mainvisual-image img').imgResize()
+    console.log 'common mainvisual resized'
+
+
+  # common mainvisual show
+  commonMainvisualShow = ->
+    $('#mainvisual .mainvisual-image').transition
+      'opacity': 1
+      'visibility': 'visible'
+    , 800
+    $('#mainvisual').addClass('is-loaded')
 
 
   # index mainvisual resize
   indexMainvisualResize = ->
-    $('.mainvisual').boxResize
+    $('#mainvisual').boxResize
       parent: $(window)
       scaleHeight: 1
-    $('.mainvisual-image img').imgResize()
-    console.log 'mainvisual resized'
+    $('#mainvisual .mainvisual-image img').imgResize()
+    console.log 'index mainvisual resized'
 
 
   ###
   Do Function
   ###
   # ready
-  $(document).on 'ready', ->
-    setPjax()
-    $('#backtop').backTop()
-    commonGlovalNavToggle()
+  # $(document).on 'ready', ->
+  setPjax()
+  $('#backtop').backTop()
+  commonGlovalNavToggle()
 
-    #if $('body').hasClass('page-index')
-    commonContentShowInitial()
+  if document.getElementById("mainvisual") != null
+    if $('body').hasClass('page-index')
+      $('#mainvisual').boxResize
+        parent: $(window)
+        scaleHeight: 1
 
 
   # load
-  $(window).on 'load', ->
-
-
-  # index load
-  if $('body').hasClass('page-index')
-    $('.mainvisual-image').imagesLoaded ->
-      indexMainvisualResize()
-      commonContentShowInitial()
+  if document.getElementById("mainvisual") != null
+    $('#mainvisual .mainvisual-image').imagesLoaded().done (instance) ->
+      if $('body').hasClass('page-index')
+        indexMainvisualResize()
+      else
+        commonMainvisualResize()
+      commonMainvisualShow()
+  else
+    #$(window).on 'load', ->
 
 
   # resize
@@ -266,3 +278,4 @@ $ ->
     if $('body').hasClass('page-index')
       indexMainvisualResize()
     else
+      commonMainvisualResize()

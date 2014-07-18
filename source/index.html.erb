@@ -6,7 +6,7 @@ pageclass: page-index
 
 
 <!-- main-visual -->
-<section class="mainvisual">
+<section class="mainvisual" id="mainvisual">
   <figure class="mainvisual-image">
     <%= image_tag 'main.jpg' %>
     <!-- <%= image_tag 'https://farm8.staticflickr.com/7390/12534523893_de31ce5613_k.jpg' %> -->
@@ -15,7 +15,7 @@ pageclass: page-index
   <div class="mainvisual-text">
     <h1>RYO NAKAE</h1>
     <p>I’m a Web Designer in Japan</p>
-    <a class="button button-transparent" href="">About</a>
+    <%= link_to 'About', '/about.html', :class => "button button-transparent" %>
   </div>
 </section>
 
@@ -27,7 +27,7 @@ pageclass: page-index
 
     <%= partial "modules/works-archive" %>
 
-    <a class="button button-default" href="">More</a>
+    <%= link_to 'More', '/works-archive.html', :class => 'button button-default' %>
   </div>
 </div>
 
