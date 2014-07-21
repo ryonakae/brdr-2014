@@ -1,18 +1,17 @@
 body.page-index
   .l-header
-    position: absolute
-    top: 0
-    left: 0
-    z-index: 100
-    // border: none
+    .logo
+      background-position: 0 0
 
 
-  .l-section.section-works
+  .l-gloval-nav
+    a
+      color: $color-base
 
 
   .l-section.section-playgrounds
     background-color: $bgColor-inverse
-    background-image: image-url("playgrounds-bg.png")
+    background-image: image-url("playgrounds-bg.jpg")
     +background-size(cover)
 
 
@@ -34,3 +33,10 @@ body.page-index
       .l-container
         > *
           padding: 10px 0
+
+    .navigation-toggle
+      color: $color-base
+
+    &.is-nav-open
+      .navigation-toggle
+        color: $color-inverse

@@ -1,4 +1,4 @@
-.l-gloval-nav
+.l-global-nav
   padding: 0 5%
   margin-top: 31px
   position: absolute
@@ -8,13 +8,16 @@
   @extend %animation
   // z-index: 100
 
+  a
+    color: $color-inverse
+
   ul
     +clearFix
     @extend %animation
 
     li
       float: left
-      margin-left: 1em
+      margin-left: 1.5em
       font-weight: bold
 
 
@@ -25,7 +28,7 @@
 
 
 +mediaquery-smartphone
-  .l-gloval-nav
+  .l-global-nav
     margin: 0
     padding: 0
     position: fixed
@@ -55,7 +58,7 @@
 
 
   .is-nav-open
-    .l-gloval-nav
+    .l-global-nav
       +transform(translateX(50%))
       visibility: visible
 

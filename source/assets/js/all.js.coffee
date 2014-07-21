@@ -211,12 +211,12 @@ $ ->
             console.log 'now:other'
 
 
-  # common gloval navigation toggle
-  commonGlovalNavToggle = ->
+  # common global navigation toggle
+  commonglobalNavToggle = ->
     $('.navigation-toggle').on 'click', ->
       $('body').toggleClass('is-nav-open')
 
-    $('.l-gloval-nav a, .l-wrapper').on 'click', ->
+    $('.l-global-nav a, .l-wrapper').on 'click', ->
       if $('body').hasClass('is-nav-open')
         $('body').removeClass('is-nav-open')
 
@@ -252,7 +252,7 @@ $ ->
   # $(document).on 'ready', ->
   setPjax()
   $('#backtop').backTop()
-  commonGlovalNavToggle()
+  commonglobalNavToggle()
 
   if document.getElementById("mainvisual") != null
     if $('body').hasClass('page-index')
