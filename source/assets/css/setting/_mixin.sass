@@ -63,15 +63,9 @@ $easeInOutBack: cubic-bezier(0.680, -0.550, 0.265, 1.550)
 
 
   // font size
-=fontSize($size, $base:$fontSize-base)
+=fontSize($size)
   font-size: $size + px
-  font-size: ($size / $base) + rem
-
-
-// line height
-=lineHeight($size, $base:$fontSize-base)
-  line-height: ($size / $base) * 100%
-  line-height: ($size / $base) + rem
+  font-size: ($size / 10) + rem
 
 
 // animation
@@ -84,15 +78,20 @@ $easeInOutBack: cubic-bezier(0.680, -0.550, 0.265, 1.550)
 // Media Queries
 // PC
 =mediaquery-pc
-  @media only screen and (min-width: $width-pc)
+  @media only screen and (min-width: 1024px)
     @content
 
-// Tablet
+// Tablet Small
 =mediaquery-tablet
-  @media only screen and (min-width: $width-sp) and (max-width: $width-pc - 1)
+  @media only screen and (min-width: 768px) and (max-width: 1040px)
+    @content
+
+// Tablet Small
+=mediaquery-tablet-small
+  @media only screen and (max-width: 767px)
     @content
 
 // SmartPhone
 =mediaquery-smartphone
-  @media only screen and (min-width: 0px) and (max-width: $width-sp - 1)
+  @media only screen and (max-width: 480px)
     @content

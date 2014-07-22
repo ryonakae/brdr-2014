@@ -3,15 +3,12 @@
 
 
 html
-  font-size: $fontSize-base + px
-
-  +mediaquery-smartphone
-    font-size: ($fontSize-base*0.9) + px
+  font-size: 62.5%
 
 
 body
-  font-size: 1rem
-  background-color: $bgColor-base
+  +fontSize(15)
+  background-color: $bgColor-inverse
   color: $color-base
   font-family: $fontFamily-base
   line-height: $lineHeight-base
@@ -25,15 +22,27 @@ body
       background: $bgColor-inverse
       color: $color-inverse
 
+  &.is-nav-open
+    overflow: hidden
+
   &.disable-hover
     pointer-events: none
 
 
 a
   cursor: pointer
+  color: $color-base
+  text-decoration: none
 
   &, img
     @extend %animation
+
+  &:hover
+    color: $color-link
+
+    img
+      opacity: $linkOpacity-base
+
 
 // a[target="_blank"]:after
 a.ext:after
@@ -46,7 +55,6 @@ a.ext:after
 
 h1, h2, h3, h4, h5, h6
   line-height: $lineHeight-title
-  letter-spacing: $letterSpacing-title
 
 
 ul, ol
