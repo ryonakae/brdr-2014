@@ -1,0 +1,47 @@
+.button
+  margin-top: 1.5em
+  text-align: center
+  display: inline-block
+  font-size: 1.5rem
+  font-family: $fontFamily-serif
+  font-style: italic
+  padding: 0.65em 2em 0.45em 2em
+  min-width: 180px
+  letter-spacing: 0.08em
+
+  &:hover
+
+
+  &.button-default
+    color: $fontColor-inverse
+    background: $bgColor-inverse
+    border: 1px solid $bgColor-inverse
+
+    &:hover
+      color: $fontColor-base
+      background: transparent
+      border: 1px solid $bgColor-inverse
+
+
+  &.button-inverse
+    color: $fontColor-base
+    background: $bgColor
+    border: 1px solid $bgColor
+
+    &:hover
+
+
+  &.button-transparent
+    color: $fontColor-inverse
+    background: transparent
+    border: 1px solid $bgColor
+
+    &:hover
+      opacity: 1
+      color: $fontColor-base
+      background: $bgColor
+
+
++mediaquery-smartphone
+  .button
+    min-width: 150px

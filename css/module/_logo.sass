@@ -1,0 +1,18 @@
+.logo
+  float: left
+  margin: 0
+  z-index: 10
+  +textReplace
+  $imageWidth: 304px
+  $imageHeight: 216px
+  width: ($imageWidth / 2)
+  height: ($imageHeight / 4)
+  background: url("../img/logo@2x.png") no-repeat
+  background-size: ($imageWidth / 2), ($imageHeight / 4)
+  // background-position: 0 ($imageHeight / -4)
+  background-position: 0 0
+  @extend %animation
+  transition-property: opacity
+
+  &:hover
+    opacity: 0.7
