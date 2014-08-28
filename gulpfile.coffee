@@ -26,6 +26,7 @@ gulp.task 'sass', ->
       sourcemap: true
       sourcemapPath: '../css/'
       noCache: true
+      bundleExec: true
     .pipe $.autoprefixer 'last 2 version', 'ie 8', 'ie 9'
     .pipe gulp.dest 'css/'
     .pipe $.filter '**/*.css'

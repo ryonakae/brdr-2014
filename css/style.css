@@ -645,7 +645,7 @@ html {
 
 body {
   font-family: "P22 Underground Pro", "Helvetica Neue", Helvetica, Arial, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
-  background-color: white;
+  background-color: #fff;
   color: #1a1a1a;
   line-height: 1.8;
   font-size: 1.5rem;
@@ -674,7 +674,7 @@ a:hover img {
 
 a.ext:after {
   font-family: "iconfont";
-  content: "\e802";
+  content: "";
   font-size: 80%;
   margin-left: 0.4em;
   color: #b3b3b3;
@@ -771,7 +771,7 @@ figure {
   height: 450px;
   display: table;
   position: relative;
-  background-color: black;
+  background-color: #000;
 }
 
 .mainvisual-image {
@@ -799,7 +799,7 @@ figure {
 .mainvisual-title {
   font-size: 6rem;
   margin: 0;
-  color: white;
+  color: #fff;
   text-shadow: 0 0 100px rgba(0, 0, 0, 0.55);
   letter-spacing: 0.1em;
 }
@@ -808,7 +808,7 @@ figure {
   font-size: 1.7rem;
   font-family: "EB Garamond", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
   margin: 0.3em 0 0;
-  color: white;
+  color: #fff;
   text-shadow: 0 0 100px rgba(0, 0, 0, 0.55);
   font-style: italic;
 }
@@ -819,7 +819,7 @@ figure {
 
 .mainvisual:after {
   content: "loading";
-  color: white;
+  color: #fff;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -867,8 +867,8 @@ figure {
 }
 
 .backtop {
-  background-color: black;
-  color: white;
+  background-color: #000;
+  color: #fff;
   text-align: center;
   font-size: 3rem;
   cursor: pointer;
@@ -890,29 +890,29 @@ figure {
   letter-spacing: 0.08em;
 }
 .button.button-default {
-  color: white;
-  background: black;
-  border: 1px solid black;
+  color: #fff;
+  background: #000;
+  border: 1px solid #000;
 }
 .button.button-default:hover {
   color: #1a1a1a;
   background: transparent;
-  border: 1px solid black;
+  border: 1px solid #000;
 }
 .button.button-inverse {
   color: #1a1a1a;
-  background: white;
-  border: 1px solid white;
+  background: #fff;
+  border: 1px solid #fff;
 }
 .button.button-transparent {
-  color: white;
+  color: #fff;
   background: transparent;
-  border: 1px solid white;
+  border: 1px solid #fff;
 }
 .button.button-transparent:hover {
   opacity: 1;
   color: #1a1a1a;
-  background: white;
+  background: #fff;
 }
 
 @media only screen and (max-width: 480px) {
@@ -991,7 +991,7 @@ figure {
 }
 
 .box-information {
-  background-color: white;
+  background-color: #fff;
   overflow: hidden;
   position: relative;
   height: 200px;
@@ -1008,8 +1008,8 @@ figure {
   bottom: 0;
   height: 40px;
   width: 100%;
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), white, white);
-  background-image: linear-gradient(top, rgba(255, 255, 255, 0), white, white);
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), white, #fff);
+  background-image: linear-gradient(top, rgba(255, 255, 255, 0), white, #fff);
   z-index: 1;
 }
 .box-information .box-image {
@@ -1058,12 +1058,13 @@ body.page-index .navigation a {
   color: #1a1a1a;
 }
 body.page-index .section-playgrounds {
-  background-color: black;
+  background-color: #000;
   background: url("../img/playgrounds-bg.jpg") no-repeat;
   background-size: cover;
 }
 body.page-index .section-information {
   background-color: #f7f7f7;
+  background-color: #fff;
 }
 body.page-index .section-information .l-container {
   margin-top: 3em;
@@ -1075,7 +1076,7 @@ body.page-index .section-information .l-container {
     color: #1a1a1a;
   }
   body.page-index.is-nav-open .navigation-toggle {
-    color: white;
+    color: #fff;
   }
 }
 .align-center {
