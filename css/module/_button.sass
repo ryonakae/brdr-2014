@@ -1,5 +1,4 @@
 .button
-  margin-top: 1.5em
   text-align: center
   display: inline-block
   font-size: 1.5rem
@@ -9,37 +8,55 @@
   min-width: 180px
   letter-spacing: 0.08em
 
+  // &:hover
+
+
+.button-default
+  color: $fontColor-inverse
+  background: $bgColor-inverse
+  border: 1px solid $bgColor-inverse
+
   &:hover
-
-
-  &.button-default
-    color: $fontColor-inverse
-    background: $bgColor-inverse
+    color: $fontColor-base
+    background: transparent
     border: 1px solid $bgColor-inverse
 
-    &:hover
-      color: $fontColor-base
-      background: transparent
-      border: 1px solid $bgColor-inverse
+
+.button-inverse
+  color: $fontColor-base
+  background: $bgColor
+  border: 1px solid $bgColor
+
+  // &:hover
 
 
-  &.button-inverse
+.button-transparent-white
+  color: $fontColor-inverse
+  background: transparent
+  border: 1px solid $bgColor
+
+  &:hover
+    opacity: 1
     color: $fontColor-base
     background: $bgColor
-    border: 1px solid $bgColor
-
-    &:hover
 
 
-  &.button-transparent
+.button-transparent-black
+  color: $fontColor-base
+  background: transparent
+  border: 1px solid $bgColor-inverse
+
+  &:hover
+    opacity: 1
     color: $fontColor-inverse
-    background: transparent
-    border: 1px solid $bgColor
+    background: $bgColor-inverse
 
-    &:hover
-      opacity: 1
-      color: $fontColor-base
-      background: $bgColor
+
+body.page-index .section-works .button
+  margin-top: 0.5em
+
+body.page-index .section-information .button
+  margin-top: 2.5em
 
 
 +mediaquery-smartphone

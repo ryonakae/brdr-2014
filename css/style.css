@@ -712,12 +712,22 @@ figure {
 }
 
 .l-footer {
-  padding: 0 5%;
+  padding: 3em 5%;
+  background-color: #fff;
 }
 
 .l-section {
-  padding: 4em 0 5em 0;
+  padding: 4em 0 5.5em 0;
   text-align: center;
+}
+
+body.page-index .section-playgrounds {
+  background-color: #000;
+  background: url("../img/playgrounds-bg.jpg") no-repeat;
+  background-size: cover;
+}
+body.page-index .section-information {
+  background-color: #f7f7f7;
 }
 
 .logo {
@@ -879,7 +889,6 @@ figure {
 }
 
 .button {
-  margin-top: 1.5em;
   text-align: center;
   display: inline-block;
   font-size: 1.5rem;
@@ -889,30 +898,52 @@ figure {
   min-width: 180px;
   letter-spacing: 0.08em;
 }
-.button.button-default {
+
+.button-default {
   color: #fff;
   background: #000;
   border: 1px solid #000;
 }
-.button.button-default:hover {
+.button-default:hover {
   color: #1a1a1a;
   background: transparent;
   border: 1px solid #000;
 }
-.button.button-inverse {
+
+.button-inverse {
   color: #1a1a1a;
   background: #fff;
   border: 1px solid #fff;
 }
-.button.button-transparent {
+
+.button-transparent-white {
   color: #fff;
   background: transparent;
   border: 1px solid #fff;
 }
-.button.button-transparent:hover {
+.button-transparent-white:hover {
   opacity: 1;
   color: #1a1a1a;
   background: #fff;
+}
+
+.button-transparent-black {
+  color: #1a1a1a;
+  background: transparent;
+  border: 1px solid #000;
+}
+.button-transparent-black:hover {
+  opacity: 1;
+  color: #fff;
+  background: #000;
+}
+
+body.page-index .section-works .button {
+  margin-top: 0.5em;
+}
+
+body.page-index .section-information .button {
+  margin-top: 2.5em;
 }
 
 @media only screen and (max-width: 480px) {
@@ -951,7 +982,7 @@ figure {
 }
 
 .box {
-  text-align: left;
+  text-align: center;
 }
 
 .box-image {
@@ -986,8 +1017,8 @@ figure {
   line-height: 1.5;
 }
 
-.box-playgrounds {
-  text-align: center;
+.box-works {
+  margin-bottom: 2.5em;
 }
 
 .box-information {
@@ -995,6 +1026,8 @@ figure {
   overflow: hidden;
   position: relative;
   height: 200px;
+  text-align: left;
+  margin-bottom: 20px;
 }
 .box-information:after {
   clear: both;
@@ -1056,19 +1089,6 @@ body.page-index .logo {
 }
 body.page-index .navigation a {
   color: #1a1a1a;
-}
-body.page-index .section-playgrounds {
-  background-color: #000;
-  background: url("../img/playgrounds-bg.jpg") no-repeat;
-  background-size: cover;
-}
-body.page-index .section-information {
-  background-color: #f7f7f7;
-  background-color: #fff;
-}
-body.page-index .section-information .l-container {
-  margin-top: 3em;
-  margin-bottom: 1.5em;
 }
 
 @media only screen and (max-width: 480px) {
