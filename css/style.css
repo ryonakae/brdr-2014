@@ -713,21 +713,17 @@ figure {
 
 .l-footer {
   padding: 3em 5%;
-  background-color: #fff;
+  background-color: #f7f7f7;
 }
 
 .l-section {
   padding: 4em 0 5.5em 0;
-  text-align: center;
 }
 
 body.page-index .section-playgrounds {
   background-color: #000;
   background: url("../img/playgrounds-bg.jpg") no-repeat;
   background-size: cover;
-}
-body.page-index .section-information {
-  background-color: #f7f7f7;
 }
 
 .logo {
@@ -741,7 +737,7 @@ body.page-index .section-information {
   height: 54px;
   background: url("../img/logo@2x.png") no-repeat;
   background-size: 152px, 54px;
-  background-position: 0 0;
+  background-position: 0 -54px;
   -webkit-transition-property: opacity;
           transition-property: opacity;
 }
@@ -758,6 +754,7 @@ body.page-index .section-information {
   float: right;
   margin-top: 14px;
   font-weight: bold;
+  letter-spacing: 0.08em;
 }
 .navigation ul {
   margin: 0;
@@ -775,10 +772,13 @@ body.page-index .section-information {
 .navigation li:first-child {
   margin-left: 0;
 }
+.navigation a {
+  color: #fff;
+}
 
 .mainvisual {
   width: 100%;
-  height: 450px;
+  height: 350px;
   display: table;
   position: relative;
   background-color: #000;
@@ -821,6 +821,7 @@ body.page-index .section-information {
   color: #fff;
   text-shadow: 0 0 100px rgba(0, 0, 0, 0.55);
   font-style: italic;
+  letter-spacing: 0.08em;
 }
 
 .mainvisual .button {
@@ -956,6 +957,7 @@ body.page-index .section-information .button {
   font-family: "EB Garamond", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
   font-style: italic;
   text-align: center;
+  letter-spacing: 0.08em;
 }
 
 .section-title {
@@ -1047,7 +1049,7 @@ body.page-index .section-information .button {
 }
 .box-information .box-image {
   float: left;
-  margin-right: 20px;
+  margin-right: 15px;
   position: relative;
   z-index: 2;
   height: 100%;
@@ -1059,10 +1061,6 @@ body.page-index .section-information .button {
 .box-information .box-title {
   font-size: 1.6rem;
   margin-top: 0;
-  padding: 20px 20px 0 20px;
-}
-.box-information .box-read {
-  padding: 0 20px 20px 20px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 979px) {
@@ -1083,6 +1081,9 @@ body.page-index .section-information .button {
   .box-information .box-read {
     display: none;
   }
+}
+body.page-index .l-section {
+  text-align: center;
 }
 body.page-index .logo {
   background-position: 0 0;
