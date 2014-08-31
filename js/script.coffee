@@ -230,7 +230,9 @@ $ ->
     $('#js-mainvisual-image').transition
       'opacity': 1
       'visibility': 'visible'
-    , 800
+    , 800, ->
+      $('#js-mainvisual-text').removeClass 'is-hidden'
+
     $('#js-mainvisual').addClass('is-loaded')
 
 

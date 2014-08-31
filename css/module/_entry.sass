@@ -1,0 +1,97 @@
+.entry-info
+  margin: 0.3em 0 0
+  font-size: 1.3rem
+  font-family: $fontFamily-serif
+  font-style: italic
+  color: $fontColor-sub
+  letter-spacing: 0.08em
+
+  > *:first-child
+    margin-top: 0
+
+
+// .entry-header
+
+.entry-title
+  margin: 0
+  font-size: 3.2rem
+
+
+.entry-content
+  margin-top: 3em
+
+  > *:first-child
+    margin-top: 0
+
+  // entry styles
+  a
+    color: $fontColor-link
+
+  a:hover
+    color: $fontColor-hover
+
+  a[target="_blank"]:after
+    @extend %link-ext
+
+  strong
+    background-color: #fff9ab
+
+  h1, h2, h3, h4, h5, h6
+    display: inline-block
+    border-bottom: 1px solid $fontColor-base
+    padding-bottom: 0.5em
+    margin: 1.3em 0 1em 0
+
+  h1
+    font-size: 2.7rem
+    border-width: 2px
+
+  h2
+    font-size: 2.4rem
+    border-width: 2px
+
+  h3
+    font-size: 2.1rem
+    border-width: 2px
+
+  h4
+    font-size: 1.9rem
+
+  h5
+    font-size: 1.7rem
+
+  h6
+    font-size: 1.5rem
+
+  p
+    margin: 0 0 1em
+
+  ul, ol
+    margin: 0 0 1em
+
+  ul
+    padding-left: 1.5em
+
+  ol
+    padding-left: 2em
+
+  hr
+    width: 20%
+    height: 2px
+    background-color: #f0f0f0
+    margin: 3.5em auto
+    border: none
+
+  hr + h1,
+  hr + h2,
+  hr + h3,
+  hr + h4,
+  hr + h5,
+  hr + h6,
+    margin-top: 0
+
+
+.entry-footer
+  margin-top: 4em
+  background-color: $bgColor-grey
+  padding: 20px

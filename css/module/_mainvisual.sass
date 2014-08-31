@@ -24,6 +24,13 @@
   position: relative
   padding: 0 4%
   text-align: center
+  @extend %animation
+  transition-duration: 1000ms
+  transition-timing-function: $easeOutExpo
+
+.mainvisual-text.is-hidden
+  transform: scale(1.2)
+  opacity: 0
 
 .mainvisual-title
   font-size: 6rem
@@ -65,5 +72,5 @@
 
   .mainvisual-text
     h1
-      font-size: 4.4rem
+      font-size: 4rem
       letter-spacing: 0.08em
