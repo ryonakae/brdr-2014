@@ -6,8 +6,31 @@
   color: $fontColor-sub
   letter-spacing: 0.08em
 
+  a
+    color: $fontColor-sub
+
+    &:hover
+      color: $fontColor-link
+
+  > *
+    margin: 0.2em 0
+    padding-left: 65px
+
   > *:first-child
     margin-top: 0
+
+  span
+    width: 65px
+    display: inline-block
+    margin-left: -65px
+
+  .sp
+    display: none
+
+body.page-page .entry-info
+  span
+    width: inherit
+    margin-right: 0.7em
 
 
 // .entry-header
@@ -19,6 +42,10 @@
 
 .entry-content
   margin-top: 3em
+
+  text-align: justify
+  word-wrap: break-word
+  // word-break: break-all
 
   > *:first-child
     margin-top: 0
@@ -64,10 +91,10 @@
     font-size: 1.5rem
 
   p
-    margin: 0 0 1em
+    margin: 0 0 1.2em
 
   ul, ol
-    margin: 0 0 1em
+    margin: 0 0 1.2em
 
   ul
     padding-left: 1.5em
@@ -89,6 +116,61 @@
   hr + h5,
   hr + h6,
     margin-top: 0
+
+  p.img
+    line-height: 0
+
+    img
+      max-width: 100%
+      height: auto
+
+  *:not(.img) + p.img
+    margin-top: 2em
+
+  p.img + *:not(.img)
+    margin-top: 1.7em
+
+  h1 + p.img,
+  h2 + p.img,
+  h3 + p.img,
+  h4 + p.img,
+  h5 + p.img,
+  h6 + p.img
+    margin-top: 0 !important
+
+  blockquote
+    margin: 2em 0 2.15em 0
+    border-left: 5px solid #f0f0f0
+    color: #888
+    padding-left: 15px
+    font-style: italic
+
+  code
+    background-color: $bgColor-grey
+    padding: 2px 4px
+    // margin: 0 3px
+    font-family: "Source Code Pro", sans-serif
+    font-size: 90%
+
+  pre
+    width: 100%
+    margin: 2em 0 2.15em 0
+    padding: 1.5em
+    background-color: $bgColor-grey
+    border: none
+    font-family: "Source Code Pro", sans-serif
+    font-size: 90%
+    line-height: 1.52
+    white-space: pre
+    overflow: auto
+
+    code
+      background: none
+      border: none
+      font-size: 100%
+      padding: 0
+      margin: 0
+      font-family: inherit
 
 
 .entry-footer

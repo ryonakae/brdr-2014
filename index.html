@@ -6,7 +6,7 @@
 
     <meta name="description" content="">
     <meta name="robots" content="index,follow">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <!-- OGP -->
     <meta property="fb:admins" content="100001275466582">
@@ -25,6 +25,7 @@
 
     <link rel="author" href="https://plus.google.com/+RyoNakae">
 
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/favicon.ico">
     <!-- <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon.png"> -->
@@ -43,8 +44,11 @@
       <h1 class="logo">
         <a href="/">Border/</a>
       </h1>
+    </header>
 
-      <nav class="navigation">
+    <!-- navigation -->
+    <div class="l-navigation">
+      <nav class="navigation" id="js-navigation">
         <ul>
           <li><a href="/about.html">About</a></li>
           <li><a href="/works.html">Works</a></li>
@@ -53,10 +57,10 @@
         </ul>
       </nav>
 
-      <div class="navigation-toggle sp">
+      <div class="navigation-toggle sp" id="js-navigation-toggle">
         <i class="icon-menu"></i>
       </div>
-    </header>
+    </div>
 
     <!-- content -->
     <div class="l-content" id="js-pjaxArea" data-pageClass="page-index">
@@ -330,6 +334,7 @@
     <script src="js/lib/imagesloaded.pkgd.min.js"></script>
     <script src="js/lib/jquery.preload.min.js"></script>
     <script src="js/lib/jquery.pjax.min.js"></script>
+    <script src="js/lib/prettify.js"></script>
     <script src="js/script.js"></script>
 
     <!-- Google Analytics -->

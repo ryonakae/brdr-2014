@@ -121,24 +121,31 @@ $ ->
       ajax:
         timeout: 3000
       callbacks:
-        before: ->
-          $progressbar.css 'width':''
-          $progressbar.show()
         update:
           content:
             after: ->
               $progressbar.css 'width':'40%'
+              console.log 'content loaded'
           css:
             after: ->
               $progressbar.css 'width':'60%'
+              console.log 'css loaded'
           script:
             after: ->
               $progressbar.css 'width':'80%'
-          render:
-            after: ->
-              $progressbar.css 'width':'100%'
-              $progressbar.fadeOut()
+              console.log 'script loaded'
 
+    $(document).on 'pjax:fetch', ->
+      $progressbar.css 'width':''
+      $progressbar.removeClass 'is-hidden'
+      console.log 'load started'
+
+    $(document).on 'pjax:render', ->
+      $progressbar.css 'width':'100%'
+      setTimeout ->
+        $progressbar.addClass 'is-hidden'
+      , 300
+      console.log 'load complete'
 
     # loader
     $loader = $('#js-loader')
@@ -190,6 +197,8 @@ $ ->
     $(document).on 'pjax.render', ->
       console.log '4 すべての更新範囲描画後'
 
+      commonGoogleCodePrettify()
+
       # eventhandler on
       $(window).on 'resize', ->
         if $('body').hasClass('page-index')
@@ -211,10 +220,10 @@ $ ->
 
   # common global navigation toggle
   commonglobalNavToggle = ->
-    $('.navigation-toggle').on 'click', ->
+    $('#js-navigation-toggle').on 'click', ->
       $('body').toggleClass('is-nav-open')
 
-    $('.l-global-nav a, .l-wrapper').on 'click', ->
+    $('#js-navigation a').on 'click', ->
       if $('body').hasClass('is-nav-open')
         $('body').removeClass('is-nav-open')
 
@@ -236,6 +245,12 @@ $ ->
     $('#js-mainvisual').addClass('is-loaded')
 
 
+  # common google code prettify
+  commonGoogleCodePrettify = ->
+    $('pre').addClass 'prettyprint'
+    prettyPrint()
+
+
   # index mainvisual resize
   indexMainvisualResize = ->
     $('#js-mainvisual').boxResize
@@ -253,6 +268,7 @@ $ ->
   setPjax()
   $('#js-backtop').backTop()
   commonglobalNavToggle()
+  commonGoogleCodePrettify()
 
   if document.getElementById("js-mainvisual") != null
     if $('body').hasClass('page-index')

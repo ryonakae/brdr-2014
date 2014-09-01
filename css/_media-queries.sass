@@ -17,6 +17,146 @@
 
 // Small Tablet
 +mediaquery-tablet-small
+  .logo
+    // transform: scale(0.7)
+    // transform-origin: left top
+    $scale: 0.7
+    $imageWidth: 304px
+    $imageHeight: 108px
+    width: ($imageWidth / 2) * $scale
+    height: ($imageHeight / 2) * $scale
+    background-size: ($imageWidth / 2 * $scale), ($imageHeight / 2 * $scale)
+
+  .l-navigation
+    position: static
+    // position: relative
+    padding: 0
+
+  .navigation
+    opacity: 0
+    // visibility: hidden
+    position: fixed
+    z-index: 100
+    top: 0
+    right: 0
+    width: 65%
+    height: 100%
+    margin: 0
+    background-color: rgba($bgColor-inverse, 0.95)
+    text-align: center
+    display: table
+    transform: translateX(100%)
+
+    ul
+      display: table-cell
+      vertical-align: middle
+
+    li
+      float: none
+      margin-left: 0
+
+      a
+        display: block
+        padding: 0.8em 0
+
+      &:first-child a
+        padding-top: 2em
+
+      &:last-child a
+        padding-bottom: 2em
+
+    a
+      color: $fontColor-inverse !important
+
+  .navigation-toggle
+    z-index: 101
+
+  body.is-nav-open
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    overflow: hidden
+    background-color: $bgColor-inverse
+
+  body.is-nav-open > *:not(.l-navigation)
+    opacity: 0.35
+
+    pointer-events: none
+
+  body.is-nav-open .navigation
+    opacity: 1
+    // visibility: visible
+    transform: translateX(0)
+
+  .localnavigaiton
+    ul
+      display: table
+      table-layout: fixed
+      width: 100%
+      text-align: center
+
+    li
+      float: none
+      display: table-cell
+      margin-left: 0
+
+  .entry-info
+    margin-top: 0
+    margin-bottom: 1.5em
+    font-size: 1.2rem
+
+    > *
+      padding-left: 0
+
+    span
+      margin-left: 0
+
+    .sp
+      display: inline-block
+      margin-right: 0.1em !important
+      width: inherit
+
+    .pc
+      display: none
+
+  body.page-page .entry-info
+    display: none
+
+  body.page-single .entry-info > *
+    display: inline
+    margin-left: 1em
+
+    &:first-child
+      margin-left: 0
+
+  .entry-title
+    font-size: 2.5rem
+
+  .entry-content
+    p.img
+      margin-left: -4.2%
+      margin-right: -4.2%
+
+    h1
+      font-size: 2.5rem
+
+    h2
+      font-size: 2.2rem
+
+    h3
+      font-size: 1.9rem
+
+    h4
+      font-size: 1.7rem
+
+    h5
+      font-size: 1.6rem
+
+    h6
+      font-size: 1.5rem
+
 
 
 // SmartPhone

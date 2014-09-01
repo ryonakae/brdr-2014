@@ -6,7 +6,7 @@
 
     <meta name="description" content="">
     <meta name="robots" content="index,follow">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <!-- OGP -->
     <meta property="fb:admins" content="100001275466582">
@@ -25,6 +25,7 @@
 
     <link rel="author" href="https://plus.google.com/+RyoNakae">
 
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/favicon.ico">
     <!-- <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon.png"> -->
@@ -43,8 +44,11 @@
       <h1 class="logo">
         <a href="/">Border/</a>
       </h1>
+    </header>
 
-      <nav class="navigation">
+    <!-- navigation -->
+    <div class="l-navigation">
+      <nav class="navigation" id="js-navigation">
         <ul>
           <li><a href="/about.html">About</a></li>
           <li><a href="/works.html">Works</a></li>
@@ -53,13 +57,23 @@
         </ul>
       </nav>
 
-      <div class="navigation-toggle sp">
+      <div class="navigation-toggle sp" id="js-navigation-toggle">
         <i class="icon-menu"></i>
       </div>
-    </header>
+    </div>
 
     <!-- content -->
     <div class="l-content" id="js-pjaxArea" data-pageClass="page-single no-eyecatch">
+      <div class="l-localnavi">
+        <nav class="localnavigaiton">
+          <ul>
+            <li><a href="">Information</a></li>
+            <li><a href="">Design</a></li>
+            <li><a href="">Other</a></li>
+          </ul>
+        </nav>
+      </div>
+
       <!-- main-visual -->
       <!--
       <div class="mainvisual" id="js-mainvisual">
@@ -75,24 +89,76 @@
           <div class="l-row">
             <dic class="l-grid-3">
               <aside class="entry-info">
-                <p class="entry-date">2014.7.30</p>
-                <p class="entry-category">Information</p>
-                <p class="entry-author">RYO NAKAE</p>
+                <p class="entry-date">
+                  <span class="pc">Date:</span>
+                  <span class="sp"><i class="icon-clock"></i></span>
+                  2014.7.30
+                </p>
+                <p class="entry-category">
+                  <span class="pc">Category:</span>
+                  <span class="sp"><i class="icon-folder"></i></span>
+                  <a href="">Information</a>, <a href="">Design</a>, <a href="">Other</a>, <a href="">Photograph</a>, <a href="">Information</a>
+                </p>
+                <p class="entry-author">
+                  <span class="pc">Author:</span>
+                  <span class="sp"><i class="icon-user"></i></span>
+                  RYO NAKAE
+                </p>
               </aside>
             </dic>
 
             <div class="l-grid-9">
               <header class="entry-header">
-                <h1 class="entry-title">About</h1>
+                <h1 class="entry-title">[WordPress] 本体やプラグインのアップデートが上手くいかない時の対処法</h1>
               </header>
 
               <section class="entry-content">
+                <p class="img"><img src="http://brdr.jp/wp-content/uploads/2014/01/DSC_4996-960x640.jpg?1409545820259" alt=""></p>
+
+                <p>このサイトはWordPressで運用していますが、最近本体ファイルやプラグインなどのアップデートがうまくいかないので困っていました。いくつか対処法を試したところ無事にアップデートできるようになりましたので、メモっておきます。</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa debitis cumque facilis, tempora rerum necessitatibus ullam. Perspiciatis corporis iusto perferendis, excepturi minima repudiandae ipsa non possimus! Labore quam aliquam, perferendis.</p>
                 <p>Border/ is my portfolio, blog, diary, memo pad, photo album, etc.<br>Powerd by WordPress.</p>
+
+<pre><code>.box
+  @for $i from 1 through 10
+    .element:nth-child(#{$i})
+      +transition-delay(#{$i * 100}ms)</code></pre>
+
+                <p><code>Lorem ipsum</code> dolor sit amet, consectetur adipisicing elit. Voluptatum, amet omnis fuga nesciunt optio ducimus repudiandae sequi labore magnam. Alias labore ratione esse, voluptatibus deserunt ipsum voluptas totam doloremque nemo.</p>
+
+<pre><code>gulp = require('gulp')
+$ = require('gulp-load-plugins')()
+
+# Sass
+gulp.task 'sass', ->
+  gulp
+    .src 'css/*.{sass,scss}'
+    .pipe $.rubySass
+      style: 'expanded'
+      sourcemap: true
+      sourcemapPath: '../css/'
+      noCache: true
+      bundleExec: true # ←ローカルにインストールしたSass使う
+    .pipe gulp.dest 'css/'</code></pre>
+
                 <p>Border/ is my portfolio, blog, diary, memo pad, photo album, etc.<br>Powerd by WordPress.</p>
                 <p><strong>Border/ is my portfolio, blog, diary, memo pad, photo album, etc.<br>Powerd by WordPress.</strong></p>
 
+                <blockquote>
+                  このサイトはWordPressで運用していますが、最近本体ファイルやプラグインなどのアップデートがうまくいかないので困っていました。いくつか対処法を試したところ無事にアップデートできるようになりましたので、メモっておきます。
+                </blockquote>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, est sunt tempora earum quos labore sequi laboriosam harum voluptas asperiores nobis, at consequuntur, accusamus quibusdam beatae ab error fugit, officia.</p>
+
+                <p class="img"><img src="http://brdr.jp/wp-content/uploads/2014/01/DSC_4996-960x640.jpg?1409545820259" alt=""></p>
+                <p class="img"><img src="http://brdr.jp/wp-content/uploads/2014/01/DSC_4996-960x640.jpg?1409545820259" alt=""></p>
+                <p>このサイトはWordPressで運用していますが、最近本体ファイルやプラグインなどのアップデートがうまくいかないので困っていました。いくつか対処法を試したところ無事にアップデートできるようになりましたので、メモっておきます。</p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem qui, dolorum modi ducimus! Exercitationem quas magnam illo, ipsum consectetur ut excepturi perferendis, mollitia non suscipit sapiente laudantium odio ullam blanditiis.</p>
+
+                <p class="img"><img src="http://brdr.jp/wp-content/uploads/2014/01/DSC_4996-960x640.jpg?1409545820259" alt=""></p>
                 <h2>RYO NAKAE / 中江 亮</h2>
+                <p class="img"><img src="http://brdr.jp/wp-content/uploads/2014/01/DSC_4996-960x640.jpg?1409545820259" alt=""></p>
                 <p>I’m a Web Designer in Kyoto, Japan.</p>
 
                 <hr>
@@ -156,6 +222,7 @@
     <script src="js/lib/imagesloaded.pkgd.min.js"></script>
     <script src="js/lib/jquery.preload.min.js"></script>
     <script src="js/lib/jquery.pjax.min.js"></script>
+    <script src="js/lib/prettify.js"></script>
     <script src="js/script.js"></script>
 
     <!-- Google Analytics -->
