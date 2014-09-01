@@ -223,7 +223,7 @@ $ ->
     $('#js-navigation-toggle').on 'click', ->
       $('body').toggleClass('is-nav-open')
 
-    $('#js-navigation a').on 'click', ->
+    $('#js-navigation a, #js-overlay').on 'click', ->
       if $('body').hasClass('is-nav-open')
         $('body').removeClass('is-nav-open')
 

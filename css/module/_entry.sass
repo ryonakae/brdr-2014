@@ -117,17 +117,22 @@ body.page-page .entry-info
   hr + h6,
     margin-top: 0
 
-  p.img
-    line-height: 0
+  .img
+    margin: 0 0 1.2em
 
     img
       max-width: 100%
       height: auto
 
-  *:not(.img) + p.img
+    figcaption
+      color: $fontColor-sub
+      font-size: 80%
+      margin-top: -0.3em
+
+  *:not(.img) + .img
     margin-top: 2em
 
-  p.img + *:not(.img)
+  .img + *:not(.img)
     margin-top: 1.7em
 
   h1 + p.img,

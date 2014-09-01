@@ -392,7 +392,7 @@ th {
   padding: 0;
 }
 
-body, a, a img, .logo, .navigation, body > *:not(.l-navigation), .navigation-toggle, .mainvisual-text, .mainvisual:after, .progressbar, .backtop {
+body, a, a img, .logo, .navigation, body > *:not(.l-navigation):not(.overlay), .navigation-toggle, .overlay, .mainvisual-text, .mainvisual:after, .progressbar, .backtop {
   -webkit-transition-duration: 250ms;
           transition-duration: 250ms;
   -webkit-transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -665,7 +665,7 @@ html {
 
 body {
   font-family: "P22 Underground Pro", "Helvetica Neue", Helvetica, Arial, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
-  background-color: #fff;
+  background-color: #000;
   color: #1a1a1a;
   line-height: 1.8;
   font-size: 1.5rem;
@@ -855,11 +855,13 @@ body.no-eyecatch .navigation a:hover {
   color: #33a6b8;
 }
 
-body > *:not(.l-navigation) {
-  -webkit-transition-property: opacity;
-          transition-property: opacity;
+body > *:not(.l-navigation):not(.overlay) {
+  -webkit-transition-property: opacity, -webkit-transform;
+          transition-property: opacity, transform;
   -webkit-transition-duration: 400ms;
           transition-duration: 400ms;
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+          transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .navigation-toggle {
@@ -880,6 +882,20 @@ body.no-eyecatch .navigation-toggle {
 
 body.is-nav-open .navigation-toggle {
   color: #fff;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 90;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition-duration: 400ms;
+          transition-duration: 400ms;
 }
 
 .mainvisual {
@@ -1320,17 +1336,22 @@ body.page-page .entry-info span {
 .entry-content hr + h6 {
   margin-top: 0;
 }
-.entry-content p.img {
-  line-height: 0;
+.entry-content .img {
+  margin: 0 0 1.2em;
 }
-.entry-content p.img img {
+.entry-content .img img {
   max-width: 100%;
   height: auto;
 }
-.entry-content *:not(.img) + p.img {
+.entry-content .img figcaption {
+  color: #b3b3b3;
+  font-size: 80%;
+  margin-top: -0.3em;
+}
+.entry-content *:not(.img) + .img {
   margin-top: 2em;
 }
-.entry-content p.img + *:not(.img) {
+.entry-content .img + *:not(.img) {
   margin-top: 1.7em;
 }
 .entry-content h1 + p.img,
@@ -2245,7 +2266,6 @@ li.L9 {
   }
 
   .navigation {
-    opacity: 0;
     position: fixed;
     z-index: 100;
     top: 0;
@@ -2253,7 +2273,7 @@ li.L9 {
     width: 65%;
     height: 100%;
     margin: 0;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: #000;
     text-align: center;
     display: table;
     -webkit-transform: translateX(100%);
@@ -2293,19 +2313,24 @@ li.L9 {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: #000;
   }
 
-  body.is-nav-open > *:not(.l-navigation) {
-    opacity: 0.35;
+  body.is-nav-open > *:not(.l-navigation):not(.overlay) {
+    -webkit-transform: translateX(-50px);
+        -ms-transform: translateX(-50px);
+            transform: translateX(-50px);
     pointer-events: none;
   }
 
   body.is-nav-open .navigation {
-    opacity: 1;
     -webkit-transform: translateX(0);
         -ms-transform: translateX(0);
             transform: translateX(0);
+  }
+
+  body.is-nav-open .overlay {
+    opacity: 1;
+    visibility: visible;
   }
 
   .localnavigaiton ul {

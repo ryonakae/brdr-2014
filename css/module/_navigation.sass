@@ -43,10 +43,11 @@ body.no-eyecatch .navigation
     color: $fontColor-link
 
 
-body > *:not(.l-navigation)
+body > *:not(.l-navigation):not(.overlay)
   @extend %animation
-  transition-property: opacity
+  transition-property: opacity, transform
   transition-duration: 400ms
+  transition-timing-function: $easeInOutCubic
 
 
 .navigation-toggle
@@ -66,3 +67,18 @@ body.no-eyecatch .navigation-toggle
 
 body.is-nav-open .navigation-toggle
   color: $fontColor-inverse
+
+
+// overlay
+.overlay
+  position: fixed
+  z-index: 90
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: rgba($bgColor-inverse, 0.7)
+  opacity: 0
+  visibility: hidden
+  @extend %animation
+  transition-duration: 400ms
