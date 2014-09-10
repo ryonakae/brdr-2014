@@ -444,10 +444,12 @@ body, a, a img, .logo, .navigation, body > *:not(.l-navigation):not(.overlay), .
   font-style: normal;
 }
 .l-container {
-  width: 960px;
+  max-width: 1180px;
   margin-right: auto;
   margin-left: auto;
   overflow: hidden;
+  box-sizing: content-box;
+  padding: 0 7%;
 }
 
 .l-row {
@@ -516,16 +518,6 @@ body, a, a img, .logo, .navigation, body > *:not(.l-navigation):not(.overlay), .
   width: 100%;
 }
 
-@media only screen and (min-width: 1200px) {
-  .l-container {
-    width: 1180px;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 979px) {
-  .l-container {
-    width: 740px;
-  }
-}
 @media only screen and (max-width: 767px) {
   .l-container {
     width: auto;

@@ -1,10 +1,12 @@
 $gridMargin: 10px
 
 .l-container
-  width: 960px
+  max-width: 1180px
   margin-right: auto
   margin-left: auto
   overflow: hidden
+  box-sizing: content-box
+  padding: 0 7%
 
 .l-row
   +clearFix
@@ -24,15 +26,15 @@ $gridMargin: 10px
 
 
 // PC Large
-+mediaquery-pc-large
-  .l-container
-    width: 1180px
+  +mediaquery-pc-large
+    .l-container
+      max-width: 1180px
 
 
 // Tablet
-+mediaquery-tablet
-  .l-container
-    width: 740px
+  +mediaquery-tablet
+    .l-container
+      max-width: 740px
 
 
 // Small Tablet

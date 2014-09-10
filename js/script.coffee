@@ -1,6 +1,8 @@
 $ ->
   'use strict'
 
+  is_pc = !/touch|tablet|mobile|phone|android|iphone|ipad|blackberry/i.test(window.navigator.userAgent)
+
   ###
   Set Function Common
   ###
@@ -116,8 +118,7 @@ $ ->
       server:
         query: null
       speedcheck: true
-      # middleman server時だとなぜか遷移失敗扱いになるので、fallbackをfalseにして検証する
-      fallback: false
+      fallback: false # middleman server時だとなぜか遷移失敗扱いになるので、fallbackをfalseにして検証する
       ajax:
         timeout: 3000
       callbacks:
@@ -220,10 +221,17 @@ $ ->
 
   # common global navigation toggle
   commonglobalNavToggle = ->
-    $('#js-navigation-toggle').on 'click', ->
+    event =
+
+    if is_pc
+      event = 'click'
+    else
+      event = 'touchstart'
+
+    $('#js-navigation-toggle').on event, ->
       $('body').toggleClass('is-nav-open')
 
-    $('#js-navigation a, #js-overlay').on 'click', ->
+    $('#js-navigation a, #js-overlay').on event, ->
       if $('body').hasClass('is-nav-open')
         $('body').removeClass('is-nav-open')
 
