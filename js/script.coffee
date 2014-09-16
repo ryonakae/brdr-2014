@@ -76,6 +76,7 @@ $ ->
   # pjax
   setPjax = ->
     $progressbar = $('#js-progressbar')
+    $loader = $('#js-loader')
 
 
     # preload
@@ -136,54 +137,35 @@ $ ->
               $progressbar.css 'width':'80%'
               console.log 'script loaded'
 
-    $(document).on 'pjax:fetch', ->
-      $progressbar.css 'width':''
-      $progressbar.removeClass 'is-hidden'
-      console.log 'load started'
-
-    $(document).on 'pjax:render', ->
-      $progressbar.css 'width':'100%'
-      setTimeout ->
-        $progressbar.addClass 'is-hidden'
-      , 300
-      console.log 'load complete'
-
-    # loader
-    $loader = $('#js-loader')
-
-    $(document).on 'pjax.request', ->
-      clearTimeout $.data($loader.get(0), 'pjax-effect-id')
-      $.data $loader.get(0), 'pjax-effect-id', setTimeout ->
-        $loader.fadeIn(100)
-      , 1000
-
-    $(document).on 'pjax.render', ->
-      clearTimeout $.data($loader.get(0), 'pjax-effect-id')
-      $loader.fadeOut(500)
-      $.data $loader.get(0), 'pjax-effect-id', 0
-
-    $(document).on 'pjax.rady', ->
-      $(document).trigger('preload')
-
 
     ###
     pjax event
     ###
-    # before pjax
-    $(document).on 'pjax.request', ->
-      console.log '1 ajaxリクエスト送信前'
-      # 多分Preloadのおかげでここスキップされてる
+    # 1 fetch
+    $(document).on 'pjax:fetch', ->
+      $progressbar.css 'width':''
+      console.log '1 データ取得処理前'
 
-    $(window).on 'pjax.unload', ->
-      console.log '2 ajaxリクエスト更新前'
+      $progressbar.removeClass 'is-hidden'
+      console.log 'progressbar show'
+
+      clearTimeout $.data($loader.get(0), 'pjax-effect-id')
+      $.data $loader.get(0), 'pjax-effect-id', setTimeout ->
+        $loader.removeClass 'is-hidden'
+        console.log 'loader show'
+      , 1000
+
+    # 2 unload
+    $(window).on 'pjax:unload', ->
+      console.log '2 データの取得後、ページの更新前'
       # eventhandler off
       $(window).off 'load'
       $(window).off 'resize'
       $(document).off 'imagesLoades', $('#js-mainvisual-image')
 
-    # after reload DOM set pageclass
-    $(document).on 'pjax.DOMContentLoaded', ->
-      console.log '3 すべての更新範囲更新後'
+    # 3 DOMContentLoaded
+    $(document).on 'pjax:DOMContentLoaded', ->
+      console.log '3 すべての範囲のDOMの更新後(CSSの更新とScriptの実行は未完了)'
       pageClass = $('#js-pjaxArea').attr 'data-pageclass'
       $('body').removeClass().addClass pageClass
 
@@ -194,11 +176,27 @@ $ ->
             parent: $(window)
             scaleHeight: 1
 
-    # after render DOM
-    $(document).on 'pjax.render', ->
-      console.log '4 すべての更新範囲描画後'
+    # 4 ready
+    $(document).on 'pjax:ready', ->
+      $(document).trigger('preload')
+      console.log '4 すべてのDOMの更新後'
+
+    # 5 render
+    $(document).on 'pjax:render', ->
+      console.log '5 すべての更新範囲の描画後'
 
       commonGoogleCodePrettify()
+
+      $progressbar.css 'width':'100%'
+      setTimeout ->
+        $progressbar.addClass 'is-hidden'
+      , 300
+      console.log 'progressbar hide'
+
+      clearTimeout $.data($loader.get(0), 'pjax-effect-id')
+      $loader.addClass 'is-hidden'
+      $.data $loader.get(0), 'pjax-effect-id', 0
+      console.log 'loader hide'
 
       # eventhandler on
       $(window).on 'resize', ->
@@ -217,6 +215,10 @@ $ ->
           else
             commonMainvisualResize()
             console.log 'now:other'
+
+    # 6 load
+    $(window).on 'pjax:load', ->
+      console.log '6 すべての画像とフレームの読み込み後'
 
 
   # common global navigation toggle
@@ -274,6 +276,7 @@ $ ->
   # ready
   # $(document).on 'ready', ->
   setPjax()
+
   $('#js-backtop').backTop()
   commonglobalNavToggle()
   commonGoogleCodePrettify()
