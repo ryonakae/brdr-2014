@@ -1,13 +1,9 @@
 .entry-info
   margin: 0.3em 0 0
-  font-size: 1.3rem
-  font-family: $fontFamily-serif
-  font-style: italic
-  color: $fontColor-sub
-  letter-spacing: 0.08em
+  font-size: 1.2rem
 
   a
-    color: $fontColor-sub
+    color: $fontColor-base
 
     &:hover
       color: $fontColor-link
@@ -27,6 +23,38 @@
   .sp
     display: none
 
+  .info-title
+    color: $fontColor-base
+    font-family: $fontFamily
+    font-style: normal
+    font-size: 1.8rem
+
+  section h1
+    color: $fontColor-sub
+    font-family: $fontFamily-serif
+    font-style: italic
+    letter-spacing: 0.08em
+    font-size: 1.5rem
+    margin-top: 1.5em
+    margin-bottom: 0
+
+  section h2
+    color: $fontColor-sub
+    font-family: $fontFamily-serif
+    font-style: italic
+    letter-spacing: 0.08em
+    font-size: 1.2rem
+    margin-top: 0.6em
+    margin-bottom: 0
+
+  section p
+    margin: 0
+
+  ul, ol
+    list-style-type: none
+    margin: 0
+    padding: 0
+
 body.page-page .entry-info
   span
     width: inherit
@@ -41,8 +69,6 @@ body.page-page .entry-info
 
 
 .entry-content
-  margin-top: 3em
-
   text-align: justify
   word-wrap: break-word
   // word-break: break-all
@@ -177,8 +203,18 @@ body.page-page .entry-info
       margin: 0
       font-family: inherit
 
+.entry-header + .entry-content
+  margin-top: 3em
 
 .entry-footer
   margin-top: 4em
   background-color: $bgColor-grey
   padding: 20px
+
+.entry-imagelist
+  margin-top: 4em
+
+  ul, ol
+    list-style-type: none
+    margin: 0
+    padding: 0

@@ -200,7 +200,7 @@ $ ->
 
       # eventhandler on
       $(window).on 'resize', ->
-        if $('body').hasClass('page-index')
+        if $('body').hasClass('page-index') || $('body').hasClass('single-works')
           indexMainvisualResize()
         else
           commonMainvisualResize()
@@ -209,7 +209,7 @@ $ ->
         $('#js-mainvisual-image').imagesLoaded().done (instance) ->
           commonMainvisualShow()
 
-          if $('body').hasClass('page-index')
+          if $('body').hasClass('page-index') || $('body').hasClass('single-works')
             indexMainvisualResize()
             console.log 'now:index'
           else
@@ -246,8 +246,15 @@ $ ->
 
   # common mainvisual show
   commonMainvisualShow = ->
+    opacity =
+
+    if $('body').hasClass('single-works')
+      opacity = 0.7
+    else
+      opacity = 1
+
     $('#js-mainvisual-image').transition
-      'opacity': 1
+      'opacity': opacity
       'visibility': 'visible'
     , 800, ->
       $('#js-mainvisual-text').removeClass 'is-hidden'
@@ -282,7 +289,7 @@ $ ->
   commonGoogleCodePrettify()
 
   if document.getElementById("js-mainvisual") != null
-    if $('body').hasClass('page-index')
+    if $('body').hasClass('page-index') || $('body').hasClass('single-works')
       $('#js-mainvisual').boxResize
         parent: $(window)
         scaleHeight: 1
@@ -291,18 +298,17 @@ $ ->
   # load
   if document.getElementById("js-mainvisual") != null
     $('#js-mainvisual-image').imagesLoaded().done (instance) ->
-      if $('body').hasClass('page-index')
+      if $('body').hasClass('page-index') || $('body').hasClass('single-works')
         indexMainvisualResize()
       else
         commonMainvisualResize()
       commonMainvisualShow()
-  else
-    #$(window).on 'load', ->
 
 
   # resize
-  $(window).on 'resize', ->
-    if $('body').hasClass('page-index')
-      indexMainvisualResize()
-    else
-      commonMainvisualResize()
+  if document.getElementById("js-mainvisual") != null
+    $(window).on 'resize', ->
+      if $('body').hasClass('page-index') || $('body').hasClass('single-works')
+        indexMainvisualResize()
+      else
+        commonMainvisualResize()

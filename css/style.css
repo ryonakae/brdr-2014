@@ -951,7 +951,6 @@ body.is-nav-open .navigation-toggle {
   font-size: 6rem;
   margin: 0;
   color: #fff;
-  text-shadow: 0 0 100px rgba(0, 0, 0, 0.55);
   letter-spacing: 0.1em;
 }
 
@@ -960,7 +959,6 @@ body.is-nav-open .navigation-toggle {
   font-family: "EB Garamond", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
   margin: 0.3em 0 0;
   color: #fff;
-  text-shadow: 0 0 100px rgba(0, 0, 0, 0.55);
   font-style: italic;
   letter-spacing: 0.08em;
 }
@@ -1242,14 +1240,10 @@ body.page-index .section-information .button {
 }
 .entry-info {
   margin: 0.3em 0 0;
-  font-size: 1.3rem;
-  font-family: "EB Garamond", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
-  font-style: italic;
-  color: #b3b3b3;
-  letter-spacing: 0.08em;
+  font-size: 1.2rem;
 }
 .entry-info a {
-  color: #b3b3b3;
+  color: #1a1a1a;
 }
 .entry-info a:hover {
   color: #33a6b8;
@@ -1269,6 +1263,38 @@ body.page-index .section-information .button {
 .entry-info .sp {
   display: none;
 }
+.entry-info .info-title {
+  color: #1a1a1a;
+  font-family: "P22 Underground Pro", "Helvetica Neue", Helvetica, Arial, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+  font-style: normal;
+  font-size: 1.8rem;
+}
+.entry-info section h1 {
+  color: #b3b3b3;
+  font-family: "EB Garamond", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  font-size: 1.5rem;
+  margin-top: 1.5em;
+  margin-bottom: 0;
+}
+.entry-info section h2 {
+  color: #b3b3b3;
+  font-family: "EB Garamond", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  font-size: 1.2rem;
+  margin-top: 0.6em;
+  margin-bottom: 0;
+}
+.entry-info section p {
+  margin: 0;
+}
+.entry-info ul, .entry-info ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
 body.page-page .entry-info span {
   width: inherit;
@@ -1281,7 +1307,6 @@ body.page-page .entry-info span {
 }
 
 .entry-content {
-  margin-top: 3em;
   text-align: justify;
   word-wrap: break-word;
 }
@@ -1411,10 +1436,23 @@ body.page-page .entry-info span {
   font-family: inherit;
 }
 
+.entry-header + .entry-content {
+  margin-top: 3em;
+}
+
 .entry-footer {
   margin-top: 4em;
   background-color: #f7f7f7;
   padding: 20px;
+}
+
+.entry-imagelist {
+  margin-top: 4em;
+}
+.entry-imagelist ul, .entry-imagelist ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .localnavigaiton {
