@@ -113,41 +113,48 @@
       margin-left: 0
 
   .entry-info
-    margin-top: 0
     margin-bottom: 1.5em
-    font-size: 1.2rem
+    font-size: 1.1rem
 
-    > *
-      padding-left: 0
+    dt, dd, li
+      display: inline
 
-    span
-      margin-left: 0
-
-    .sp
-      display: inline-block
-      margin-right: 0.1em !important
-      width: inherit
-
-    .pc
+    dt
       display: none
 
-  body.page-page .entry-info
-    display: none
+    dd:after,
+    li:after
+      content: "/"
+      color: $fontColor-sub
+      font-size: 90%
+      padding-left: 0.5em
+      padding-right: 0.4em
 
-  body.page-single .entry-info > *
-    display: inline
-    margin-left: 1em
+    dd:last-child:after,
+    li:last-child:after
+      display: none
 
-    &:first-child
-      margin-left: 0
+    .entry-info-title
+      margin-top: 1em
+      font-size: 1.3rem
+
+  body.single-works .entry-info
+    margin-bottom: 3.5em
+
+    dt,
+    dd
+      display: block
+
+    dd:after
+      display: none
 
   .entry-title
     font-size: 2.5rem
 
   .entry-content
     .img
-      margin-left: -4.25%
-      margin-right: -4.25%
+      margin-left: -4.3%
+      margin-right: -4.3%
 
       figcaption
         margin-left: 4%

@@ -86,19 +86,19 @@
       <!-- main -->
       <div class="l-section">
         <div class="l-container">
-          <div class="l-row">
+          <archive class="l-row entry">
             <dic class="l-grid-3">
               <aside class="entry-info">
                 <dl>
-                  <dt class="entry-info-subtitle">Date</dt>
+                  <dt>Date</dt>
                   <dd><time>2014.7.30</time></dd>
 
-                  <dt class="entry-info-subtitle">Category</dt>
+                  <dt>Category</dt>
                   <dd>
                     <a href="">Information</a>, <a href="">Design</a>, <a href="">Other</a>, <a href="">Photograph</a>, <a href="">Information</a>
                   </dd>
 
-                  <dt class="entry-info-subtitle">Author</dt>
+                  <dt>Author</dt>
                   <dd>by RYO NAKAE</dd>
                 </dl>
               </aside>
@@ -124,27 +124,27 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa debitis cumque facilis, tempora rerum necessitatibus ullam. Perspiciatis corporis iusto perferendis, excepturi minima repudiandae ipsa non possimus! Labore quam aliquam, perferendis.</p>
                 <p>Border/ is my portfolio, blog, diary, memo pad, photo album, etc.<br>Powerd by WordPress.</p>
 
-<pre><code>.box
-  @for $i from 1 through 10
-    .element:nth-child(#{$i})
-      +transition-delay(#{$i * 100}ms)</code></pre>
+                <pre><code>.box
+                  @for $i from 1 through 10
+                    .element:nth-child(#{$i})
+                      +transition-delay(#{$i * 100}ms)</code></pre>
 
-                <p><code>Lorem ipsum</code> dolor sit amet, consectetur adipisicing elit. Voluptatum, amet omnis fuga nesciunt optio ducimus repudiandae sequi labore magnam. Alias labore ratione esse, voluptatibus deserunt ipsum voluptas totam doloremque nemo.</p>
+                                <p><code>Lorem ipsum</code> dolor sit amet, consectetur adipisicing elit. Voluptatum, amet omnis fuga nesciunt optio ducimus repudiandae sequi labore magnam. Alias labore ratione esse, voluptatibus deserunt ipsum voluptas totam doloremque nemo.</p>
 
-<pre><code>gulp = require('gulp')
-$ = require('gulp-load-plugins')()
+                <pre><code>gulp = require('gulp')
+                $ = require('gulp-load-plugins')()
 
-# Sass
-gulp.task 'sass', ->
-  gulp
-    .src 'css/*.{sass,scss}'
-    .pipe $.rubySass
-      style: 'expanded'
-      sourcemap: true
-      sourcemapPath: '../css/'
-      noCache: true
-      bundleExec: true # ←ローカルにインストールしたSass使う
-    .pipe gulp.dest 'css/'</code></pre>
+                # Sass
+                gulp.task 'sass', ->
+                  gulp
+                    .src 'css/*.{sass,scss}'
+                    .pipe $.rubySass
+                      style: 'expanded'
+                      sourcemap: true
+                      sourcemapPath: '../css/'
+                      noCache: true
+                      bundleExec: true # ←ローカルにインストールしたSass使う
+                    .pipe gulp.dest 'css/'</code></pre>
 
                 <p>Border/ is my portfolio, blog, diary, memo pad, photo album, etc.<br>Powerd by WordPress.</p>
                 <p><strong>Border/ is my portfolio, blog, diary, memo pad, photo album, etc.<br>Powerd by WordPress.</strong></p>
@@ -182,7 +182,7 @@ gulp.task 'sass', ->
                 footer
               </footer>
             </div>
-          </div>
+          </archive>
         </div>
       </div>
     </div>

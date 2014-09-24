@@ -80,32 +80,33 @@ $ ->
 
 
     # preload
-    $.preload
-      forward: $.pjax.follow
-      check: $.pjax.getCache
-      encode: true
-      ajax:
-        xhr: ->
-          xhr = $.ajaxSettings.xhr()
-          # $progressbar.css 'width':'5%'
-          if xhr instanceof Object && 'onprogress' in xhr
-            xhr.addEventListener 'progress', (event) ->
-              `var percentage = event.total ? event.loaded / event.total : 0.4`
-              percentage = percentage * 90 + 5
-              $progressbar.css 'width':percentage + '%'
-            , false
-            xhr.addEventListener 'load', (event) ->
-              $progressbar.css 'width':'95%'
-            , false
-            xhr.addEventListener 'error', (event) ->
-              $progressbar.css 'background-color':'#00f'
-            , false
-          return xhr
-        success: (data, textStatus, XMLHttpRequest) ->
-          !$.pjax.getCache( this.url ) && $.pjax.setCache( this.url, null, textStatus, XMLHttpRequest )
-        done: (data, textStatus, XMLHttpRequest) ->
-          !$.pjax.getCache( this.url ) && $.pjax.setCache( this.url, null, textStatus, XMLHttpRequest )
-          console.log 'preload done'
+    if is_pc
+      $.preload
+        forward: $.pjax.follow
+        check: $.pjax.getCache
+        encode: true
+        ajax:
+          xhr: ->
+            xhr = $.ajaxSettings.xhr()
+            # $progressbar.css 'width':'5%'
+            if xhr instanceof Object && 'onprogress' in xhr
+              xhr.addEventListener 'progress', (event) ->
+                `var percentage = event.total ? event.loaded / event.total : 0.4`
+                percentage = percentage * 90 + 5
+                $progressbar.css 'width':percentage + '%'
+              , false
+              xhr.addEventListener 'load', (event) ->
+                $progressbar.css 'width':'95%'
+              , false
+              xhr.addEventListener 'error', (event) ->
+                $progressbar.css 'background-color':'#00f'
+              , false
+            return xhr
+          success: (data, textStatus, XMLHttpRequest) ->
+            !$.pjax.getCache( this.url ) && $.pjax.setCache( this.url, null, textStatus, XMLHttpRequest )
+          done: (data, textStatus, XMLHttpRequest) ->
+            !$.pjax.getCache( this.url ) && $.pjax.setCache( this.url, null, textStatus, XMLHttpRequest )
+            console.log 'preload done'
 
 
     # pjax
@@ -233,7 +234,10 @@ $ ->
     $('#js-navigation-toggle').on event, ->
       $('body').toggleClass('is-nav-open')
 
-    $('#js-navigation a, #js-overlay').on event, ->
+    $('#js-navigation a').on 'click', ->
+      $('body').removeClass('is-nav-open')
+
+    $('#js-overlay').on event, ->
       if $('body').hasClass('is-nav-open')
         $('body').removeClass('is-nav-open')
 
