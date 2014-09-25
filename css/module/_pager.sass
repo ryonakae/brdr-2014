@@ -1,0 +1,26 @@
+.pager
+  text-align: center
+
+  .pages,
+  .extend,
+  .first,
+  .last
+    display: none
+
+  span, a
+    display: inline-block
+    width: 30px
+    height: 30px
+    line-height: 30px
+    border-radius: 50%
+    font-size: 1.3rem
+    margin-left: 3px
+    margin-right: 3px
+
+  a
+    background-color: $bgColor-inverse
+    color: $fontColor-inverse
+    @extend %animation
+
+  a:hover
+    background-color: $fontColor-link

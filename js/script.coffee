@@ -255,13 +255,11 @@ $ ->
     if $('body').hasClass('single-works')
       opacity = 0.7
     else
-      opacity = 1
+      opacity = 0.9
 
-    $('#js-mainvisual-image').transition
-      'opacity': opacity
-      'visibility': 'visible'
-    , 800, ->
-      $('#js-mainvisual-text').removeClass 'is-hidden'
+    $('#js-mainvisual-image').removeClass 'is-hidden'
+    $('#js-mainvisual-text').delay(1000).queue ->
+      $(@).removeClass('is-hidden').dequeue()
 
     $('#js-mainvisual').addClass('is-loaded')
 
