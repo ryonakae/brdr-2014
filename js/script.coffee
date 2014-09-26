@@ -76,7 +76,6 @@ $ ->
   # pjax
   setPjax = ->
     $progressbar = $('#js-progressbar')
-    $loader = $('#js-loader')
 
 
     # preload
@@ -150,12 +149,6 @@ $ ->
       $progressbar.removeClass 'is-hidden'
       console.log 'progressbar show'
 
-      clearTimeout $.data($loader.get(0), 'pjax-effect-id')
-      $.data $loader.get(0), 'pjax-effect-id', setTimeout ->
-        $loader.removeClass 'is-hidden'
-        console.log 'loader show'
-      , 1000
-
     # 2 unload
     $(window).on 'pjax:unload', ->
       console.log '2 データの取得後、ページの更新前'
@@ -186,7 +179,9 @@ $ ->
     $(document).on 'pjax:render', ->
       console.log '5 すべての更新範囲の描画後'
 
-      commonGoogleCodePrettify()
+      if $('body').hasClass('page-single')
+        commonGoogleCodePrettify()
+        console.log 'GoogleCodePrettify done'
 
       $progressbar.css 'width':'100%'
       setTimeout ->
@@ -194,27 +189,26 @@ $ ->
       , 300
       console.log 'progressbar hide'
 
-      clearTimeout $.data($loader.get(0), 'pjax-effect-id')
-      $loader.addClass 'is-hidden'
-      $.data $loader.get(0), 'pjax-effect-id', 0
-      console.log 'loader hide'
-
       # eventhandler on
       $(window).on 'resize', ->
         if $('body').hasClass('page-index') || $('body').hasClass('single-works')
           indexMainvisualResize()
+          indexMainvisualImageResize()
         else
-          commonMainvisualResize()
+          commonMainvisualImageResize()
 
       if document.getElementById("js-mainvisual") != null
+        if $('body').hasClass('page-index') || $('body').hasClass('single-works')
+          indexMainvisualResize()
+
         $('#js-mainvisual-image').imagesLoaded().done (instance) ->
           commonMainvisualShow()
 
           if $('body').hasClass('page-index') || $('body').hasClass('single-works')
-            indexMainvisualResize()
+            indexMainvisualImageResize()
             console.log 'now:index'
           else
-            commonMainvisualResize()
+            commonMainvisualImageResize()
             console.log 'now:other'
 
     # 6 load
@@ -243,20 +237,13 @@ $ ->
 
 
   # common mainvisual resize
-  commonMainvisualResize = ->
+  commonMainvisualImageResize = ->
     $('#js-mainvisual-image img').imgResize()
     console.log 'common mainvisual resized'
 
 
   # common mainvisual show
   commonMainvisualShow = ->
-    opacity =
-
-    if $('body').hasClass('single-works')
-      opacity = 0.7
-    else
-      opacity = 0.9
-
     $('#js-mainvisual-image').removeClass 'is-hidden'
     $('#js-mainvisual-text').delay(1000).queue ->
       $(@).removeClass('is-hidden').dequeue()
@@ -275,8 +262,12 @@ $ ->
     $('#js-mainvisual').boxResize
       parent: $(window)
       scaleHeight: 1
+    console.log 'index mainvisual area resized'
+
+  # index mainvisual resize
+  indexMainvisualImageResize = ->
     $('#js-mainvisual-image img').imgResize()
-    console.log 'index mainvisual resized'
+    console.log 'index mainvisual image resized'
 
 
   ###
@@ -285,6 +276,7 @@ $ ->
   # ready
   # $(document).on 'ready', ->
   setPjax()
+  $('#js-contentloader').addClass 'is-hidden'
 
   $('#js-backtop').backTop()
   commonglobalNavToggle()
@@ -302,8 +294,9 @@ $ ->
     $('#js-mainvisual-image').imagesLoaded().done (instance) ->
       if $('body').hasClass('page-index') || $('body').hasClass('single-works')
         indexMainvisualResize()
+        indexMainvisualImageResize()
       else
-        commonMainvisualResize()
+        commonMainvisualImageResize()
       commonMainvisualShow()
 
 
@@ -312,5 +305,6 @@ $ ->
     $(window).on 'resize', ->
       if $('body').hasClass('page-index') || $('body').hasClass('single-works')
         indexMainvisualResize()
+        indexMainvisualImageResize()
       else
-        commonMainvisualResize()
+        commonMainvisualImageResize()

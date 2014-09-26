@@ -9,6 +9,7 @@ body.page-archive.archive-information .entry
     border-top: none
     padding-top: 0
 
+
 .entry-info
   margin: 0.3em 0 0
   font-size: 1.2rem
@@ -60,8 +61,6 @@ body.page-archive.archive-information .entry
     margin: 0
     padding-left: 0
 
-
-// .entry-header
 
 .entry-title
   margin: 0
@@ -206,10 +205,12 @@ body.page-archive.archive-information .entry
 .entry-header + .entry-content
   margin-top: 3em
 
+
 .entry-footer
   margin-top: 4em
   background-color: $bgColor-grey
   padding: 20px
+
 
 .entry-imagelist
   margin-top: 4em
@@ -218,3 +219,31 @@ body.page-archive.archive-information .entry
     list-style-type: none
     margin: 0
     padding: 0
+
+
+.entry-pager
+  margin-top: 5em
+  text-align: center
+  position: relative
+
+  i
+    font-size: 2.6rem
+
+  > *
+    display: inline-block
+
+  .pager-prev,
+  .pager-next
+    position: absolute
+    top: 0
+
+    i
+      margin-top: -1px
+
+  .pager-prev
+    left: 50%
+    margin-left: -100px
+
+  .pager-next
+    right: 50%
+    margin-right: -100px
