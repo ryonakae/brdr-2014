@@ -17,7 +17,7 @@ $ ->
 
       # after load
       $(@).on 'load', ->
-        $(@).transition 'opacity' : 1 , 800, ->
+        $(@).animate 'opacity' : 1 , 800, ->
           $(@).parent().removeClass 'imgLoading'
           $(@).attr 'src', $(@).attr('src') + '?' + (new Date().getTime())
 
