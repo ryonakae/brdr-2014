@@ -1,8 +1,8 @@
 gulp = require 'gulp'
 $ = require('gulp-load-plugins')()
 browserSync = require 'browser-sync'
+pngcrush = require 'imagemin-pngcrush'
 rimraf = require 'rimraf'
-runSequence  = require 'run-sequence'
 streamqueue  = require 'streamqueue'
 
 # Clean build directory
@@ -12,7 +12,8 @@ gulp.task 'clean', (cb) ->
 # BrowserSync
 gulp.task 'browserSync', ->
   browserSync.init null,
-    # open: false
+    open: false
+    notify: false
     server:
       baseDir: './build/'
 
@@ -56,8 +57,14 @@ gulp.task 'javascript', ->
 # Image Min
 gulp.task 'imagemin', ->
   gulp
-    .src './source/assets/img/**/*.{png,jpg,gif}'
-    .pipe $.imagemin()
+    .src './source/assets/img/**/*.{png,jpg,gif,svg}'
+    .pipe $.plumber()
+    .pipe $.cache $.imagemin
+      optimizationLevel: 4
+      progressive: true
+      interlaced: true
+      svgoPlugins: [{removeViewBox: false}]
+      use: [pngcrush()]
     .pipe gulp.dest './build/assets/img/'
     .pipe browserSync.reload stream:true, once:true
 
@@ -71,7 +78,7 @@ gulp.task 'htmlcopy', ->
 # Copy Image
 gulp.task 'imagecopy', ->
   gulp
-    .src './source/assets/img/**/*.{ico,svg}'
+    .src './source/assets/img/**/*.{ico}'
     .pipe gulp.dest './build/assets/img/'
     .pipe browserSync.reload stream:true, once:true
 
@@ -84,13 +91,19 @@ gulp.task 'fontcopy', ->
 
 # watch
 gulp.task 'watch', ->
-  gulp.watch './source/**/*.{html,php}', ['htmlcopy']
-  gulp.watch './source/assets/css/*.{sass,scss}', ['sass']
-  gulp.watch './source/assets/js/*.coffee', ['coffee']
-  gulp.watch './source/assets/img/**/*.{png,jpg,gif}', ['imagemin']
-  gulp.watch './source/assets/img/**/*.{ico,svg}', ['imagecopy']
-  gulp.watch './source/assets/font/**/*', ['fontcopy']
+  # gulp.watch './source/**/*.{html,php}', ['htmlcopy']
+  # gulp.watch './source/assets/css/*.{sass,scss}', ['sass']
+  # gulp.watch './source/assets/js/*.coffee', ['coffee']
+  # gulp.watch './source/assets/img/**/*.{png,jpg,gif}', ['imagemin']
+  # gulp.watch './source/assets/img/**/*.{ico,svg}', ['imagecopy']
+  # gulp.watch './source/assets/font/**/*', ['fontcopy']
+  $.watch 'source/**/*.{html,php}', -> gulp.start 'htmlcopy'
+  $.watch 'source/assets/css/*.{sass,scss}', -> gulp.start 'sass'
+  $.watch 'source/assets/js/*.coffee', -> gulp.start 'coffee'
+  $.watch 'source/assets/img/**/*.{png,jpg,gif,svg}', -> gulp.start 'imagemin'
+  $.watch 'source/assets/img/**/*.{ico}', -> gulp.start 'imagecopy'
+  $.watch 'source/assets/font/**/*', -> gulp.start 'fontcopy'
 
 # Watch
 gulp.task 'default', ->
-  runSequence 'clean', ['sass', 'coffee', 'javascript', 'imagemin'], ['htmlcopy', 'imagecopy', 'fontcopy'], 'browserSync', 'watch'
+  $.runSequence 'clean', ['sass', 'coffee', 'javascript', 'imagemin'], ['htmlcopy', 'imagecopy', 'fontcopy'], 'browserSync', 'watch'

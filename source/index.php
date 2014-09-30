@@ -7,7 +7,7 @@
   <!-- mainvisual -->
   <section class="mainvisual" id="js-mainvisual">
     <figure class="mainvisual-image is-hidden" id="js-mainvisual-image">
-      <img src="<?php echo get_template_directory_uri(); ?>/img/main.jpg" alt="">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/main.jpg" alt="">
     </figure>
 
     <div class="mainvisual-text is-hidden" id="js-mainvisual-text">
@@ -60,7 +60,7 @@
                 <?php if (has_post_thumbnail()) : ?>
                   <?php the_post_thumbnail('square_medium'); ?>
                 <?php else: ?>
-                  <img class="noimage" src="<?php echo get_template_directory_uri(); ?>/img/noimg_square.jpg" alt="noimage">
+                  <img class="noimage" src="<?php echo get_template_directory_uri(); ?>/assets/img/noimg_square.jpg" alt="noimage">
                 <?php endif; ?>
               </a>
             </figure>
@@ -150,7 +150,7 @@
                 <?php if (has_post_thumbnail()) : ?>
                   <?php the_post_thumbnail('square_small'); ?>
                 <?php else: ?>
-                  <img class="noimage" src="<?php echo get_template_directory_uri(); ?>/img/noimg_square.jpg" alt="noimage">
+                  <img class="noimage" src="<?php echo get_template_directory_uri(); ?>/assets/img/noimg_square.jpg" alt="noimage">
                 <?php endif; ?>
               </a>
             </figure>
