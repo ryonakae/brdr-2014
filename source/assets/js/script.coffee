@@ -68,8 +68,8 @@ $ ->
 
 
   # backtop
-  $.fn.backTop = ->
-    @.click ->
+  backTop = ->
+    $('#js-backtop').click ->
       $('html, body').stop().animate scrollTop : 0, 1000, 'easeInOutCubic'
 
 
@@ -198,18 +198,19 @@ $ ->
           commonMainvisualImageResize()
 
       if document.getElementById("js-mainvisual") != null
-        if $('body').hasClass('page-index') || $('body').hasClass('single-works')
-          indexMainvisualResize()
+        image = $('#js-mainvisual-image').find('img')
+        image.attr "src", image.attr("src") + "?t=" + (new Date().getTime())
 
         $('#js-mainvisual-image').imagesLoaded().done (instance) ->
-          commonMainvisualShow()
-
           if $('body').hasClass('page-index') || $('body').hasClass('single-works')
+            indexMainvisualResize()
             indexMainvisualImageResize()
             # console.log 'now:index'
           else
             commonMainvisualImageResize()
             # console.log 'now:other'
+
+          commonMainvisualShow()
 
     # 6 load
     $(window).on 'pjax:load', ->
@@ -276,9 +277,7 @@ $ ->
   # ready
   # $(document).on 'ready', ->
   setPjax()
-  $('#js-contentloader').addClass 'is-hidden'
-
-  $('#js-backtop').backTop()
+  backTop()
   commonglobalNavToggle()
   commonGoogleCodePrettify()
 
@@ -291,12 +290,16 @@ $ ->
 
   # load
   if document.getElementById("js-mainvisual") != null
+    image = $('#js-mainvisual-image').find('img')
+    image.attr "src", image.attr("src") + "?t=" + (new Date().getTime())
+
     $('#js-mainvisual-image').imagesLoaded().done (instance) ->
       if $('body').hasClass('page-index') || $('body').hasClass('single-works')
         indexMainvisualResize()
         indexMainvisualImageResize()
       else
         commonMainvisualImageResize()
+
       commonMainvisualShow()
 
 
