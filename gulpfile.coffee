@@ -98,8 +98,8 @@ gulp.task 'watch', ->
   # gulp.watch './source/assets/img/**/*.{ico,svg}', ['imagecopy']
   # gulp.watch './source/assets/font/**/*', ['fontcopy']
   $.watch 'source/**/*.{html,php}', -> gulp.start 'htmlcopy'
-  $.watch 'source/assets/css/*.{sass,scss}', -> gulp.start 'sass'
-  $.watch 'source/assets/js/*.coffee', -> gulp.start 'coffee'
+  $.watch 'source/assets/css/**/*.{sass,scss}', -> gulp.start 'sass'
+  $.watch 'source/assets/js/**/*.coffee', -> gulp.start 'coffee'
   $.watch 'source/assets/img/**/*.{png,jpg,gif,svg}', -> gulp.start 'imagemin'
   $.watch 'source/assets/img/**/*.{ico}', -> gulp.start 'imagecopy'
   $.watch 'source/assets/font/**/*', -> gulp.start 'fontcopy'

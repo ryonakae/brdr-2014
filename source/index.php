@@ -60,7 +60,7 @@
                 <?php if (has_post_thumbnail()) : ?>
                   <?php the_post_thumbnail('square_medium'); ?>
                 <?php else: ?>
-                  <img class="noimage" src="<?php echo get_template_directory_uri(); ?>/assets/img/noimg_square.jpg" alt="noimage">
+                  <img class="noimage" src="<?php echo get_template_directory_uri(); ?>/assets/img/noimg_medium.jpg" alt="noimage">
                 <?php endif; ?>
               </a>
             </figure>
@@ -90,7 +90,7 @@
           <article class="box box-playgrounds">
             <figure class="box-image">
               <a href="" target="_blank">
-                <img src="http://placehold.jp/320x320.png" alt="">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/playground_dribbble.svg" alt="Dribbble">
               </a>
             </figure>
             <h1 class="box-title"><a href="" target="_blank">Dribbble</a></h1>
@@ -101,7 +101,7 @@
           <article class="box box-playgrounds">
             <figure class="box-image">
               <a href="" target="_blank">
-                <img src="http://placehold.jp/320x320.png" alt="">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/playground_jaypeg.svg" alt="JAYPEG">
               </a>
             </figure>
             <h1 class="box-title"><a href="" target="_blank">JAYPEG</a></h1>
@@ -112,7 +112,7 @@
           <article class="box box-playgrounds">
             <figure class="box-image">
               <a href="" target="_blank">
-                <img src="http://placehold.jp/320x320.png" alt="">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/playground_github.svg" alt="GitHub">
               </a>
             </figure>
             <h1 class="box-title"><a href="" target="_blank">GitHub</a></h1>
@@ -150,7 +150,7 @@
                 <?php if (has_post_thumbnail()) : ?>
                   <?php the_post_thumbnail('square_small'); ?>
                 <?php else: ?>
-                  <img class="noimage" src="<?php echo get_template_directory_uri(); ?>/assets/img/noimg_square.jpg" alt="noimage">
+                  <img class="noimage" src="<?php echo get_template_directory_uri(); ?>/assets/img/noimg_small.jpg" alt="noimage">
                 <?php endif; ?>
               </a>
             </figure>

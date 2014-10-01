@@ -6,7 +6,7 @@
       wp_deregister_script('jquery');
     }
   }
-  add_action('init', 'disable_jquery');
+  add_action('wp_enqueue_scripts', 'disable_jquery');
 
 
   // head内の不要なタグを削除
@@ -17,8 +17,8 @@
   remove_action('wp_head', 'feed_links_extra', 3); // コメントのRSS
   remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
   // User Access Manager
-  remove_action('wp_print_scripts', array($oUserAccessManager, 'addScripts'));
-  remove_action('wp_print_styles', array($oUserAccessManager, 'addStyles'));
+  // remove_action('wp_print_scripts', array($oUserAccessManager, 'addScripts'));
+  // remove_action('wp_print_styles', array($oUserAccessManager, 'addStyles'));
 
 
   // インラインスタイル削除
@@ -109,14 +109,14 @@
       return;
 
     // information archive
-    if ( $wp_query->is_archive() ) {
+    elseif ( $wp_query->is_archive() ) {
       $wp_query->set( 'posts_per_page', 5 );
       $wp_query->set( 'orderby', 'date' );
       $wp_query->set( 'order', 'DESC' );
     }
 
     // works archive
-    if ( $wp_query->is_post_type_archive('works') ) {
+    elseif ( $wp_query->is_post_type_archive('works') ) {
       $wp_query->set( 'post_type', 'works' );
       $wp_query->set( 'posts_per_page', 9 );
       $wp_query->set( 'orderby', 'date' );

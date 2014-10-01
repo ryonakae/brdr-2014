@@ -1,3 +1,9 @@
+<?php
+/*
+Template Name: Informaton
+*/
+?>
+
 <?php get_header(); ?>
 
 <?php include('util-pageclass.php'); ?>
@@ -9,11 +15,22 @@
   <!-- main -->
   <div class="l-section">
     <div class="l-container">
-      <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+      <?php
+        $wp_query = new WP_Query();
+        $param = array(
+          'posts_per_page' => '5',
+          'post_type' => 'post',
+          'post_status' => 'publish',
+          'orderby' => 'date',
+          'order' => 'DESC'
+        );
+        $wp_query->query($param);
+        if( $wp_query->have_posts() ) : while( $wp_query->have_posts() ) : $wp_query->the_post();
+      ?>
 
       <?php include('parts-entry-loop-information.php'); ?>
 
-      <?php endwhile; endif; ?>
+      <?php endwhile; wp_reset_postdata(); endif; ?>
 
       <div class="pager">
         <?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?>
