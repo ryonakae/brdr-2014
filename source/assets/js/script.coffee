@@ -105,7 +105,7 @@ $ ->
             !$.pjax.getCache( this.url ) && $.pjax.setCache( this.url, null, textStatus, XMLHttpRequest )
           done: (data, textStatus, XMLHttpRequest) ->
             !$.pjax.getCache( this.url ) && $.pjax.setCache( this.url, null, textStatus, XMLHttpRequest )
-            console.log 'preload done'
+            # console.log 'preload done'
 
 
     # pjax
@@ -127,15 +127,15 @@ $ ->
           content:
             after: ->
               $progressbar.css 'width':'40%'
-              console.log 'content loaded'
+              # console.log 'content loaded'
           css:
             after: ->
               $progressbar.css 'width':'60%'
-              console.log 'css loaded'
+              # console.log 'css loaded'
           script:
             after: ->
               $progressbar.css 'width':'80%'
-              console.log 'script loaded'
+              # console.log 'script loaded'
 
 
     ###
@@ -144,14 +144,14 @@ $ ->
     # 1 fetch
     $(document).on 'pjax:fetch', ->
       $progressbar.css 'width':''
-      console.log '1 データ取得処理前'
+      # console.log '1 データ取得処理前'
 
       $progressbar.removeClass 'is-hidden'
-      console.log 'progressbar show'
+      # console.log 'progressbar show'
 
     # 2 unload
     $(window).on 'pjax:unload', ->
-      console.log '2 データの取得後、ページの更新前'
+      # console.log '2 データの取得後、ページの更新前'
       # eventhandler off
       $(window).off 'load'
       $(window).off 'resize'
@@ -159,7 +159,7 @@ $ ->
 
     # 3 DOMContentLoaded
     $(document).on 'pjax:DOMContentLoaded', ->
-      console.log '3 すべての範囲のDOMの更新後(CSSの更新とScriptの実行は未完了)'
+      # console.log '3 すべての範囲のDOMの更新後(CSSの更新とScriptの実行は未完了)'
       pageClass = $('#js-pjaxArea').attr 'data-pageclass'
       $('body').removeClass().addClass pageClass
 
@@ -173,21 +173,21 @@ $ ->
     # 4 ready
     $(document).on 'pjax:ready', ->
       $(document).trigger('preload')
-      console.log '4 すべてのDOMの更新後'
+      # console.log '4 すべてのDOMの更新後'
 
     # 5 render
     $(document).on 'pjax:render', ->
-      console.log '5 すべての更新範囲の描画後'
+      # console.log '5 すべての更新範囲の描画後'
 
       if $('body').hasClass('page-single')
         commonGoogleCodePrettify()
-        console.log 'GoogleCodePrettify done'
+        # console.log 'GoogleCodePrettify done'
 
       $progressbar.css 'width':'100%'
       setTimeout ->
         $progressbar.addClass 'is-hidden'
       , 300
-      console.log 'progressbar hide'
+      # console.log 'progressbar hide'
 
       # eventhandler on
       $(window).on 'resize', ->
@@ -206,14 +206,14 @@ $ ->
 
           if $('body').hasClass('page-index') || $('body').hasClass('single-works')
             indexMainvisualImageResize()
-            console.log 'now:index'
+            # console.log 'now:index'
           else
             commonMainvisualImageResize()
-            console.log 'now:other'
+            # console.log 'now:other'
 
     # 6 load
     $(window).on 'pjax:load', ->
-      console.log '6 すべての画像とフレームの読み込み後'
+      # console.log '6 すべての画像とフレームの読み込み後'
 
 
   # common global navigation toggle
@@ -239,7 +239,7 @@ $ ->
   # common mainvisual resize
   commonMainvisualImageResize = ->
     $('#js-mainvisual-image img').imgResize()
-    console.log 'common mainvisual resized'
+    # console.log 'common mainvisual resized'
 
 
   # common mainvisual show
@@ -262,12 +262,12 @@ $ ->
     $('#js-mainvisual').boxResize
       parent: $(window)
       scaleHeight: 1
-    console.log 'index mainvisual area resized'
+    # console.log 'index mainvisual area resized'
 
   # index mainvisual resize
   indexMainvisualImageResize = ->
     $('#js-mainvisual-image img').imgResize()
-    console.log 'index mainvisual image resized'
+    # console.log 'index mainvisual image resized'
 
 
   ###
