@@ -1,7 +1,8 @@
 $ ->
   'use strict'
 
-  is_pc = !/touch|tablet|mobile|phone|android|iphone|ipad|blackberry/i.test(window.navigator.userAgent)
+  is_pc = !/touch|tablet|mobile|phone|android|iphone|ipad|blackberry/i.test window.navigator.userAgent
+  is_iosChrome = navigator.userAgent.match 'CriOS'
 
   ###
   Set Function Common
@@ -199,7 +200,9 @@ $ ->
 
       if document.getElementById("js-mainvisual") != null
         image = $('#js-mainvisual-image').find('img')
-        image.attr "src", image.attr("src") + "?t=" + (new Date().getTime())
+
+        if is_iosChrome
+          image.attr "src", image.attr("src") + "?t=" + (new Date().getTime())
 
         if $('body').hasClass('page-index') || $('body').hasClass('single-works')
           indexMainvisualResize()
@@ -292,7 +295,9 @@ $ ->
   # load
   if document.getElementById("js-mainvisual") != null
     image = $('#js-mainvisual-image').find('img')
-    image.attr "src", image.attr("src") + "?t=" + (new Date().getTime())
+
+    if is_iosChrome
+      image.attr "src", image.attr("src") + "?t=" + (new Date().getTime())
 
     if $('body').hasClass('page-index') || $('body').hasClass('single-works')
       indexMainvisualResize()
