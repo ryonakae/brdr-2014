@@ -89,33 +89,33 @@
         <div class="l-grid-4">
           <article class="box box-playgrounds">
             <figure class="box-image">
-              <a href="" target="_blank">
+              <a href="https://dribbble.com/ryo_dg" target="_blank">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/playground_dribbble.svg" alt="Dribbble">
               </a>
             </figure>
-            <h1 class="box-title"><a href="" target="_blank">Dribbble</a></h1>
+            <h1 class="box-title"><a href="https://dribbble.com/ryo_dg" target="_blank">Dribbble</a></h1>
           </article>
         </div>
 
         <div class="l-grid-4">
           <article class="box box-playgrounds">
             <figure class="box-image">
-              <a href="" target="_blank">
+              <a href="https://jypg.net/ryo_dg" target="_blank">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/playground_jaypeg.svg" alt="JAYPEG">
               </a>
             </figure>
-            <h1 class="box-title"><a href="" target="_blank">JAYPEG</a></h1>
+            <h1 class="box-title"><a href="https://jypg.net/ryo_dg" target="_blank">JAYPEG</a></h1>
           </article>
         </div>
 
         <div class="l-grid-4">
           <article class="box box-playgrounds">
             <figure class="box-image">
-              <a href="" target="_blank">
+              <a href="https://github.com/ryonakae" target="_blank">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/playground_github.svg" alt="GitHub">
               </a>
             </figure>
-            <h1 class="box-title"><a href="" target="_blank">GitHub</a></h1>
+            <h1 class="box-title"><a href="https://github.com/ryonakae" target="_blank">GitHub</a></h1>
           </article>
         </div>
       </div>

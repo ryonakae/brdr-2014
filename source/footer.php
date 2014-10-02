@@ -5,9 +5,9 @@
 
     <nav class="personallink">
       <ul>
-        <li><a href="" target="_blank"><i class="icon-twitter"></i></a></li>
-        <li><a href="" target="_blank"><i class="icon-facebook"></i></a></li>
-        <li><a href="" target="_blank"><i class="icon-paper-plane"></i></a></li>
+        <li><a href="https://twitter.com/brdr_slash" target="_blank"><i class="icon-twitter"></i></a></li>
+        <li><a href="https://www.facebook.com/brdrslash" target="_blank"><i class="icon-facebook"></i></a></li>
+        <li><a href="mailto:me@ryonakae.com" target="_blank"><i class="icon-paper-plane"></i></a></li>
       </ul>
     </nav>
   </div>

@@ -39,39 +39,67 @@
       <article class="l-row entry">
         <div class="l-grid-3">
           <aside class="entry-info">
-            <h1 class="entry-link">
-              <a href="" target="_blank"><?php the_title(); ?></a>
-            </h1>
+            <?php if( get_field('works-url') ) : ?>
+              <h1 class="entry-link">
+                <a href="<?php the_field('works-url',$post->ID); ?>" target="_blank"><?php the_title(); ?></a>
+              </h1>
+            <?php else : ?>
+              <h1 class="entry-link">
+                <?php the_title(); ?>
+              </h1>
+            <?php endif; ?>
 
             <section>
               <h1 class="entry-info-title">Release</h1>
-              <p>2013.11</p>
+              <p><time pubdate="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.n'); ?></time></p>
             </section>
 
+            <section>
+              <h1 class="entry-info-title">Category</h1>
+              <p><?php echo get_the_term_list($post->ID, 'works-category','',','); ?></p>
+            </section>
+
+            <?php if( get_field('works-credit') ) : ?>
             <section>
               <h1 class="entry-info-title">Credit</h1>
               <dl>
-                <dt>Art Direction</dt>
-                <dd>RYO NAKAE</dd>
-
-                <dt>Design</dt>
-                <dd>RYO NAKAE</dd>
-
-                <dt>Markup</dt>
-                <dd>RYO NAKAE</dd>
+                <?php while( the_repeater_field('works-credit') ) : ?>
+                <dt><?php the_sub_field('works-credit-title',$post->ID); ?></dt>
+                <dd><?php the_sub_field('works-credit-name',$post->ID); ?></dd>
+                <?php endwhile; ?>
               </dl>
             </section>
+            <?php endif; ?>
 
+            <?php if( get_field('works-technology') ) : ?>
             <section>
               <h1 class="entry-info-title">Technology</h1>
               <ul>
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>Responsive</li>
-                <li>Web Font</li>
-                <li>SVG</li>
+                <?php
+                  $field = get_field_object('works-technology');
+                  $technologies = get_field('works-technology');
+                  foreach ($technologies as $technology) :
+                ?>
+                <li><?php echo $field['choices'][$technology]; ?></li>
+              <?php endforeach; ?>
               </ul>
             </section>
+            <?php endif; ?>
+
+            <?php if( get_field('works-tool') ) : ?>
+            <section>
+              <h1 class="entry-info-title">Tool</h1>
+              <ul>
+                <?php
+                  $field = get_field_object('works-tool');
+                  $tools = get_field('works-tool');
+                  foreach ($tools as $tool) :
+                ?>
+                <li><?php echo $field['choices'][$tool]; ?></li>
+              <?php endforeach; ?>
+              </ul>
+            </section>
+            <?php endif; ?>
           </aside>
         </div>
 
@@ -82,22 +110,21 @@
             <?php if( get_field('works-imagelist') ) : ?>
             <div class="entry-imagelist">
               <ul>
-                <?php while( the_repeater_field('works-imagelist') ) : ?>
-                  <?php
-                    if( get_sub_field('works-image') ) :
-                    $attachment_id = get_sub_field('works-image');
-                    $image = wp_get_attachment_image_src($attachment_id, 'medium');
-                    $img_src = $image[0];
-                    $img_width = $image[1];
-                    $img_height = $image[2];
-                  ?>
-                  <li class="imagelist-image">
-                    <figure class="img">
-                      <img src="<?php echo $img_src; ?>" width="<?php echo $img_width; ?>" height="<?php echo $img_height; ?>" alt="">
-                    </figure>
-                  </li>
-                  <?php endif; ?>
-                <?php endwhile; ?>
+                <?php
+                  while( the_repeater_field('works-imagelist') ) :
+                  if( get_sub_field('works-image') ) :
+                  $attachment_id = get_sub_field('works-image');
+                  $image = wp_get_attachment_image_src($attachment_id, 'medium');
+                  $img_src = $image[0];
+                  $img_width = $image[1];
+                  $img_height = $image[2];
+                ?>
+                <li class="imagelist-image">
+                  <figure class="img">
+                    <img src="<?php echo $img_src; ?>" width="<?php echo $img_width; ?>" height="<?php echo $img_height; ?>" alt="">
+                  </figure>
+                </li>
+                <?php endif; endwhile; ?>
               </ul>
             </div>
             <?php endif; ?>
