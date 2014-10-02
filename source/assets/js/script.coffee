@@ -201,16 +201,17 @@ $ ->
         image = $('#js-mainvisual-image').find('img')
         image.attr "src", image.attr("src") + "?t=" + (new Date().getTime())
 
-        $('#js-mainvisual-image').imagesLoaded().done (instance) ->
-          if $('body').hasClass('page-index') || $('body').hasClass('single-works')
-            indexMainvisualResize()
+        if $('body').hasClass('page-index') || $('body').hasClass('single-works')
+          indexMainvisualResize()
+          $('#js-mainvisual-image').imagesLoaded().done (instance) ->
             indexMainvisualImageResize()
-            # console.log 'now:index'
-          else
+            commonMainvisualShow()
+          # console.log 'now:index'
+        else
+          $('#js-mainvisual-image').imagesLoaded().done (instance) ->
             commonMainvisualImageResize()
-            # console.log 'now:other'
-
-          commonMainvisualShow()
+            commonMainvisualShow()
+          # console.log 'now:other'
 
     # 6 load
     $(window).on 'pjax:load', ->
@@ -293,14 +294,15 @@ $ ->
     image = $('#js-mainvisual-image').find('img')
     image.attr "src", image.attr("src") + "?t=" + (new Date().getTime())
 
-    $('#js-mainvisual-image').imagesLoaded().done (instance) ->
-      if $('body').hasClass('page-index') || $('body').hasClass('single-works')
-        indexMainvisualResize()
+    if $('body').hasClass('page-index') || $('body').hasClass('single-works')
+      indexMainvisualResize()
+      $('#js-mainvisual-image').imagesLoaded().done (instance) ->
         indexMainvisualImageResize()
-      else
+        commonMainvisualShow()
+    else
+      $('#js-mainvisual-image').imagesLoaded().done (instance) ->
         commonMainvisualImageResize()
-
-      commonMainvisualShow()
+        commonMainvisualShow()
 
 
   # resize
