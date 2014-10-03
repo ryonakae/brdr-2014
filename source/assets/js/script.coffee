@@ -7,22 +7,6 @@ $ ->
   ###
   Set Function Common
   ###
-  # lazyLoad
-  $.fn.lazyLoad = ->
-    @.each ->
-      imgSrc = $(@).attr 'data-src'
-
-      # data-src is true
-      if imgSrc != 'undefined' && imgSrc != false
-        $(@).attr 'src', imgSrc
-
-      # after load
-      $(@).on 'load', ->
-        $(@).animate 'opacity' : 1 , 800, ->
-          $(@).parent().removeClass 'imgLoading'
-          $(@).attr 'src', $(@).attr('src') + '?' + (new Date().getTime())
-
-
   # img resize
   $.fn.imgResize = (options) ->
     options = $.extend
@@ -203,6 +187,7 @@ $ ->
 
         if is_iosChrome
           image.attr "src", image.attr("src") + "?t=" + (new Date().getTime())
+          console.log 'image timestamped'
 
         if $('body').hasClass('page-index') || $('body').hasClass('single-works')
           indexMainvisualResize()
@@ -298,6 +283,7 @@ $ ->
 
     if is_iosChrome
       image.attr "src", image.attr("src") + "?t=" + (new Date().getTime())
+      console.log 'image timestamped'
 
     if $('body').hasClass('page-index') || $('body').hasClass('single-works')
       indexMainvisualResize()
