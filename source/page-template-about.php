@@ -9,11 +9,13 @@ Template Name: About
 <?php include('util-pageclass.php'); ?>
 
 <!-- content -->
-<div class="l-content" id="js-pjaxArea" data-pageClass="page-page">
+<div class="l-content" id="js-pjaxArea" data-pageClass="<?php echo $pageClass; ?>">
+  <?php if (have_posts()) : while (have_posts()) : the_post(); /* エントリー開始 */ ?>
+
   <!-- main-visual -->
   <div class="mainvisual" id="js-mainvisual">
     <figure class="mainvisual-image is-hidden" id="js-mainvisual-image">
-      <img src="https://farm8.staticflickr.com/7390/12534523893_de31ce5613_k.jpg" alt="">
+      <?php the_post_thumbnail('large'); ?>
     </figure>
 
     <div class="mainvisual-loader">
@@ -40,44 +42,25 @@ Template Name: About
           <aside class="entry-info">
             <dl>
               <dt class="entry-info-subtitle">Author</dt>
-              <dd>by RYO NAKAE</dd>
+              <dd>by <?php the_author(); ?></dd>
             </dl>
           </aside>
         </dic>
 
         <div class="l-grid-9">
           <header class="entry-header">
-            <h1 class="entry-title">About</h1>
+            <h1 class="entry-title"><?php the_title(); ?></h1>
           </header>
 
           <section class="entry-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa debitis cumque facilis, tempora rerum necessitatibus ullam. Perspiciatis corporis iusto perferendis, excepturi minima repudiandae ipsa non possimus! Labore quam aliquam, perferendis.</p>
-            <p>Border/ is my portfolio, blog, diary, memo pad, photo album, etc.<br>Powerd by WordPress.</p>
-            <p>Border/ is my portfolio, blog, diary, memo pad, photo album, etc.<br>Powerd by WordPress.</p>
-            <p><strong>Border/ is my portfolio, blog, diary, memo pad, photo album, etc.<br>Powerd by WordPress.</strong></p>
-
-            <h2>RYO NAKAE / 中江 亮</h2>
-            <p>I’m a Web Designer in Kyoto, Japan.</p>
-
-            <hr>
-
-            <h3>Contact me</h3>
-            <p>Please contact me.</p>
-            <ul>
-              <li><a href="">Facebook</a></li>
-              <li><a href="">Twitter</a></li>
-              <li><a href="">Dribbble</a></li>
-              <li><a href="" target="_blank">JAYPEG</a></li>
-            </ul>
+            <?php the_content(); ?>
           </section>
-
-          <footer class="entry-footer">
-            footer
-          </footer>
         </div>
       </div>
     </div>
   </div>
+
+  <?php endwhile; endif; ?>
 </div>
 
 <?php get_footer(); ?>

@@ -68,7 +68,7 @@
               <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
             </h1>
             <p class="box-info">
-              <small><time pubdate="<?php the_time('Y-m-d'); ?>"><?php the_time('Y'); ?></time> / Website</small>
+              <small><time pubdate="<?php the_time('Y-m-d'); ?>"><?php the_time('Y'); ?></time> / <?php echo get_the_term_list($post->ID, 'works-category','',','); ?></small>
             </p>
           </article>
         </div>
