@@ -73,11 +73,23 @@ gulp.task 'imagemin', ->
 gulp.task 'htmlcopy', ->
   gulp
     .src './source/**/*.{html,php}'
+    .pipe $.cache gulp.dest './build/'
+    .pipe browserSync.reload stream:true, once:true
+
+gulp.task 'htmlcopy_initial', ->
+  gulp
+    .src './source/**/*.{html,php}'
     .pipe gulp.dest './build/'
     .pipe browserSync.reload stream:true, once:true
 
 # Copy Image
 gulp.task 'imagecopy', ->
+  gulp
+    .src './source/assets/img/**/*.{ico}'
+    .pipe $.cache gulp.dest './build/assets/img/'
+    .pipe browserSync.reload stream:true, once:true
+
+gulp.task 'imagecopy_initial', ->
   gulp
     .src './source/assets/img/**/*.{ico}'
     .pipe gulp.dest './build/assets/img/'
@@ -87,17 +99,17 @@ gulp.task 'imagecopy', ->
 gulp.task 'fontcopy', ->
   gulp
     .src './source/assets/font/**/*'
+    .pipe $.cache gulp.dest './build/assets/font/'
+    .pipe browserSync.reload stream:true, once:true
+
+gulp.task 'fontcopy_initial', ->
+  gulp
+    .src './source/assets/font/**/*'
     .pipe gulp.dest './build/assets/font/'
     .pipe browserSync.reload stream:true, once:true
 
 # watch
 gulp.task 'watch', ->
-  # gulp.watch './source/**/*.{html,php}', ['htmlcopy']
-  # gulp.watch './source/assets/css/*.{sass,scss}', ['sass']
-  # gulp.watch './source/assets/js/*.coffee', ['coffee']
-  # gulp.watch './source/assets/img/**/*.{png,jpg,gif}', ['imagemin']
-  # gulp.watch './source/assets/img/**/*.{ico,svg}', ['imagecopy']
-  # gulp.watch './source/assets/font/**/*', ['fontcopy']
   $.watch 'source/**/*.{html,php}', -> gulp.start 'htmlcopy'
   $.watch 'source/assets/css/**/*.{sass,scss}', -> gulp.start 'sass'
   $.watch 'source/assets/js/**/*.coffee', -> gulp.start 'coffee'
@@ -107,4 +119,4 @@ gulp.task 'watch', ->
 
 # Watch
 gulp.task 'default', ->
-  $.runSequence 'clean', ['sass', 'coffee', 'javascript', 'imagemin'], ['htmlcopy', 'imagecopy', 'fontcopy'], 'browserSync', 'watch'
+  $.runSequence 'clean', ['sass', 'coffee', 'javascript', 'imagemin'], ['htmlcopy_initial', 'imagecopy_initial', 'fontcopy_initial'], 'browserSync', 'watch'

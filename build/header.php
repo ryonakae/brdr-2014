@@ -61,6 +61,9 @@
       <li><a href="<?php bloginfo('url'); ?>/works">Works</a></li>
       <li><a href="<?php bloginfo('url'); ?>/information">Information</a></li>
       <li><a class="ext" href="http://memo.brdr.jp" target="_blank">Blog</a></li>
+      <?php if ( is_user_logged_in() ) : ?>
+        <li><a href="<?php echo wp_logout_url(); ?>">Logout</a></li>
+      <? endif; ?>
     </ul>
   </nav>
 

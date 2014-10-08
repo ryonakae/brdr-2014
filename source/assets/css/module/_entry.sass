@@ -233,17 +233,21 @@ body.page-archive.archive-information .entry
     display: inline-block
 
   .pager-prev,
-  .pager-next
+  [rel="prev"],
+  .pager-next,
+  [rel="next"]
     position: absolute
     top: 0
 
     i
       margin-top: -1px
 
-  .pager-prev
+  .pager-prev,
+  [rel="prev"]
     left: 50%
     margin-left: -100px
 
-  .pager-next
+  .pager-next,
+  [rel="next"]
     right: 50%
     margin-right: -100px

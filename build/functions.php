@@ -1,12 +1,12 @@
 <?php
 
   // JavaScriptの読み込みを管理
-  function disable_jquery() {
-    if (!is_admin()) {
-      wp_deregister_script('jquery');
-    }
-  }
-  add_action('wp_enqueue_scripts', 'disable_jquery');
+  // function disable_jquery() {
+  //   if (!is_admin()) {
+  //     wp_deregister_script('jquery');
+  //   }
+  // }
+  // add_action('wp_enqueue_scripts', 'disable_jquery');
 
 
   // head内の不要なタグを削除
@@ -109,7 +109,7 @@
       return;
 
     // information archive
-    elseif ( $wp_query->is_archive() ) {
+    elseif ( $wp_query->is_archive() && !$wp_query->is_post_type_archive('works') ) {
       $wp_query->set( 'posts_per_page', 5 );
       $wp_query->set( 'orderby', 'date' );
       $wp_query->set( 'order', 'DESC' );

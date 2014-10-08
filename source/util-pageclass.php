@@ -13,21 +13,20 @@
     $pageClass = 'page-archive archive-' . $posttype_slug;
   }
   elseif ( is_single() ) {
-    if ( get_post_type() != 'post' ) {
-      $posttype_slug = esc_html(get_post_type_object(get_post_type())->name);
-      $pageClass = 'page-single single-' . $posttype_slug;
+    if ( get_post_type() == 'post' ) {
+      // $cat = get_the_category();
+      // $cat = $cat[0];
+      // $pageClass = 'page-single single-' . $cat->category_nicename;
+      $pageClass = 'page-single single-information';
     }
     else {
-      $cat = get_the_category();
-      $cat = $cat[0];
-      if ( $cat->category_parent ) {
-        $cat = get_category($cat->category_parent);
-        $cat = $cat->slug;
+      $posttype_slug = esc_html(get_post_type_object(get_post_type())->name);
+      if ( $posttype_slug == 'closed-works' ) {
+        $pageClass = 'page-single single-works';
       }
       else {
-        $cat = $cat->slug;
+        $pageClass = 'page-single single-' . $posttype_slug;
       }
-      $pageClass = 'page-single single-' . $cat;
     }
   }
   else {

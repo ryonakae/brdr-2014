@@ -1,20 +1,15 @@
+<?php
+  if ( !is_user_logged_in() ){
+    auth_redirect();
+  }
+?>
+
 <?php get_header(); ?>
 
 <?php include('util-pageclass.php'); ?>
 
 <!-- content -->
 <div class="l-content" id="js-pjaxArea" data-pageClass="<?php echo $pageClass; ?>">
-  <nav class="localnavi">
-    <ul>
-      <?php
-        wp_list_categories(array(
-          'title_li' => '',
-          'taxonomy' => 'works-category'
-        ));
-      ?>
-    </ul>
-  </nav>
-
   <!-- main -->
   <div class="l-section">
     <div class="l-container">
