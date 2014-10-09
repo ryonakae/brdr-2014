@@ -26,6 +26,9 @@ Template Name: Informaton
         );
         $wp_query->query($param);
         if( $wp_query->have_posts() ) : while( $wp_query->have_posts() ) : $wp_query->the_post();
+
+        // the_content()のmoreを機能させる
+        global $more; $more=false;
       ?>
 
       <?php include('parts-entry-loop-information.php'); ?>

@@ -88,11 +88,23 @@ body.page-archive.archive-information .entry
   strong
     background-color: #fff9ab
 
+  .button
+    margin-top: 1em
+
   h1, h2, h3, h4, h5, h6
+    float: left
     display: inline-block
-    border-bottom: 1px solid $fontColor-base
     padding-bottom: 0.5em
     margin: 1.3em 0 1em 0
+
+    + *
+      clear: both
+
+    + h1, + h2, + h3, + h4, + h5, + h6
+      margin-top: 0.2em
+
+  h1, h2, h3
+    border-bottom: 1px solid $fontColor-base
 
   h1
     font-size: 2.7rem
@@ -104,7 +116,7 @@ body.page-archive.archive-information .entry
 
   h3
     font-size: 2.1rem
-    border-width: 2px
+    border-width: 1px
 
   h4
     font-size: 1.9rem

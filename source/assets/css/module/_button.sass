@@ -7,6 +7,7 @@
   padding: 0.65em 2em 0.45em 2em
   min-width: 180px
   letter-spacing: 0.08em
+  @extend %animation
 
   // &:hover
 
@@ -50,6 +51,18 @@
     opacity: 1
     color: $fontColor-inverse
     background: $bgColor-inverse
+
+
+.button-entry-more
+  color: $fontColor-link
+  background: transparent
+  border: 1px solid $fontColor-link
+  min-width: 120px
+
+  &:hover
+    opacity: 1
+    background: $fontColor-link
+    color: $fontColor-inverse
 
 
 body.page-index .section-works .button

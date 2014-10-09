@@ -35,8 +35,8 @@
 
   // アイキャッチ画像の有効化
   add_theme_support('post-thumbnails');
-  add_image_size('square_small', 360, 360, true);
-  add_image_size('square_medium', 640, 640, true);
+  // add_image_size('square_small', 360, 360, true);
+  // add_image_size('square_medium', 640, 640, true);
 
 
   // アイキャッチ画像生成時の画質を変更
@@ -84,23 +84,29 @@
   function my_excerpt_more($more) {
     return ' ...';
   }
-  function my_trim_excerpt($text, $raw_excerpt){
-    global $post;
-    $e = explode(' ...', $text);
-    if($raw_excerpt || false !== strpos($post->post_content, '<!--more') || '' === $e[1])
-      $text .= '<a class="button button-default" href="' . get_permalink() . '">More</a>';
-    return $text;
-  }
   function my_excerpt_length($length) {
-    return 50;
+    return 100;
   }
   function my_excerpt_mblength($length) {
-    return 10;
+    return 50;
   }
   add_filter('excerpt_more', 'my_excerpt_more');
-  // add_filter('wp_trim_excerpt', 'my_trim_excerpt', 10, 2);
   add_filter('excerpt_length', 'my_excerpt_length');
   add_filter('excerpt_mblength', 'my_excerpt_mblength');
+
+
+  // moreリンクの遷移先を記事の一番上に
+  function remove_more_hash($link) {
+    $offset = strpos($link, '#more-');
+    if ($offset) {
+      $end = strpos($link, '"',$offset);
+    }
+    if ($end) {
+      $link = substr_replace($link, '', $offset, $end-$offset);
+    }
+    return $link;
+  }
+  add_filter('the_content_more_link', 'remove_more_hash');
 
 
   // pre_get_posts

@@ -22,7 +22,7 @@
     </header>
 
     <section class="entry-content">
-      <?php the_content('More'); ?>
+    <?php the_content('<span class="button button-entry-more">More</span>'); ?>
     </section>
   </div>
 </article>

@@ -8,7 +8,7 @@
   elseif( is_category() || is_page('information') ) {
     $pageClass = 'page-archive archive-information';
   }
-  elseif ( is_post_type_archive() ) {
+  elseif ( is_post_type_archive() || is_tax() ) {
     $posttype_slug = esc_html(get_post_type_object(get_post_type())->name);
     $pageClass = 'page-archive archive-' . $posttype_slug;
   }

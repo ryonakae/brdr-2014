@@ -58,7 +58,7 @@
             <figure class="box-image">
               <a href="<?php the_permalink(); ?>">
                 <?php if (has_post_thumbnail()) : ?>
-                  <?php the_post_thumbnail('square_medium'); ?>
+                  <?php the_post_thumbnail('thumbnail'); ?>
                 <?php else: ?>
                   <img class="noimage" src="<?php echo get_template_directory_uri(); ?>/assets/img/noimg_medium.jpg" alt="noimage">
                 <?php endif; ?>
@@ -148,7 +148,7 @@
             <figure class="box-image">
               <a href="<?php the_permalink(); ?>">
                 <?php if (has_post_thumbnail()) : ?>
-                  <?php the_post_thumbnail('square_small'); ?>
+                  <?php the_post_thumbnail('thumbnail'); ?>
                 <?php else: ?>
                   <img class="noimage" src="<?php echo get_template_directory_uri(); ?>/assets/img/noimg_small.jpg" alt="noimage">
                 <?php endif; ?>

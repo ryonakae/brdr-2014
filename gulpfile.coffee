@@ -47,7 +47,6 @@ gulp.task 'coffee', ->
 gulp.task 'javascript', ->
   streamqueue objectMode: true,
       gulp.src './source/assets/js/core/jquery.min.js'
-      gulp.src './source/assets/js/core/jquery.easing.min.js'
       gulp.src './source/assets/js/lib/*.js'
     .pipe $.plumber()
     .pipe $.concat 'lib.js'
