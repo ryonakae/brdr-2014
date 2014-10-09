@@ -24,7 +24,6 @@
 <!-- overlay -->
 <div class="overlay" id="js-overlay"></div>
 
-<!--
 <script>
   // Google Analytics
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -64,7 +63,6 @@
     }
   }(document, 'script', 'twitter-wjs');
 </script>
--->
 
 <?php wp_footer(); ?>
 </body>

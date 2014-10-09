@@ -10,13 +10,13 @@
 
   <!-- OGP -->
   <meta property="fb:admins" content="100001275466582">
-  <meta property="og:url" content="">
+  <meta property="og:url" content="<?php the_permalink(); ?>">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="">
+  <meta property="og:title" content="<?php the_title(); ?>">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:image" content="">
-  <meta property="og:description" content="">
-  <meta property="og:site_name" content="">
+  <meta property="og:description" content="<?php bloginfo('description'); ?>">
+  <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
   <!-- <meta property="article:publisher" content=""> -->
 
   <meta name="twitter:site" value="@brdr_slash">

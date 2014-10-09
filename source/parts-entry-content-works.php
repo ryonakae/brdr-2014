@@ -126,7 +126,7 @@
 
         <?php if ( get_post_type() == 'works' ) : ?>
         <footer class="entry-footer">
-          footer
+          <div class="entry-share" id="js-share" data-title="sharrre" data-url="<?php the_permalink(); ?>"></div>
         </footer>
         <?php endif; ?>
       </div>

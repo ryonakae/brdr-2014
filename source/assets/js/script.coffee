@@ -166,6 +166,7 @@ $ ->
 
       if $('body').hasClass('page-single')
         commonGoogleCodePrettify()
+        sharrre()
         # console.log 'GoogleCodePrettify done'
 
       $progressbar.css 'width':'100%'
@@ -260,6 +261,30 @@ $ ->
     # console.log 'index mainvisual image resized'
 
 
+  # sharrre share buttons
+  sharrre = ->
+    $share = $('#js-share')
+
+    $share.sharrre
+      enableHover: false
+      enableCounter: false
+      share:
+        googlePlus: true
+        facebook: true
+        twitter: true
+      buttons:
+        googlePlus:
+          size: 'medium'
+          lang: 'ja'
+          annotation: 'bubble'
+        facebook:
+          layout: 'button_count'
+          lang: 'ja_JP'
+        twitter:
+          count: 'horizontal'
+          lang: 'ja'
+
+
   ###
   Do Function
   ###
@@ -275,6 +300,9 @@ $ ->
       $('#js-mainvisual').boxResize
         parent: $(window)
         scaleHeight: 1
+
+  if $('body').hasClass('page-single')
+    sharrre()
 
 
   # load
