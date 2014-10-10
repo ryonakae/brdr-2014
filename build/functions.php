@@ -35,7 +35,7 @@
 
   // アイキャッチ画像の有効化
   add_theme_support('post-thumbnails');
-  // add_image_size('square_small', 360, 360, true);
+  add_image_size('thumbnail_small', 360, 360, true);
   // add_image_size('square_medium', 640, 640, true);
 
 

@@ -148,7 +148,7 @@
             <figure class="box-image">
               <a href="<?php the_permalink(); ?>">
                 <?php if (has_post_thumbnail()) : ?>
-                  <?php the_post_thumbnail('thumbnail'); ?>
+                  <?php the_post_thumbnail('thumbnail_small'); ?>
                 <?php else: ?>
                   <img class="noimage" src="<?php echo get_template_directory_uri(); ?>/assets/img/noimg_small.jpg" alt="noimage">
                 <?php endif; ?>
