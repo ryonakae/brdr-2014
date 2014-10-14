@@ -101,6 +101,9 @@
     <ul>
       <li><a href="<?php bloginfo('url'); ?>/about">About</a></li>
       <li><a href="<?php bloginfo('url'); ?>/works">Works</a></li>
+      <?php if ( is_user_logged_in() ) : ?>
+        <li><a href="<?php bloginfo('url'); ?>/closed-works">Closed Works</a></li>
+      <? endif; ?>
       <li><a href="<?php bloginfo('url'); ?>/information">Information</a></li>
       <li><a class="ext" href="http://memo.brdr.jp" target="_blank">Blog</a></li>
       <?php if ( is_user_logged_in() ) : ?>

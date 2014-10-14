@@ -114,16 +114,24 @@
     if ( is_admin() || !$wp_query->is_main_query() )
       return;
 
-    // information archive
-    elseif ( $wp_query->is_archive() && !$wp_query->is_post_type_archive('works') ) {
+    // information(post) archive
+    elseif ( $wp_query->is_archive() && $wp_query->is_post_type_archive('post') ) {
       $wp_query->set( 'posts_per_page', 5 );
       $wp_query->set( 'orderby', 'date' );
       $wp_query->set( 'order', 'DESC' );
     }
 
     // works archive
-    elseif ( $wp_query->is_post_type_archive('works') ) {
+    elseif ( $wp_query->is_post_type_archive('works') || $wp_query->is_tax('works-category') ) {
       $wp_query->set( 'post_type', 'works' );
+      $wp_query->set( 'posts_per_page', 9 );
+      $wp_query->set( 'orderby', 'date' );
+      $wp_query->set( 'order', 'DESC' );
+    }
+
+    // closed works archive
+    elseif ( $wp_query->is_post_type_archive('closed-works') ) {
+      $wp_query->set( 'post_type', 'closed-works' );
       $wp_query->set( 'posts_per_page', 9 );
       $wp_query->set( 'orderby', 'date' );
       $wp_query->set( 'order', 'DESC' );
