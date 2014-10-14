@@ -6,7 +6,11 @@
 
   <div class="mainvisual-text is-hidden" id="js-mainvisual-text">
     <h1 class="mainvisual-title"><?php the_title(); ?></h1>
-    <p class="mainvisual-read"><time pubdate="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.n'); ?></time> / <?php echo get_the_term_list($post->ID, 'works-category','',','); ?></p>
+    <?php if ( get_post_type() == 'works' ) : ?>
+      <p class="mainvisual-read"><time pubdate="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.n'); ?></time> / <?php echo get_the_term_list($post->ID, 'works-category','',','); ?></p>
+    <?php else : ?>
+      <p class="mainvisual-read"><time pubdate="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.n'); ?></time></p>
+    <?php endif; ?>
   </div>
 
   <div class="mainvisual-loader">

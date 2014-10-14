@@ -40,7 +40,7 @@
 
 
   // アイキャッチ画像生成時の画質を変更
-  add_filter('jpeg_quality', function($arg){return 85;});
+  add_filter('jpeg_quality', function($arg){return 96;});
 
 
   // セルフピンバックの無効化
@@ -124,7 +124,7 @@
     // works archive
     elseif ( $wp_query->is_post_type_archive('works') || $wp_query->is_tax('works-category') ) {
       $wp_query->set( 'post_type', 'works' );
-      $wp_query->set( 'posts_per_page', 9 );
+      $wp_query->set( 'posts_per_page', 12 );
       $wp_query->set( 'orderby', 'date' );
       $wp_query->set( 'order', 'DESC' );
     }
@@ -132,7 +132,7 @@
     // closed works archive
     elseif ( $wp_query->is_post_type_archive('closed-works') ) {
       $wp_query->set( 'post_type', 'closed-works' );
-      $wp_query->set( 'posts_per_page', 9 );
+      $wp_query->set( 'posts_per_page', 12 );
       $wp_query->set( 'orderby', 'date' );
       $wp_query->set( 'order', 'DESC' );
     }
