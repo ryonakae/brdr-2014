@@ -9,15 +9,57 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
   <!-- OGP -->
+  <?php
+    $og_url = '';
+    $og_title = '';
+    $og_description = '';
+    $og_type = '';
+    $og_image = '';
+
+    if ( is_home() || is_archive() || is_post_type_archive() || is_tax() ) {
+      $og_url = get_bloginfo('url');
+      $og_title = get_bloginfo('name');
+      $og_description = get_bloginfo('description');
+      $og_type = 'website';
+      $og_image = get_template_directory_uri().'/assets/img/ogp.png';
+    }
+    else {
+      $og_url = get_permalink();
+      $og_title = wp_title('/', false, 'right').get_bloginfo('name');
+
+      // $og_description = get_the_excerpt();
+      $post_id = get_the_ID();
+      $post = get_post($post_id);
+      $content = $post->post_content;
+      $content = apply_filters('the_content', $content);
+      $content = strip_tags($content);
+      $content = str_replace(" ", "", $content);
+      $content = str_replace("　", "", $content);
+      $og_description = mb_strimwidth($content, 0, 200, "…");
+
+      $og_type = 'article';
+
+      if ( has_post_thumbnail() ) {
+        $thumbnail_id = get_post_thumbnail_id($post->ID);
+        $image = wp_get_attachment_image_src( $thumbnail_id, 'medium' );
+        $og_image = $image[0];
+      }
+      else {
+        $og_image = get_template_directory_uri().'/assets/img/ogp.png';
+      }
+    }
+  ?>
   <meta property="fb:admins" content="100001275466582">
-  <meta property="og:url" content="<?php the_permalink(); ?>">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="<?php the_title(); ?>">
+  <meta property="og:url" content="<?php echo $og_url; ?>">
+  <meta property="og:type" content="<?php echo $og_type; ?>">
+  <meta property="og:title" content="<?php echo $og_title; ?>">
   <meta property="og:locale" content="ja_JP">
-  <meta property="og:image" content="">
-  <meta property="og:description" content="<?php bloginfo('description'); ?>">
+  <meta property="og:image" content="<?php echo $og_image; ?>">
+  <meta property="og:description" content="<?php echo $og_description; ?>">
   <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
-  <!-- <meta property="article:publisher" content=""> -->
+  <?php if ( is_single() ) : ?>
+    <meta property="article:publisher" content="https://www.facebook.com/brdrslash">
+  <?php endif; ?>
 
   <meta name="twitter:site" value="@brdr_slash">
   <meta name="twitter:creator" value="@ryo_dg">

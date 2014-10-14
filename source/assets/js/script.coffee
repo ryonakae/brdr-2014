@@ -97,6 +97,8 @@ $ ->
     $.pjax
       area: '#js-pjaxArea'
       wait: 0
+      load:
+        head: 'base, meta, link'
       cache:
         click: true
         submit: false
@@ -106,7 +108,7 @@ $ ->
       speedcheck: true
       fallback: false # middleman server時だとなぜか遷移失敗扱いになるので、fallbackをfalseにして検証する
       ajax:
-        timeout: 3000
+        timeout: 10000
       callbacks:
         update:
           content:
@@ -166,8 +168,18 @@ $ ->
 
       if $('body').hasClass('page-single')
         commonGoogleCodePrettify()
-        sharrre()
         # console.log 'GoogleCodePrettify done'
+
+        # social button
+        $('.share-twitter > *').replaceWith '<a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja" data-url="' + encodeURI(location.href) + '" data-text="' + document.title + '" data-via="ryo_dg" data-lang="ja" data-related="ryo_dg">ツイート</a>'
+        $('.share-facebook > *').replaceWith '<div class="fb-like" data-href="' + encodeURI(location.href) + '" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>'
+        $('.share-gplus > *').replaceWith '<div class="g-plusone" data-size="medium" data-href="' + encodeURI(location.href) + '"></div>'
+        $('.share-hatena > *').replaceWith '<a href="http://b.hatena.ne.jp/entry/' + encodeURI(location.href) + '" class="hatena-bookmark-button" data-hatena-bookmark-title="' + document.title + '" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>'
+
+        gapi.plusone.go()
+        twttr.widgets.load()
+        FB.XFBML.parse()
+        Hatena.Bookmark.BookmarkButton.setup()
 
       $progressbar.css 'width':'100%'
       setTimeout ->
@@ -261,30 +273,6 @@ $ ->
     # console.log 'index mainvisual image resized'
 
 
-  # sharrre share buttons
-  sharrre = ->
-    $share = $('#js-share')
-
-    $share.sharrre
-      enableHover: false
-      enableCounter: false
-      share:
-        googlePlus: true
-        facebook: true
-        twitter: true
-      buttons:
-        googlePlus:
-          size: 'medium'
-          lang: 'ja'
-          annotation: 'bubble'
-        facebook:
-          layout: 'button_count'
-          lang: 'ja_JP'
-        twitter:
-          count: 'horizontal'
-          lang: 'ja'
-
-
   ###
   Do Function
   ###
@@ -300,9 +288,6 @@ $ ->
       $('#js-mainvisual').boxResize
         parent: $(window)
         scaleHeight: 1
-
-  if $('body').hasClass('page-single')
-    sharrre()
 
 
   # load
