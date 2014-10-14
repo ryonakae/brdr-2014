@@ -2,7 +2,18 @@
 <html lang="ja" prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fbml">
 <head>
   <meta charset="<?php bloginfo('charset'); ?>">
-  <title><?php wp_title('/', true, 'right'); bloginfo('name'); ?></title>
+  <?php
+    $site_title = '';
+
+    if ( is_tax() ) {
+      $taxonomy = $wp_query->get_queried_object();
+      $site_title = esc_html($taxonomy->name.' / '.get_bloginfo('name'));
+    }
+    else {
+      $site_title = wp_title('/', false, 'right').get_bloginfo('name');
+    }
+  ?>
+  <title><?php echo $site_title; ?></title>
 
   <meta name="description" content="<?php bloginfo('description'); ?>">
   <meta name="robots" content="index,follow">
