@@ -1,7 +1,13 @@
 <?php
 /*
-Template Name: About
+Template Name: Default
 */
+?>
+
+<?php
+  // if ( is_page('contact') && function_exists('wpcf7_enqueue_scripts')) {
+  //   wpcf7_enqueue_scripts();
+  // }
 ?>
 
 <?php get_header(); ?>
@@ -40,10 +46,12 @@ Template Name: About
       <div class="l-row">
         <dic class="l-grid-3">
           <aside class="entry-info">
+            <?php if( get_field('page-description') ) : ?>
             <dl>
-              <dt class="entry-info-subtitle">Author</dt>
-              <dd>by <?php the_author(); ?></dd>
+              <dt class="entry-info-subtitle">Description</dt>
+              <dd><?php the_field('page-description'); ?></dd>
             </dl>
+            <?php endif; ?>
           </aside>
         </dic>
 

@@ -83,8 +83,6 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css">
   <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico">
-  <!-- <link rel="apple-touch-icon-precomposed" href="<?php echo get_template_directory_uri(); ?>/img/apple-touch-icon.png"> -->
-  <!-- <link rel="canonical" href=""> -->
 
   <script src="<?php echo get_template_directory_uri(); ?>/assets/js/lib.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/assets/js/script.js"></script>

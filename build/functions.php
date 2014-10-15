@@ -21,6 +21,14 @@
   // remove_action('wp_print_styles', array($oUserAccessManager, 'addStyles'));
 
 
+  // contact form 7
+  // function cf7_deregister_files() {
+  //   wp_dequeue_script('contact-form-7');
+  //   wp_dequeue_style('contact-form-7');
+  // }
+  // add_action( 'wp_enqueue_scripts', 'cf7_deregister_files');
+
+
   // インラインスタイル削除
   function remove_recent_comments_style() {
     global $wp_widget_factory;
