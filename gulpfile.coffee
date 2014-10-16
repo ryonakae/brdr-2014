@@ -81,16 +81,10 @@ gulp.task 'htmlcopy_initial', ->
     .pipe gulp.dest './build/'
     .pipe browserSync.reload stream:true, once:true
 
-# Copy Image
-gulp.task 'imagecopy', ->
+# Copy Favicon
+gulp.task 'favicon', ->
   gulp
-    .src './source/assets/img/**/*.{ico}'
-    .pipe $.cache gulp.dest './build/assets/img/'
-    .pipe browserSync.reload stream:true, once:true
-
-gulp.task 'imagecopy_initial', ->
-  gulp
-    .src './source/assets/img/**/*.{ico}'
+    .src './source/assets/img/**/favicon.ico'
     .pipe gulp.dest './build/assets/img/'
     .pipe browserSync.reload stream:true, once:true
 
@@ -112,10 +106,15 @@ gulp.task 'watch', ->
   $.watch 'source/**/*.{html,php}', -> gulp.start 'htmlcopy'
   $.watch 'source/assets/css/**/*.{sass,scss}', -> gulp.start 'sass'
   $.watch 'source/assets/js/**/*.coffee', -> gulp.start 'coffee'
-  $.watch 'source/assets/img/**/*.{png,jpg,gif,svg}', -> gulp.start 'imagemin'
-  $.watch 'source/assets/img/**/*.{ico}', -> gulp.start 'imagecopy'
+  $.watch 'source/assets/js/**/*.js', -> gulp.start 'javascript'
+  $.watch 'source/assets/img/**/*.{png,jpg,gif,svg,ico}', -> gulp.start 'imagemin'
+  $.watch 'source/assets/img/**/favicon.ico', -> gulp.start 'favicon'
   $.watch 'source/assets/font/**/*', -> gulp.start 'fontcopy'
+
+# Clear cache
+gulp.task 'clear', (done) ->
+  $.cache.clearAll done
 
 # Watch
 gulp.task 'default', ->
-  $.runSequence 'clean', ['sass', 'coffee', 'javascript', 'imagemin'], ['htmlcopy_initial', 'imagecopy_initial', 'fontcopy_initial'], 'browserSync', 'watch'
+  $.runSequence 'clean', ['sass', 'coffee', 'javascript', 'imagemin'], ['htmlcopy_initial', 'fontcopy_initial'], 'favicon', 'browserSync', 'watch'

@@ -13,7 +13,7 @@ Thumbs.db
 
 # Other
 *.sublime-workspace
-# *.sublime-project
+*.sublime-project
 node_modules/
 
 # Ignore build directory
