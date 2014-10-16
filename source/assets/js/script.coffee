@@ -70,27 +70,9 @@ $ ->
         check: $.pjax.getCache
         encode: true
         ajax:
-          xhr: ->
-            xhr = $.ajaxSettings.xhr()
-            # $progressbar.css 'width':'5%'
-            if xhr instanceof Object && 'onprogress' in xhr
-              xhr.addEventListener 'progress', (event) ->
-                `var percentage = event.total ? event.loaded / event.total : 0.4`
-                percentage = percentage * 90 + 5
-                $progressbar.css 'width':percentage + '%'
-              , false
-              xhr.addEventListener 'load', (event) ->
-                $progressbar.css 'width':'95%'
-              , false
-              xhr.addEventListener 'error', (event) ->
-                $progressbar.css 'background-color':'#00f'
-              , false
-            return xhr
-          success: (data, textStatus, XMLHttpRequest) ->
-            !$.pjax.getCache( this.url ) && $.pjax.setCache( this.url, null, textStatus, XMLHttpRequest )
           done: (data, textStatus, XMLHttpRequest) ->
-            !$.pjax.getCache( this.url ) && $.pjax.setCache( this.url, null, textStatus, XMLHttpRequest )
-            # console.log 'preload done'
+            !$.pjax.getCache this.url && $.pjax.setCache this.url, null, textStatus, XMLHttpRequest
+            #console.log 'preload done'
 
 
     # pjax
@@ -106,22 +88,23 @@ $ ->
       server:
         query: null
       speedcheck: true
-      fallback: false # middleman server時だとなぜか遷移失敗扱いになるので、fallbackをfalseにして検証する
+      #fallback: false # middleman server時だとなぜか遷移失敗扱いになるので、fallbackをfalseにして検証する
+      fallback: true
       ajax:
         timeout: 10000
       callbacks:
         update:
           content:
             after: ->
-              $progressbar.css 'width':'40%'
+              $progressbar.css 'width':'70%'
               # console.log 'content loaded'
           css:
             after: ->
-              $progressbar.css 'width':'60%'
+              $progressbar.css 'width':'80%'
               # console.log 'css loaded'
           script:
             after: ->
-              $progressbar.css 'width':'80%'
+              $progressbar.css 'width':'90%'
               # console.log 'script loaded'
 
 
@@ -130,15 +113,16 @@ $ ->
     ###
     # 1 fetch
     $(document).on 'pjax:fetch', ->
-      $progressbar.css 'width':''
       # console.log '1 データ取得処理前'
-
-      $progressbar.removeClass 'is-hidden'
+      $progressbar
+        .removeClass 'is-hidden'
+        .css 'width':'20%'
       # console.log 'progressbar show'
 
     # 2 unload
     $(window).on 'pjax:unload', ->
       # console.log '2 データの取得後、ページの更新前'
+      $progressbar.css 'width':'40%'
       # eventhandler off
       $(window).off 'load'
       $(window).off 'resize'
@@ -166,6 +150,13 @@ $ ->
     $(document).on 'pjax:render', ->
       # console.log '5 すべての更新範囲の描画後'
 
+      $progressbar.css 'width':'100%'
+      setTimeout ->
+        $progressbar.addClass 'is-hidden'
+      , 300
+      # console.log 'progressbar hide'
+
+      # when page-single
       if $('body').hasClass('page-single')
         commonGoogleCodePrettify()
         # console.log 'GoogleCodePrettify done'
@@ -180,12 +171,6 @@ $ ->
         twttr.widgets.load()
         FB.XFBML.parse()
         Hatena.Bookmark.BookmarkButton.setup()
-
-      $progressbar.css 'width':'100%'
-      setTimeout ->
-        $progressbar.addClass 'is-hidden'
-      , 300
-      # console.log 'progressbar hide'
 
       # eventhandler on
       $(window).on 'resize', ->
