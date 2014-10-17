@@ -11,7 +11,7 @@
   <div class="l-section">
     <div class="l-container">
       <article class="l-row entry">
-        <dic class="l-grid-3">
+        <div class="l-grid-3">
           <aside class="entry-info">
             <dl>
               <dt>Date</dt>
@@ -24,7 +24,7 @@
               <dd>by <?php the_author(); ?></dd>
             </dl>
           </aside>
-        </dic>
+        </div>
 
         <div class="l-grid-9">
           <header class="entry-header">
