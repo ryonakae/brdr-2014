@@ -162,15 +162,15 @@ $ ->
         # console.log 'GoogleCodePrettify done'
 
         # social button
-        $('.share-twitter > *').replaceWith '<a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja" data-url="' + encodeURI(location.href) + '" data-text="' + document.title + '" data-via="ryo_dg" data-lang="ja" data-related="ryo_dg">ツイート</a>'
-        $('.share-facebook > *').replaceWith '<div class="fb-like" data-href="' + encodeURI(location.href) + '" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>'
-        $('.share-gplus > *').replaceWith '<div class="g-plusone" data-size="medium" data-href="' + encodeURI(location.href) + '"></div>'
-        $('.share-hatena > *').replaceWith '<a href="http://b.hatena.ne.jp/entry/' + encodeURI(location.href) + '" class="hatena-bookmark-button" data-hatena-bookmark-title="' + document.title + '" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>'
+        # $('.share-twitter > *').replaceWith '<a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja" data-url="' + encodeURI(location.href) + '" data-text="' + document.title + '" data-via="ryo_dg" data-lang="ja" data-related="ryo_dg">ツイート</a>'
+        # $('.share-facebook > *').replaceWith '<div class="fb-like" data-href="' + encodeURI(location.href) + '" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>'
+        # $('.share-gplus > *').replaceWith '<div class="g-plusone" data-size="medium" data-href="' + encodeURI(location.href) + '"></div>'
+        # $('.share-hatena > *').replaceWith '<a href="http://b.hatena.ne.jp/entry/' + encodeURI(location.href) + '" class="hatena-bookmark-button" data-hatena-bookmark-title="' + document.title + '" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>'
 
-        gapi.plusone.go()
-        twttr.widgets.load()
-        FB.XFBML.parse()
-        Hatena.Bookmark.BookmarkButton.setup()
+        # gapi.plusone.go()
+        # twttr.widgets.load()
+        # FB.XFBML.parse()
+        # Hatena.Bookmark.BookmarkButton.setup()
 
       # eventhandler on
       $(window).on 'resize', ->

@@ -15,7 +15,32 @@
   ?>
   <title><?php echo $site_title; ?></title>
 
-  <meta name="description" content="<?php bloginfo('description'); ?>">
+  <?php
+    $description = '';
+
+    if ( is_home() || is_archive() || is_post_type_archive() || is_tax() || is_page('information') ) {
+      $description = get_bloginfo('description');
+    }
+    else {
+      if ( get_the_excerpt() != '' ) {
+        $description = get_the_excerpt();
+      }
+      elseif ( is_page('about') ) {
+        $description = get_field('page-description');
+      }
+      else {
+        $post_id = get_the_ID();
+        $post = get_post($post_id);
+        $content = $post->post_content;
+        $content = apply_filters('the_content', $content);
+        $content = strip_tags($content);
+        $content = str_replace(" ", "", $content);
+        $content = str_replace("　", "", $content);
+        $description = mb_strimwidth($content, 0, 200, "…");
+      }
+    }
+  ?>
+  <meta name="description" content="<?php echo $description; ?>">
   <meta name="robots" content="index,follow">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
@@ -27,7 +52,7 @@
     $og_type = '';
     $og_image = '';
 
-    if ( is_home() || is_archive() || is_post_type_archive() || is_tax() ) {
+    if ( is_home() || is_archive() || is_post_type_archive() || is_tax() || is_page('information') ) {
       $og_url = get_bloginfo('url');
       $og_title = get_bloginfo('name');
       $og_description = get_bloginfo('description');
@@ -38,15 +63,22 @@
       $og_url = get_permalink();
       $og_title = wp_title('/', false, 'right').get_bloginfo('name');
 
-      // $og_description = get_the_excerpt();
-      $post_id = get_the_ID();
-      $post = get_post($post_id);
-      $content = $post->post_content;
-      $content = apply_filters('the_content', $content);
-      $content = strip_tags($content);
-      $content = str_replace(" ", "", $content);
-      $content = str_replace("　", "", $content);
-      $og_description = mb_strimwidth($content, 0, 200, "…");
+      if ( get_the_excerpt() != '' ) {
+        $og_description = get_the_excerpt();
+      }
+      elseif ( is_page('about') ) {
+        $og_description = get_field('page-description');
+      }
+      else {
+        $post_id = get_the_ID();
+        $post = get_post($post_id);
+        $content = $post->post_content;
+        $content = apply_filters('the_content', $content);
+        $content = strip_tags($content);
+        $content = str_replace(" ", "", $content);
+        $content = str_replace("　", "", $content);
+        $og_description = mb_strimwidth($content, 0, 200, "…");
+      }
 
       $og_type = 'article';
 
@@ -108,12 +140,12 @@
 <div class="l-navigation">
   <nav class="navigation" id="js-navigation">
     <ul>
-      <li><a href="<?php bloginfo('url'); ?>/about">About</a></li>
-      <li><a href="<?php bloginfo('url'); ?>/works">Works</a></li>
+      <li><a href="<?php bloginfo('url'); ?>/about/">About</a></li>
+      <li><a href="<?php bloginfo('url'); ?>/works/">Works</a></li>
       <?php if ( is_user_logged_in() ) : ?>
-        <li><a href="<?php bloginfo('url'); ?>/closed-works">Closed Works</a></li>
+        <li><a href="<?php bloginfo('url'); ?>/closed-works/">Closed Works</a></li>
       <? endif; ?>
-      <li><a href="<?php bloginfo('url'); ?>/information">Information</a></li>
+      <li><a href="<?php bloginfo('url'); ?>/information/">Information</a></li>
       <li><a class="ext" href="http://memo.brdr.jp" target="_blank">Blog</a></li>
       <?php if ( is_user_logged_in() ) : ?>
         <li><a href="<?php echo wp_logout_url(); ?>">Logout</a></li>

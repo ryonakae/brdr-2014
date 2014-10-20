@@ -1,8 +1,10 @@
 <!-- main-visual -->
 <div class="mainvisual" id="js-mainvisual">
-  <figure class="mainvisual-image is-hidden" id="js-mainvisual-image">
-    <?php the_post_thumbnail('large'); ?>
-  </figure>
+  <?php if ( get_post_type() == 'works' ) : ?>
+    <figure class="mainvisual-image is-hidden" id="js-mainvisual-image">
+      <?php the_post_thumbnail('large'); ?>
+    </figure>
+  <?php endif; ?>
 
   <div class="mainvisual-text is-hidden" id="js-mainvisual-text">
     <h1 class="mainvisual-title"><?php the_title(); ?></h1>
@@ -143,7 +145,7 @@
         }
       ?>
 
-      <a class="pager-back" href="<?php bloginfo('url'); ?>/<?php echo get_post_type(); ?>"><i class="icon-layout"></i></a>
+      <a class="pager-back" href="<?php bloginfo('url'); ?>/<?php echo get_post_type(); ?>/"><i class="icon-layout"></i></a>
 
       <?php
         if(function_exists('next_post_link_plus')) {

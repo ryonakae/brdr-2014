@@ -68,7 +68,7 @@ body.page-archive.archive-information .entry
 
 
 .entry-content
-  text-align: justify
+  // text-align: justify
   word-wrap: break-word
   // word-break: break-all
 
@@ -221,7 +221,7 @@ body.page-archive.archive-information .entry
 .entry-footer
   margin-top: 4em
   background-color: $bgColor-grey
-  padding: 20px
+  padding: 20px 15px
 
 
 .entry-imagelist
@@ -266,20 +266,47 @@ body.page-archive.archive-information .entry
 
 
 .entry-share
+  list-style-type: none
+  margin: 0
+  padding: 0
+  display: table
+  table-layout: fixed
+  width: 100%
+
   .share-button
-    line-height: 0
-    display: inline-block
-    height: 20px
-    overflow: hidden
-    margin: 5px
-    vertical-align: top
+    display: table-cell
+    padding-left: 5px
+    padding-right: 5px
 
-  .share-gplus
-    margin-right: -30px
+    a
+      color: #fff
+      font-family: $fontFamily-serif
+      font-style: italic
+      letter-spacing: 0.08em
+      font-size: 1.5rem
+      display: block
+      width: 100%
+      height: 100%
+      background-color: #000
+      text-align: center
+      padding-top: 1em
+      padding-bottom: 0.8em
+      @extend %animation
 
-  .share-facebook
-    .fb-like.fb_iframe_widget > span
-      vertical-align: top !important
+  .share-facebook a
+    background-color: #687490
 
-  .share-twitter
-    width: 110px
+    &:hover
+      background-color: rgba(#687490, 0.7)
+
+  .share-twitter a
+    background-color: #678EA9
+
+    &:hover
+      background-color: rgba(#678EA9, 0.7)
+
+  .share-hatena a
+    background-color: #0075b5
+
+    &:hover
+      background-color: rgba(#0075b5, 0.7)

@@ -44,7 +44,7 @@
       <div class="entry-pager">
         <?php previous_post_link('%link','<i class="icon-angle-left"></i>'); ?>
 
-        <a class="pager-back" href="<?php bloginfo('url'); ?>/information"><i class="icon-layout"></i></a>
+        <a class="pager-back" href="<?php bloginfo('url'); ?>/information/"><i class="icon-layout"></i></a>
 
         <?php next_post_link('%link','<i class="icon-angle-right"></i>'); ?>
       </div>
