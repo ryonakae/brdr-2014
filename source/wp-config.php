@@ -72,9 +72,15 @@ $table_prefix  = 'wp_';
  * この値を true にすると、開発中に注意 (notice) を表示します。
  * テーマおよびプラグインの開発者には、その開発環境においてこの WP_DEBUG を使用することを強く推奨します。
  */
-define('WP_DEBUG', true);
+define('WP_DEBUG', false);
 
 // define('WP_ALLOW_REPAIR', true);
+
+/**
+ * リビジョンの数を制限
+ */
+define('WP_POST_REVISIONS', 5);
+
 
 /* 編集が必要なのはここまでです ! WordPress でブログをお楽しみください。 */
 

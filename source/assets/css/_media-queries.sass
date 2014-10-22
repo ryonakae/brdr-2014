@@ -16,6 +16,13 @@
   .mainvisual
     max-height: none
 
+  .entry-share
+    .share-text-long
+      display: none
+
+    .share-text-short
+      display: inline
+
 
 // Small Tablet
 +mediaquery-tablet-small
@@ -159,15 +166,6 @@
   .entry-header + .entry-content
     margin-top: 2em
 
-    //
-      .img
-        margin-left: -4.3%
-        margin-right: -4.3%
-
-        figcaption
-          margin-left: 4%
-          margin-right: 4%
-
     h1
       font-size: 2.5rem
 
@@ -185,6 +183,14 @@
 
     h6
       font-size: 1.5rem
+
+  .entry-content .img
+    margin-left: -4.3%
+    margin-right: -4.3%
+
+    figcaption
+      margin-left: 4%
+      margin-right: 4%
 
   .entry-footer
     padding: 20px
