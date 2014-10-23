@@ -173,12 +173,17 @@ $ ->
         # Hatena.Bookmark.BookmarkButton.setup()
 
       # eventhandler on
+      _resizeTimer = false
       $(window).on 'resize', ->
-        if $('body').hasClass('page-index') || $('body').hasClass('single-works')
-          indexMainvisualResize()
-          indexMainvisualImageResize()
-        else
-          commonMainvisualImageResize()
+        if _resizeTimer != false
+          clearTimeout _resizeTimer
+        _resizeTimer = setTimeout ->
+          if $('body').hasClass('page-index') || $('body').hasClass('single-works')
+            indexMainvisualResize()
+            indexMainvisualImageResize()
+          else
+            commonMainvisualImageResize()
+        , 200
 
       if document.getElementById("js-mainvisual") != null
         image = $('#js-mainvisual-image').find('img')
@@ -296,9 +301,14 @@ $ ->
 
   # resize
   if document.getElementById("js-mainvisual") != null
+    _resizeTimer = false
     $(window).on 'resize', ->
-      if $('body').hasClass('page-index') || $('body').hasClass('single-works')
-        indexMainvisualResize()
-        indexMainvisualImageResize()
-      else
-        commonMainvisualImageResize()
+      if _resizeTimer != false
+        clearTimeout _resizeTimer
+      _resizeTimer = setTimeout ->
+        if $('body').hasClass('page-index') || $('body').hasClass('single-works')
+          indexMainvisualResize()
+          indexMainvisualImageResize()
+        else
+          commonMainvisualImageResize()
+      , 200
