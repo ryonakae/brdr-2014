@@ -30,8 +30,12 @@
   <meta charset="<?php bloginfo('charset'); ?>">
   <?php
     $site_title = '';
+    $site_suffix = ' / RYO NAKAE, Web Designer';
 
-    if ( is_tax() ) {
+    if ( is_home() ) {
+      $site_title = get_bloginfo('name') . $site_suffix;
+    }
+    elseif ( is_tax() ) {
       $taxonomy = $wp_query->get_queried_object();
       $site_title = esc_html($taxonomy->name.' / '.get_bloginfo('name'));
     }
@@ -79,8 +83,14 @@
     $og_image = '';
 
     if ( is_home() || is_archive() || is_post_type_archive() || is_tax() || is_page('information') ) {
+      if ( is_home() ) {
+        $og_title = get_bloginfo('name') . $site_suffix;
+      }
+      else {
+        $og_title = get_bloginfo('name');
+      }
+
       $og_url = get_bloginfo('url');
-      $og_title = get_bloginfo('name');
       $og_description = get_bloginfo('description');
       $og_type = 'website';
       $og_image = get_template_directory_uri().'/assets/img/ogp.png';
