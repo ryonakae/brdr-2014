@@ -1,20 +1,19 @@
-# Ignore bundler config
-.bundle/
-vendor/bundle/
 Gemfile.lock
+.bundle
+vendor
+.sass-cache
+node_modules
+npm-debug.log
 
-# Ignore cache
-.sass-cache/
-.cache/
-
-# OSX
-.DS_Store
-Thumbs.db
-
-# Other
 *.sublime-workspace
 *.sublime-project
-node_modules/
 
-# Ignore build directory
-build/
+.vagrant
+www/wordpress
+#Vagrantfile
+Movefile
+_site
+.DS_Store
+Movefile
+provision/*
+!provision/.gitkeep

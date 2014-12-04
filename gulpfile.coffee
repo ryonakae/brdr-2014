@@ -1,120 +1,132 @@
+"use strict"
+
 gulp = require 'gulp'
 $ = require('gulp-load-plugins')()
 browserSync = require 'browser-sync'
 pngcrush = require 'imagemin-pngcrush'
 rimraf = require 'rimraf'
+runSequence  = require 'run-sequence'
 streamqueue  = require 'streamqueue'
+
+# Sources
+sources =
+  url: 'brdr.local'
+  themeDir: './theme/'
+  themeName: 'border-2014'
+
+  css: '/dist/css'
+  js: '/dist/js'
+  img: '/dist/img'
+  font: '/dist/font'
+
+  cssDev: '/assets/css'
+  jsDev: '/assets/js'
+  imgDev: '/assets/img'
+  fontDev: '/assets/font'
 
 # Clean build directory
 gulp.task 'clean', (cb) ->
-  rimraf './build/', cb
+  rimraf sources.themeDir + sources.themeName + '/dist', cb
 
 # BrowserSync
 gulp.task 'browserSync', ->
   browserSync.init null,
-    open: false
+    proxy: sources.url + '/'
     notify: false
-    server:
-      baseDir: './build/'
+    open: false
+    # server:
+    #   baseDir: sources.themeDir + sources.themeName + '/'
+
+gulp.task 'browserSyncReload', ->
+  browserSync.reload()
 
 # Sass
 gulp.task 'sass', ->
   gulp
-    .src './source/assets/css/*.{sass,scss}'
+    .src sources.themeDir + sources.themeName + sources.cssDev + '/**/*.{sass,scss}'
     .pipe $.plumber()
     .pipe $.rubySass
-      style: 'compressed'
-      # sourcemap: true
-      # sourcemapPath: '../source/assets/css/'
+      style: 'expanded'
       noCache: true
       bundleExec: true
-    .pipe $.autoprefixer 'last 2 version', 'ie 8', 'ie 9'
-    .pipe gulp.dest './build/assets/css/'
-    .pipe $.filter '**/*.css'
-    .pipe browserSync.reload stream:true
+    .pipe $.cssmin()
+    .pipe $.autoprefixer 'last 2 versions', 'ie >= 9', 'iOS >= 7', 'Android >= 4'
+    .pipe gulp.dest sources.themeDir + sources.themeName + sources.css
+    .pipe browserSync.reload stream:true, once:true
 
 # CoffeeScript
 gulp.task 'coffee', ->
   gulp
-    .src './source/assets/js/*.coffee'
+    .src sources.themeDir + sources.themeName + sources.jsDev + '/*.coffee'
     .pipe $.plumber()
     .pipe $.coffee()
     .pipe $.uglify()
-    .pipe gulp.dest './build/assets/js/'
+    .pipe gulp.dest sources.themeDir + sources.themeName + sources.js
     .pipe browserSync.reload stream:true, once:true
 
-# Java Script
-gulp.task 'javascript', ->
+# JavaScript
+gulp.task 'javaScript', ->
   streamqueue objectMode: true,
-      gulp.src './source/assets/js/core/jquery.min.js'
-      gulp.src './source/assets/js/lib/*.js'
+      gulp.src sources.themeDir + sources.themeName + sources.jsDev + '/core/jquery.min.js'
+      gulp.src sources.themeDir + sources.themeName + sources.jsDev + '/lib/*.js'
     .pipe $.plumber()
     .pipe $.concat 'lib.js'
-    # .pipe $.uglify()
-    .pipe gulp.dest './build/assets/js/'
+    .pipe gulp.dest sources.themeDir + sources.themeName + sources.js
     .pipe browserSync.reload stream:true, once:true
 
 # Image Min
-gulp.task 'imagemin', ->
+gulp.task 'imageMin', ->
   gulp
-    .src './source/assets/img/**/*.{png,jpg,gif,svg}'
-    .pipe $.plumber()
+    .src sources.themeDir + sources.themeName + sources.imgDev + '/**/*'
     .pipe $.cache $.imagemin
       optimizationLevel: 4
       progressive: true
       interlaced: true
       svgoPlugins: [{removeViewBox: false}]
       use: [pngcrush()]
-    .pipe gulp.dest './build/assets/img/'
+    .pipe gulp.dest sources.themeDir + sources.themeName + sources.img
     .pipe browserSync.reload stream:true, once:true
 
-# Copy Html
-gulp.task 'htmlcopy', ->
+# Font
+gulp.task 'font', ->
   gulp
-    .src './source/**/*.{html,php}'
-    .pipe $.cache gulp.dest './build/'
+    .src sources.themeDir + sources.themeName + sources.fontDev + '/**/*'
+    .pipe gulp.dest sources.themeDir + sources.themeName + sources.font
     .pipe browserSync.reload stream:true, once:true
 
-gulp.task 'htmlcopy_initial', ->
-  gulp
-    .src './source/**/*.{html,php}'
-    .pipe gulp.dest './build/'
-    .pipe browserSync.reload stream:true, once:true
 
-# Copy Favicon
-gulp.task 'favicon', ->
-  gulp
-    .src './source/assets/img/**/favicon.ico'
-    .pipe gulp.dest './build/assets/img/'
-    .pipe browserSync.reload stream:true, once:true
+gulp.task 'sprite', ->
+  # spriteData = gulp.src sources.themeDir + sources.themeName + sources.imgDev + '/sprite/*.png'
+  spriteData = './www/wordpress/wordpress/wp-content/themes/border-2014/assets/img/sprite/*.png'
+  .pipe $.plumber()
+  .pipe spritesmith
+    imgName: 'sprite.png'
+    # imgPath: sources.themeDir + sources.themeName + sources.img + '/sprite.png'
+    imgPath: '../img/sprite.png'
+    cssName: '_sprites.sass'
+    cssFormat: 'sass'
+    padding: 10
+  spriteData.img.pipe(gulp.dest('./www/wordpress/wordpress/wp-content/themes/border-2014/dist/img/'))
+  spriteData.css.pipe(gulp.dest('./www/wordpress/wordpress/wp-content/themes/border-2014/assets/css/'))
 
-# Copy Font
-gulp.task 'fontcopy', ->
-  gulp
-    .src './source/assets/font/**/*'
-    .pipe $.cache gulp.dest './build/assets/font/'
-    .pipe browserSync.reload stream:true, once:true
 
-gulp.task 'fontcopy_initial', ->
-  gulp
-    .src './source/assets/font/**/*'
-    .pipe gulp.dest './build/assets/font/'
-    .pipe browserSync.reload stream:true, once:true
-
-# watch
+# Watch
 gulp.task 'watch', ->
-  $.watch 'source/**/*.{html,php}', -> gulp.start 'htmlcopy'
-  $.watch 'source/assets/css/**/*.{sass,scss}', -> gulp.start 'sass'
-  $.watch 'source/assets/js/**/*.coffee', -> gulp.start 'coffee'
-  $.watch 'source/assets/js/**/*.js', -> gulp.start 'javascript'
-  $.watch 'source/assets/img/**/*.{png,jpg,gif,svg,ico}', -> gulp.start 'imagemin'
-  $.watch 'source/assets/img/**/favicon.ico', -> gulp.start 'favicon'
-  $.watch 'source/assets/font/**/*', -> gulp.start 'fontcopy'
+  gulp.watch sources.themeDir + sources.themeName + sources.cssDev + '/**/*.{sass,scss}', -> gulp.start 'sass'
+  gulp.watch sources.themeDir + sources.themeName + sources.jsDev + '/*.coffee', -> gulp.start 'coffee'
+  gulp.watch sources.themeDir + sources.themeName + sources.jsDev + '/lib/*.js', -> gulp.start 'javaScript'
+  gulp.watch sources.themeDir + sources.themeName + sources.imgDev + '/**/*', -> gulp.start 'imageMin'
+  gulp.watch sources.themeDir + sources.themeName + sources.fontDev + '/**/*', -> gulp.start 'font'
+  gulp.watch sources.themeDir + sources.themeName + '/*.php', -> gulp.start 'browserSyncReload'
 
-# Clear cache
+# Clear Cache
 gulp.task 'clear', (done) ->
   $.cache.clearAll done
 
-# Watch
+# Default Task
 gulp.task 'default', ->
-  $.runSequence 'clean', ['sass', 'coffee', 'javascript', 'imagemin'], ['htmlcopy_initial', 'fontcopy_initial'], 'favicon', 'browserSync', 'watch'
+  runSequence 'clean', ['sass', 'coffee', 'javaScript', 'imageMin', 'font'], 'browserSync', 'watch'
+
+
+gulp.task 'sprite', ->
+  gulp.run 'sprite'
