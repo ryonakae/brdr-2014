@@ -95,21 +95,6 @@ gulp.task 'font', ->
     .pipe browserSync.reload stream:true, once:true
 
 
-gulp.task 'sprite', ->
-  # spriteData = gulp.src sources.themeDir + sources.themeName + sources.imgDev + '/sprite/*.png'
-  spriteData = './www/wordpress/wordpress/wp-content/themes/border-2014/assets/img/sprite/*.png'
-  .pipe $.plumber()
-  .pipe spritesmith
-    imgName: 'sprite.png'
-    # imgPath: sources.themeDir + sources.themeName + sources.img + '/sprite.png'
-    imgPath: '../img/sprite.png'
-    cssName: '_sprites.sass'
-    cssFormat: 'sass'
-    padding: 10
-  spriteData.img.pipe(gulp.dest('./www/wordpress/wordpress/wp-content/themes/border-2014/dist/img/'))
-  spriteData.css.pipe(gulp.dest('./www/wordpress/wordpress/wp-content/themes/border-2014/assets/css/'))
-
-
 # Watch
 gulp.task 'watch', ->
   gulp.watch sources.themeDir + sources.themeName + sources.cssDev + '/**/*.{sass,scss}', -> gulp.start 'sass'
@@ -126,7 +111,3 @@ gulp.task 'clear', (done) ->
 # Default Task
 gulp.task 'default', ->
   runSequence 'clean', ['sass', 'coffee', 'javaScript', 'imageMin', 'font'], 'browserSync', 'watch'
-
-
-gulp.task 'sprite', ->
-  gulp.run 'sprite'

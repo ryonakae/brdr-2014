@@ -154,6 +154,7 @@
   <!-- Script -->
   <script src="<?php echo get_template_directory_uri(); ?>/dist/js/lib.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/dist/js/script.js"></script>
+  <script src="//typesquare.com/accessor/script/typesquare.js?2JJvOMvDhIE%3D"></script>
 
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>

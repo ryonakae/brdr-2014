@@ -25,7 +25,6 @@
 <div class="overlay" id="js-overlay"></div>
 
 <!-- Script -->
-<script src="//typesquare.com/accessor/script/typesquare.js?2JJvOMvDhIE%3D" async defer></script>
 <script>
   if (!window.ga) {
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
