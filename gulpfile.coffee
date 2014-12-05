@@ -11,7 +11,7 @@ streamqueue  = require 'streamqueue'
 # Sources
 sources =
   url: 'brdr.local'
-  themeDir: './theme/'
+  themeDir: './www/wordpress/wordpress/wp-content/themes/'
   themeName: 'border-2014'
 
   css: '/dist/css'

@@ -35,6 +35,12 @@
   }
   add_action( 'wp_enqueue_scripts', 'deregister_js', 20 );
 
+  function deregister_css() {
+    // jetpack.css
+    wp_dequeue_style('jetpack');
+  }
+  add_action( 'wp_enqueue_style', 'deregister_css', 15 );
+
 
   // インラインスタイル削除
   function remove_recent_comments_style() {

@@ -69,7 +69,6 @@ Vagrant.configure(2) do |config|
   config.vm.network :private_network, ip: WP_IP
 
   config.vm.synced_folder "www/wordpress/", "/var/www/wordpress", :create => "true"
-  config.vm.synced_folder "theme/border-2014/", "/var/www/wordpress/wordpress/wp-content/themes/border-2014", :create => "true"
 
   if Vagrant.has_plugin?("vagrant-hostsupdater")
     config.hostsupdater.remove_on_suspend = true

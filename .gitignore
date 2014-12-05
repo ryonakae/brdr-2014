@@ -9,7 +9,7 @@ npm-debug.log
 *.sublime-project
 
 .vagrant
-www/wordpress
+#www
 #Vagrantfile
 Movefile
 _site
@@ -17,3 +17,23 @@ _site
 Movefile
 provision/*
 !provision/.gitkeep
+
+
+www/wordpress/wordpress/*.*
+www/wordpress/wordpress/wp-admin/
+www/wordpress/wordpress/wp-includes/
+
+www/wordpress/wordpress/wp-content/*.*
+www/wordpress/wordpress/wp-content/*/
+
+#commit plugin
+!www/wordpress/wordpress/wp-content/plugins/
+www/wordpress/wordpress/wp-content/plugins/*/
+www/wordpress/wordpress/wp-content/plugins/*.*
+#!www/wordpress/wordpress/wp-content/plugins/my-plugin/
+
+#commit theme
+!www/wordpress/wordpress/wp-content/themes/
+www/wordpress/wordpress/wp-content/themes/*/
+www/wordpress/wordpress/wp-content/themes/*.*
+!www/wordpress/wordpress/wp-content/themes/border-2014/
