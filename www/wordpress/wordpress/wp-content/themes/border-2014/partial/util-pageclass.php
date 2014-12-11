@@ -1,9 +1,17 @@
 <?php
+  $demo_id = get_page_by_path('demo');
+  $demo_id = $demo_id->ID;
+
   if ( is_home() ) {
     $pageClass = 'page-index';
   }
   elseif( is_page() && !is_page('information') ) {
-    $pageClass = 'page-page';
+    if( is_page('demo') || $post->post_parent == $demo_id ) {
+      $pageClass = 'page-page page-demo';
+    }
+    else {
+      $pageClass = 'page-page';
+    }
   }
   elseif( is_category() || is_page('information') ) {
     $pageClass = 'page-archive archive-information';

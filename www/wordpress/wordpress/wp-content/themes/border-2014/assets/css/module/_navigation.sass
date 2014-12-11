@@ -35,16 +35,6 @@ body.page-index .navigation
     color: $fontColor-link
 
 
-body.page-archive .navigation,
-body.single-information .navigation,
-body.no-eyecatch .navigation
-  a
-    color: $fontColor-base
-
-  a:hover
-    color: $fontColor-link
-
-
 body > *:not(.l-navigation):not(.overlay)
   @extend %animation
   transition-property: opacity, transform
@@ -62,12 +52,6 @@ body > *:not(.l-navigation):not(.overlay)
 
   i:before
     margin: 0
-
-body.page-index .navigation-toggle,
-body.page-archive .navigation-toggle,
-body.single-information .navigation-toggle,
-body.no-eyecatch .navigation-toggle
-  color: $fontColor-base
 
 body.is-nav-open .navigation-toggle
   color: $fontColor-inverse
