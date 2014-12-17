@@ -1,6 +1,9 @@
 <?php
-  $demo_id = get_page_by_path('demo');
-  $demo_id = $demo_id->ID;
+  $demo_id = '';
+  if ( get_page_by_path('demo') ) {
+    $demo_id = get_page_by_path('demo');
+    $demo_id = $demo_id->ID;
+  }
 
   if ( is_home() ) {
     $pageClass = 'page-index';
