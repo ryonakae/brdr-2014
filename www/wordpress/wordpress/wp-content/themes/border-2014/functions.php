@@ -61,7 +61,7 @@
 
 
   // アイキャッチ画像生成時の画質を変更
-  add_filter('jpeg_quality', function($arg){return 96;});
+  add_filter('jpeg_quality', function($arg){return 98;});
 
 
   // セルフピンバックの無効化
