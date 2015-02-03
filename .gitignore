@@ -18,6 +18,7 @@ Movefile
 provision/*
 !provision/.gitkeep
 
+www/database/wordpress.sql
 
 www/wordpress/wordpress/*.*
 www/wordpress/wordpress/wp-admin/

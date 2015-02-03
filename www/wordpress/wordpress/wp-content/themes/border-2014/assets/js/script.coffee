@@ -70,8 +70,8 @@ $ ->
         check: $.pjax.getCache
         encode: true
         ajax:
-          done: (data, textStatus, XMLHttpRequest) ->
-            !$.pjax.getCache this.url && $.pjax.setCache this.url, null, textStatus, XMLHttpRequest
+          success: (data, textStatus, XMLHttpRequest) ->
+            !$.pjax.getCache(this.url) && $.pjax.setCache(this.url, null, textStatus, XMLHttpRequest)
             #console.log 'preload done'
 
 

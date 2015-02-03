@@ -26,7 +26,7 @@
   "scripts": {
     "up": "vagrant up",
     "halt": "vagrant halt",
-    "export": "mysql.server start && cd www/wordpress && mkdir -p ../mysql && wp db export ../mysql/wordpress.sql && mysql.server stop",
-    "import": "mysql.server start && cd www/wordpress && wp db import ../mysql/wordpress.sql && mysql.server stop"
+    "export": "mysql.server start && cd www/wordpress && mkdir -p ../database && wp db export ../database/wordpress.sql && mysql.server stop",
+    "import": "mysql.server start && cd www/wordpress && wp db import ../database/wordpress.sql && mysql.server stop"
   }
 }
