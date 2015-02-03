@@ -60,9 +60,6 @@ $ ->
 
   # pjax
   setPjax = ->
-    $progressbar = $('#js-progressbar')
-
-
     # preload
     if is_pc
       $.preload
@@ -92,20 +89,6 @@ $ ->
       fallback: true
       ajax:
         timeout: 5000
-      callbacks:
-        update:
-          content:
-            after: ->
-              $progressbar.css 'width':'70%'
-              # console.log 'content loaded'
-          css:
-            after: ->
-              $progressbar.css 'width':'80%'
-              # console.log 'css loaded'
-          script:
-            after: ->
-              $progressbar.css 'width':'90%'
-              # console.log 'script loaded'
 
 
     ###
@@ -114,15 +97,10 @@ $ ->
     # 1 fetch
     $(document).on 'pjax:fetch', ->
       # console.log '1 データ取得処理前'
-      $progressbar
-        .removeClass 'is-hidden'
-        .css 'width':'20%'
-      # console.log 'progressbar show'
 
     # 2 unload
     $(window).on 'pjax:unload', ->
       # console.log '2 データの取得後、ページの更新前'
-      $progressbar.css 'width':'40%'
       # eventhandler off
       $(window).off 'load'
       $(window).off 'resize'
@@ -149,13 +127,6 @@ $ ->
     # 5 render
     $(document).on 'pjax:render', ->
       # console.log '5 すべての更新範囲の描画後'
-
-      $progressbar.css 'width':'100%'
-      setTimeout ->
-        $progressbar.addClass 'is-hidden'
-      , 300
-      # console.log 'progressbar hide'
-
       # when page-single
       if $('body').hasClass('page-single')
         commonGoogleCodePrettify()

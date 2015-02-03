@@ -18,9 +18,6 @@
   <i class="icon-up-open-big"></i>
 </div>
 
-<!-- progressbar -->
-<div class="progressbar" id="js-progressbar"></div>
-
 <!-- overlay -->
 <div class="overlay" id="js-overlay"></div>
 
