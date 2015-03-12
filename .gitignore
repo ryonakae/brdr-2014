@@ -8,15 +8,13 @@ npm-debug.log
 *.sublime-workspace
 *.sublime-project
 
-.vagrant
-#www
-#Vagrantfile
-Movefile
-_site
 .DS_Store
-Movefile
-provision/*
-!provision/.gitkeep
+.idea/
+.vagrant
+_site
+package.box
+provision-post.sh
+provision-pre.sh
 
 www/database/wordpress.sql
 
