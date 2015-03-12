@@ -13,8 +13,8 @@ npm-debug.log
 .vagrant
 _site
 package.box
-provision-post.sh
-provision-pre.sh
+provision/*.*
+!provision/default.yml
 
 www/database/wordpress.sql
 
