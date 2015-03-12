@@ -20,21 +20,21 @@ provision/*
 
 www/database/wordpress.sql
 
-www/wordpress/wordpress/*.*
-www/wordpress/wordpress/wp-admin/
-www/wordpress/wordpress/wp-includes/
+www/wordpress/*.*
+www/wordpress/wp-admin/
+www/wordpress/wp-includes/
 
-www/wordpress/wordpress/wp-content/*.*
-www/wordpress/wordpress/wp-content/*/
+www/wordpress/wp-content/*.*
+www/wordpress/wp-content/*/
 
 #commit plugin
-!www/wordpress/wordpress/wp-content/plugins/
-www/wordpress/wordpress/wp-content/plugins/*/
-www/wordpress/wordpress/wp-content/plugins/*.*
-#!www/wordpress/wordpress/wp-content/plugins/my-plugin/
+!www/wordpress/wp-content/plugins/
+www/wordpress/wp-content/plugins/*/
+www/wordpress/wp-content/plugins/*.*
+#!www/wordpress/wp-content/plugins/my-plugin/
 
 #commit theme
-!www/wordpress/wordpress/wp-content/themes/
-www/wordpress/wordpress/wp-content/themes/*/
-www/wordpress/wordpress/wp-content/themes/*.*
-!www/wordpress/wordpress/wp-content/themes/border-2014/
+!www/wordpress/wp-content/themes/
+www/wordpress/wp-content/themes/*/
+www/wordpress/wp-content/themes/*.*
+!www/wordpress/wp-content/themes/border-2014/
