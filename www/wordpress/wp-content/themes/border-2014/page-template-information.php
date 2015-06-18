@@ -16,13 +16,21 @@ Template Name: Informaton
   <div class="l-section">
     <div class="l-container">
       <?php
+        $paged = null;
+        if (get_query_var('paged')) {
+          $paged = get_query_var('paged');
+        }
+        else {
+          $paged = 1;
+        }
         $wp_query = new WP_Query();
         $param = array(
           'posts_per_page' => '5',
           'post_type' => 'post',
           'post_status' => 'publish',
           'orderby' => 'date',
-          'order' => 'DESC'
+          'order' => 'DESC',
+          'paged' => $paged
         );
         $wp_query->query($param);
         if( $wp_query->have_posts() ) : while( $wp_query->have_posts() ) : $wp_query->the_post();
