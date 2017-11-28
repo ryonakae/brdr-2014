@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 gulp = require 'gulp'
 $ = require('gulp-load-plugins')()
@@ -32,8 +32,6 @@ gulp.task 'browserSync', ->
     proxy: sources.url + '/'
     notify: false
     open: false
-    # server:
-    #   baseDir: sources.themeDir + sources.themeName + '/'
 
 gulp.task 'browserSync:reload', ->
   browserSync.reload()
@@ -47,14 +45,19 @@ gulp.task 'clear', (done) ->
   $.cache.clearAll done
 
 # Copy File
-gulp.task 'copy', ->
+gulp.task 'copy:assets', ->
+  files = [
+    sources.fontDev + '/**/*'
+  ]
+
   gulp
-    .src
-      [
-        sources.public + '/**/*'
-        sources.fontDev + '/**/*'
-      ]
-      base: sources.src
+    .src files, base: sources.src
+    .pipe gulp.dest sources.dist
+    .pipe browserSync.reload stream:true, once:true
+
+gulp.task 'copy:public', ->
+  gulp
+    .src sources.public + '/**/*', base: sources.public
     .pipe gulp.dest sources.dist
     .pipe browserSync.reload stream:true, once:true
 
@@ -91,7 +94,7 @@ gulp.task 'js:concat', ->
     .pipe browserSync.reload stream:true, once:true
 
 # Image Min
-gulp.task 'imageMin', ->
+gulp.task 'image:min', ->
   gulp
     .src sources.imgDev + '/**/*'
     .pipe $.cache $.imagemin
@@ -108,10 +111,10 @@ gulp.task 'watch', ->
   gulp.watch sources.cssDev + '/**/*.{sass,scss}', -> gulp.start 'sass'
   gulp.watch sources.jsDev + '/*.coffee', -> gulp.start 'js:coffee'
   gulp.watch sources.jsDev + '/lib/*.js', -> gulp.start 'js:concat'
-  gulp.watch sources.imgDev + '/**/*', -> gulp.start 'imageMin'
+  gulp.watch sources.imgDev + '/**/*', -> gulp.start 'image:min'
   gulp.watch sources.fontDev + '/**/*', -> gulp.start 'font'
   gulp.watch sources.dist + '/*.php', -> gulp.start 'browserSync:reload'
 
 # Default Task
 gulp.task 'default', ->
-  runSequence 'clean', ['sass', 'js:coffee', 'js:concat', 'imageMin', 'font'], 'browserSync', 'watch'
+  runSequence 'clean', ['copy:assets', 'copy:public'], ['sass', 'js:coffee', 'js:concat', 'image:min'], 'browserSync', 'watch'
