@@ -1,18 +1,25 @@
-Border/ 2014
------
-
-This is a WordPress theme of The [Border/](http://brdr.jp), RYO NAKAE's portfolio website.
-
-## Setup
+# Border/ 2014
 
 Develop by [Eri](https://github.com/ryonakae/eri).
 
-    $ npm install --global gulp
 
-    $ git clone https://ryonakae@bitbucket.org/ryonakae/border-2014.git
-    
-    $ cd border-2014
-    
-    $ npm install
-    
-    $ gulp
+## Setup
+```
+$ brew cask install vagrant vagrant-manager
+
+$ vagrant plugin install vagrant-hostsupdater
+
+$ vagrant box add vccw-team/xenial64
+
+$ vagrant up
+```
+
+More information: http://vccw.cc/
+
+
+## Develop
+```
+$ npm install
+
+$ npm run start
+```
