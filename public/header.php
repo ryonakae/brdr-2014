@@ -148,12 +148,12 @@
 
   <?php wp_head(); ?>
 
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/dist/css/style.css">
-  <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/dist/img/favicon.ico">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css">
+  <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico">
 
   <!-- Script -->
-  <script src="<?php echo get_template_directory_uri(); ?>/dist/js/lib.js"></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/dist/js/script.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/assets/js/lib.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/assets/js/script.js"></script>
   <script src="//typesquare.com/accessor/script/typesquare.js?2JJvOMvDhIE%3D"></script>
 
   <!--[if lt IE 9]>

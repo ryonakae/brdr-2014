@@ -32,6 +32,7 @@ gulp.task 'browserSync', ->
     proxy: sources.url + '/'
     notify: false
     open: false
+    reloadDelay: 300
 
 gulp.task 'browserSync:reload', ->
   browserSync.reload()
@@ -112,8 +113,9 @@ gulp.task 'watch', ->
   gulp.watch sources.jsDev + '/*.coffee', -> gulp.start 'js:coffee'
   gulp.watch sources.jsDev + '/lib/*.js', -> gulp.start 'js:concat'
   gulp.watch sources.imgDev + '/**/*', -> gulp.start 'image:min'
-  gulp.watch sources.fontDev + '/**/*', -> gulp.start 'font'
-  gulp.watch sources.dist + '/*.php', -> gulp.start 'browserSync:reload'
+  gulp.watch sources.fontDev + '/**/*', -> gulp.start 'copy:assets'
+  gulp.watch sources.public + '/**/*', -> gulp.start 'copy:public'
+  # gulp.watch sources.dist + '/*.php', -> gulp.start 'browserSync:reload'
 
 # Default Task
 gulp.task 'default', ->
