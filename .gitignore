@@ -1,38 +1,11 @@
-Gemfile.lock
-.bundle
-vendor
-.sass-cache
-node_modules
-npm-debug.log
-
-*.sublime-workspace
-*.sublime-project
-
 .DS_Store
-.idea/
-.vagrant
-_site
-package.box
-provision/*.*
-!provision/default.yml
 
-www/database/wordpress.sql
+logs
+*.log
+npm-debug.log*
 
-www/wordpress/*.*
-www/wordpress/wp-admin/
-www/wordpress/wp-includes/
+node_modules
+dist
+_sprite.*
 
-www/wordpress/wp-content/*.*
-www/wordpress/wp-content/*/
-
-#commit plugin
-!www/wordpress/wp-content/plugins/
-www/wordpress/wp-content/plugins/*/
-www/wordpress/wp-content/plugins/*.*
-#!www/wordpress/wp-content/plugins/my-plugin/
-
-#commit theme
-!www/wordpress/wp-content/themes/
-www/wordpress/wp-content/themes/*/
-www/wordpress/wp-content/themes/*.*
-!www/wordpress/wp-content/themes/border-2014/
+!.gitkeep

@@ -1,0 +1,30 @@
+.pager
+  > *
+    text-align: center
+    margin-top: 4.5em
+
+  .pages,
+  .extend,
+  .first,
+  .last
+    display: none
+
+  span, a
+    display: inline-block
+    width: 40px
+    height: 40px
+    line-height: 40px
+    font-size: 1.3rem
+    margin-left: 5px
+    margin-right: 5px
+
+  a
+    background-color: $bgColor-inverse
+    color: $fontColor-inverse
+    @extend %animation
+
+  a:hover
+    background-color: $fontColor-link
+
+body.archive-works .pager
+  margin-top: 3em
