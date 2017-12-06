@@ -120,3 +120,6 @@ gulp.task 'watch', ->
 # Default Task
 gulp.task 'default', ->
   runSequence 'clean', ['copy:assets', 'copy:public'], ['sass', 'js:coffee', 'js:concat', 'image:min'], 'browserSync', 'watch'
+
+gulp.task 'build', ->
+  runSequence 'clean', ['copy:assets', 'copy:public'], ['sass', 'js:coffee', 'js:concat', 'image:min']

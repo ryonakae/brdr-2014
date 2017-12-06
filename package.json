@@ -22,6 +22,7 @@
     "streamqueue": "^1.1.1"
   },
   "scripts": {
-    "start": "gulp default"
+    "start": "gulp default",
+    "build": "gulp build"
   }
 }
