@@ -1,0 +1,85 @@
+# CircleCIのプロジェクト設定の、Advanced Settings -> Only build pull requestsをOnに
+version: 2
+
+defaults: &defaults
+  working_directory: ~/brdr-2014
+  docker:
+    - image: circleci/node:7.10.0
+
+jobs:
+  # install npm package
+  npm-install:
+    <<: *defaults
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - brdr-2014-{{ checksum "package.json" }}
+
+      - run:
+          name: Install node package
+          command: npm install
+
+      - save_cache:
+          key: brdr-2014-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+
+      - persist_to_workspace:
+          # Must be an absolute path, or relative path from working_directory
+          root: ./
+          # Must be relative path from root
+          paths:
+            - node_modules
+
+  # build and publish
+  build-and-publish:
+    <<: *defaults
+
+    steps:
+      - checkout
+
+      - attach_workspace:
+          at: ~/brdr-2014
+
+      - run:
+          name: Build
+          command: npm run build
+
+      - run:
+          name: Erase and move files
+          command: |
+            find . -maxdepth 1 -type f -not -name '.gitmodules' | xargs rm -rf
+            find . -maxdepth 1 -type d -not -name '.' -not -name '.git' -not -name 'server' -not -name 'dist' | xargs rm -rf
+            mv dist theme
+
+      - deploy:
+          name: Deploy and publich
+          command: |
+            git config --global user.name  "CircleCI"
+            git config --global user.email "circleci@brdr-2014.com"
+            git add .
+            git commit -m "Publish by CircleCI"
+            git checkout -B public
+            git push -u origin public --force
+
+workflows:
+  version: 2
+
+  deploy:
+    jobs:
+      # masterへpull requestがmergeされたとき(masterにcommitがあったとき)だけ実行
+      - npm-install:
+          filters:
+            branches:
+              only:
+                - master
+
+      - build-and-publish:
+          requires:
+            - npm-install
+          filters:
+            branches:
+              only: master
