@@ -1,8 +1,6 @@
 <!-- footer -->
 <footer class="l-footer">
   <div class="l-container">
-    <p class="copyright"><?php bloginfo('description'); ?><br>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
-
     <nav class="personallink">
       <ul>
         <li><a href="https://twitter.com/brdr_slash" target="_blank"><i class="icon-twitter"></i></a></li>
@@ -10,6 +8,8 @@
         <li><a href="mailto:me@ryonakae.com" target="_blank"><i class="icon-paper-plane"></i></a></li>
       </ul>
     </nav>
+
+    <p class="copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
   </div>
 </footer>
 

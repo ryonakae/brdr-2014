@@ -14,11 +14,13 @@ body
   // background-color: $bgColor-inverse
   color: $fontColor-base
   line-height: 1.8
-  font-size: 1.5rem
+  font-size: 1.4rem
   @extend %animation
   transition-property: background-color, color
   overflow-x: hidden
   -webkit-text-size-adjust: 100%
+  -webkit-font-smoothing: subpixel-antialiased
+  -moz-osx-font-smoothing: unset
 
   // selection
   ::selection
@@ -65,7 +67,6 @@ a.ext:after
 // Heading
 h1, h2, h3, h4, h5, h6
   line-height: 1.4
-  font-family: $fontFamily-title
 
   a
     color: $fontColor-base

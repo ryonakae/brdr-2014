@@ -12,7 +12,7 @@
 
     <div class="mainvisual-text is-hidden" id="js-mainvisual-text">
       <h1 class="mainvisual-title">RYO NAKAE</h1>
-      <p class="mainvisual-read">I’m a Web Designer in Japan</p>
+      <p class="mainvisual-read">Designer / Developer in Japan</p>
       <a href="<?php bloginfo('url'); ?>/about/" class="button button-transparent-white">About</a>
     </div>
 

@@ -1,6 +1,9 @@
 // Media Queries Styles
 // Retina
 +mediaquery-retina
+  body
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
 
 
 // PC Large
@@ -26,6 +29,9 @@
 
 // Small Tablet
 +mediaquery-tablet-small
+  body.page-index .l-section
+    padding: 3em 0 4em
+
   body.page-index .section-playgrounds
     padding-bottom: 2.5em
 
@@ -124,6 +130,9 @@
       display: table-cell
       margin-left: 0
 
+  .section-title
+      font-size: 2.5rem
+
   .entry-info
     margin-bottom: 1.5em
     font-size: 1.1rem
@@ -182,7 +191,7 @@
       font-size: 1.6rem
 
     h6
-      font-size: 1.5rem
+      font-size: 1.4rem
 
   .entry-content .img
     margin-left: -4.3%
@@ -211,6 +220,12 @@
         padding-top: 0.7em
         padding-bottom: 0.5em
 
+  .l-section
+    padding-bottom: 3.5em
+
+  .entry-pager
+    margin-top: 3em
+
 
 
 // SmartPhone
@@ -227,7 +242,7 @@
 
   .mainvisual-text
     h1
-      font-size: 4rem
+      font-size: 3rem
       letter-spacing: 0.08em
       line-height: 1.3
 

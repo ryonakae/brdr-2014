@@ -55,7 +55,7 @@ $ ->
   # backtop
   backTop = ->
     $('#js-backtop').click ->
-      $('html, body').stop().animate scrollTop : 0, 1000, 'swing'
+      $('html, body').stop().animate scrollTop : 0, 500, 'swing'
 
 
   # pjax

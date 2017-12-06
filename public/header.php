@@ -1,39 +1,12 @@
 <!DOCTYPE html>
-<!--
-　　　　　　　　/{ :/　　 /　.／ 　 　|　i　 　 ＼　 　 　　 ＼
-.　　　　　　　/: }/　　 / ／　　　　 |　|　　　　 ＼　　 ＼　 ＼
-　　　　　　　′:ｉ 　　/ '゜　______ 　 ｌ　{ ､ ＼. 　 　＼　　 ヽ:::.. ヽ
-　　 　 　 　 |｛:::| 　 .′''"　 　　 ｀　 、::. ＼_____ ＼. ヽ　　 :::::::::::}
-　　 　 　 　 |:::/| 　 |　 ,.斗=ミヽ　　　＼ゝ￣｀ヽ＼　 、　　 ﾟ,ﾊ:ヾ
-　　　　　　　y: :{ 　 lイ　__)尓 ＼　　　 ,.斗=ﾐk　　|ヽ }: ‘.　 .|　}::i
-　　 　 　 　 :.:.:.个t ﾊ　乂r少 　　　　 ″__)尓‘， }:::}八:::}::.. |　|::|
-　　 　 　 　 i:.:.| l:.:.{＼＼:i:i:i:　　　　　　 乂r少　}〉'::/:::::}::ﾊ:::,　 }ﾉ
-　　 　 　 　 |　| |　{　　　　　　 　 ′ 　 :i:i:i::　 ´∧:::}:::// ﾉ/　/
-　　 　 　 　 |　ゝ 　 :, 　 　 r――- 、　　　　　/、:}::}/ﾚ　}′ ′
-　　 　 　 　 |　　{＼　:,　 　 、　　　/ 　 　 　 /　}/:ｲ::::.. 〈i　　＜ ソースを見てくれるなんて……ハラショーよ！
-　　 　 　 　 l＼ ﾊ 　ヽ}、　　｀ ー　　 　 　 　 _,ノ::}＼::::: . |
-　 　 　 　 　 : .{＼ゝ-/ 丶　　　　　　　　ｨ7´　｀ヾ}　　:,::|│
-　　　 　 　 　乂　 　｀¨¨¨ヽ　ｰ―ｧ f´:.:.:./　　　　j 　 ﾉ人|
-　　　 　 　 ´￣｀＼ー―-- ＼　/､_,|:.:.:. {　　　　/　〃　 ﾉ
-　　　　/ 　　　 　 　 　 ヽ 　　 ＼j]　;.:.:.　 、
-　　　 .′　　　　　　　 　 ‘, 厂￣}i　 ＼　　＼________　　　　　 ___rv～ｰｭ
-　　　;　　　　　　　　　　　 ‘,} : : ﾉ丁j⌒¨¨ヽー―=ミ｀ヽ　 　_(γ ´ ￣￣ ｀ヽ
-　　 /{　　 　 　 　 　 ＼ 　　|、/:／ ｀ヽ¨¨¨¨ヽ :,　　 }　　γ:(./: ' : , : ' : , : ' , :,
-　　 | |　　　　　 　 　 　 ＼　い/: : : : : |＼: : : }､} 　 ﾉ　　 | ::){: , : : , : : : : ,_:_:_:}｀ヽ
-　　 |　:　　　　　　　　　　　＼_}＼: : :.:.:ﾄ　 ＼_〉 ＼　 　 rﾍ::(.{: : : , : : ' ／｀ヽ　　ﾊ
-　　 |　 :　 　 ＼　　　　　　　　｀i　｀ヽ:_j　＼　{　 　 ヽ　 { (￣｀ヾ´￣￣　＼__j/./ }
-　　 | 　i　　　　 ＼　 　 　 　 　 L.　　　　 　 ｰ'　 　 　 :,｛. ヽ 　　　 ﾉ⌒ヽ..,,_ 　　/)
-　　 |　 |i　 　 　 　 ＼　　　　　　 }　　　　 　 　 　 　 　 } }　厂￣￣)　　 /　(＼/_)
--->
 <html lang="ja" prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fbml">
 <head>
   <meta charset="<?php bloginfo('charset'); ?>">
   <?php
     $site_title = '';
-    $site_suffix = ' / RYO NAKAE, Web Designer';
 
     if ( is_home() ) {
-      $site_title = get_bloginfo('name') . $site_suffix;
+      $site_title = get_bloginfo('name');
     }
     elseif ( is_tax() ) {
       $taxonomy = $wp_query->get_queried_object();
@@ -83,12 +56,7 @@
     $og_image = '';
 
     if ( is_home() || is_archive() || is_post_type_archive() || is_tax() || is_page('information') ) {
-      if ( is_home() ) {
-        $og_title = get_bloginfo('name') . $site_suffix;
-      }
-      else {
-        $og_title = get_bloginfo('name');
-      }
+      $og_title = get_bloginfo('name');
 
       $og_url = get_bloginfo('url');
       $og_description = get_bloginfo('description');
@@ -128,7 +96,6 @@
       }
     }
   ?>
-  <meta property="fb:admins" content="100001275466582">
   <meta property="og:url" content="<?php echo $og_url; ?>">
   <meta property="og:type" content="<?php echo $og_type; ?>">
   <meta property="og:title" content="<?php echo $og_title; ?>">
@@ -136,15 +103,10 @@
   <meta property="og:image" content="<?php echo $og_image; ?>">
   <meta property="og:description" content="<?php echo $og_description; ?>">
   <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
-  <?php if ( is_single() ) : ?>
-    <meta property="article:publisher" content="https://www.facebook.com/brdrslash">
-  <?php endif; ?>
 
-  <meta name="twitter:site" value="@brdr_slash">
-  <meta name="twitter:creator" value="@ryo_dg">
-  <meta name="twitter:card" value="summary_large_image">
-
-  <link rel="author" href="https://plus.google.com/+RyoNakae">
+  <meta name="twitter:site" content="@brdr_slash">
+  <meta name="twitter:creator" content="@ryo_dg">
+  <meta name="twitter:card" content="summary_large_image">
 
   <?php wp_head(); ?>
 
@@ -154,7 +116,6 @@
   <!-- Script -->
   <script src="<?php echo get_template_directory_uri(); ?>/assets/js/lib.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/assets/js/script.js"></script>
-  <script src="//typesquare.com/accessor/script/typesquare.js?2JJvOMvDhIE%3D"></script>
 
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
