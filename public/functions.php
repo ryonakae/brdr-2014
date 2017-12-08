@@ -56,7 +56,7 @@
 
   // アイキャッチ画像の有効化
   add_theme_support('post-thumbnails');
-  add_image_size('thumbnail_small', 480, 480, true);
+  add_image_size('thumbnail_small', 320, 9999);
   // add_image_size('square_medium', 640, 640, true);
 
 
@@ -64,16 +64,15 @@
   add_filter('jpeg_quality', function($arg){return 98;});
 
 
-
-// 画像のサイズを削除
-add_filter('intermediate_image_sizes_advanced', function($sizes){
-  // medium_large(Advanced Custom Fields)
-  update_option('medium_large_size_w', 0);
-  // unset($sizes['thumbnail']);
-	// unset($sizes['medium']);
-	// unset($sizes['large']);
-	return $sizes;
-});
+  // 画像のサイズを削除
+  add_filter('intermediate_image_sizes_advanced', function($sizes){
+    // medium_large(Advanced Custom Fields)
+    update_option('medium_large_size_w', 0);
+    // unset($sizes['thumbnail']);
+  	// unset($sizes['medium']);
+  	// unset($sizes['large']);
+  	return $sizes;
+  });
 
 
   // セルフピンバックの無効化
