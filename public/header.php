@@ -61,7 +61,7 @@
       $og_url = get_bloginfo('url');
       $og_description = get_bloginfo('description');
       $og_type = 'website';
-      $og_image = get_template_directory_uri().'/dist/img/ogp.png';
+      $og_image = get_template_directory_uri().'/assets/img/ogp.png';
     }
     else {
       $og_url = get_permalink();
@@ -92,7 +92,7 @@
         $og_image = $image[0];
       }
       else {
-        $og_image = get_template_directory_uri().'/dist/img/ogp.png';
+        $og_image = get_template_directory_uri().'/assets/img/ogp.png';
       }
     }
   ?>
