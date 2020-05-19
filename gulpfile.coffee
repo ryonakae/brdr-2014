@@ -118,8 +118,26 @@ gulp.task 'watch', ->
   # gulp.watch sources.dist + '/*.php', -> gulp.start 'browserSync:reload'
 
 # Default Task
-gulp.task 'default', ->
-  runSequence 'clean', ['copy:assets', 'copy:public'], ['sass', 'js:coffee', 'js:concat', 'image:min'], 'browserSync', 'watch'
+gulp.task 'default',
+  gulp.series(
+    'clean',
+    'copy:assets',
+    'copy:public',
+    'sass',
+    'js:coffee',
+    'js:concat',
+    'image:min',
+    'browserSync',
+    'watch'
+  )
 
-gulp.task 'build', ->
-  runSequence 'clean', ['copy:assets', 'copy:public'], ['sass', 'js:coffee', 'js:concat', 'image:min']
+gulp.task 'build',
+  gulp.series(
+    'clean',
+    'copy:assets',
+    'copy:public',
+    'sass',
+    'js:coffee',
+    'js:concat',
+    'image:min'
+  )
