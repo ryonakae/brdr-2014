@@ -4,7 +4,7 @@ version: 2
 defaults: &defaults
   working_directory: ~/brdr-2014
   docker:
-    - image: circleci/node:7.10.0
+    - image: circleci/node:12.16.3
 
 jobs:
   # install npm package
